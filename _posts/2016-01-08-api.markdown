@@ -29,22 +29,29 @@ tags: [jekyll]
 
 # Basic Structure
 
-```java
-    <!DOCTYPE html>
-    <html lang="ko">
-      <head>
-        <title>Title</title>
-      </head>
-      <body>
-        <header>Header</header>    // 윗쪽 구역
-        <main>Main</main>          // 본문
-        <aside>Aside</aside>       // 사이드바
-        <footer>Footer</footer>    // 아랫쪽 구역
-        <article>Article</article> // 개별적이고 독립적인 콘텐츠마다 사용
-        <section>Section</section> // 관련있는 콘텐츠를 묶을 때 사용
-        <div>Division</div>        // 페이지를 block으로 나눌 때 사용
-      </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+    <header>Header</header>
+    <!-- 윗쪽 구역 -->
+    <main>Main</main>
+    // 본문
+    <aside>Aside</aside>
+    // 사이드바
+    <footer>Footer</footer>
+    // 아랫쪽 구역
+    <article>Article</article>
+    // 개별적이고 독립적인 콘텐츠마다 사용
+    <section>Section</section>
+    // 관련있는 콘텐츠를 묶을 때 사용
+    <div>Division</div>
+    // 페이지를 block으로 나눌 때 사용
+  </body>
+</html>
 ```
 
 # Title
