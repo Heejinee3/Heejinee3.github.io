@@ -1,6 +1,6 @@
 ---
-layout: projects
-title: Projects
-permalink: /projects
+layout: project
+title: Project
+permalink: /project
 robots: noindex
 ---
