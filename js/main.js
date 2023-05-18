@@ -22,7 +22,7 @@ exclude: 'yes'
       $('.panel-cover').addClass('panel-cover--collapsed')
     }
 
-    if (window.location.pathname !== '{{ site.baseurl }}/' && window.location.pathname !== '{{ site.baseurl }}/index.html') {
+    if (window.location.pathname !== '{{ site.baseurl }}/' && window.location.pathname !== '{{ site.baseurl }}/index.html'){
       $('.panel-cover').addClass('panel-cover--collapsed')
     }
     {% endif %}
@@ -33,6 +33,7 @@ exclude: 'yes'
     })
 
     $('.navigation-wrapper .blog-button').click(function () {
+
       $('.navigation-wrapper').toggleClass('visible')
       $('.btn-mobile-menu__icon').toggleClass('icon-list icon-x-circle animated fadeIn')
     })
