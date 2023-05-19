@@ -19,9 +19,15 @@ layout: default
             {{ project.desc}}   
           {% endif %}
           <div class="ghbtn" style="margin-top: 10px;">
+            {% if project.code %}
             <a target="_blank" href="{{ project.code }}"><i class="fa fa-star"></i><span class="star"> ...</span></a>&emsp;&emsp;
+            {% endif %}
+            {% if project.report %}
             <a target="_blank" href="{{ project.report }}"><i class="fa fa-code-fork"></i><span class="fork"> ...</span></a>&emsp;&emsp;
+            {% endif %}
+            {% if project.video %}
             <a target="_blank" href="{{ project.video }}"><i class="far fa-eye"></i><span class="watchers"> ...</span></a>
+            {% endif %}
             <div style="height: 10px;"></div>
         </div>
       </div>
