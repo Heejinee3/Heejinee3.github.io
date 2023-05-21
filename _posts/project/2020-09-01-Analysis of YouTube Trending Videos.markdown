@@ -26,7 +26,7 @@ Anyone using a computer could upload videos, making them visible to millions of 
 It is used in various fields for communication in society.
 It is used in most fields such as marketing, politics, education, games, entertainment, music, and sports.
 
-![Figure1](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure1.png)
+![Figure1]({{ site.baseurl }}/assets/project/Analysis-of-YouTube-Trending-Videos/Figure1.png)
 
 According to the 'Social media and Scanning portal Trend report 2020' of Opensurvey,
 which is an online-based survey firm in Korea, YouTube becomes peerless social media
