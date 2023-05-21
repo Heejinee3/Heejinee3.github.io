@@ -2,35 +2,40 @@
 layout: default
 ---
 
+<div></div>
 <ul class="timeline">
-    
-  {% for project in site.data.projects %}
+  {% for project in site.data.project %}
 
-    <li class="timeline-inverted">
-      <div class="timeline-image">
-        <img class="img-me" src="{{ project.img }}" alt="">
+  <li class="timeline-inverted">
+    <div class="timeline-image">
+      <img class="img-me" src="{{ project.img }}" alt="" />
+    </div>
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <h4>
+          <a href="{{ site.baseurl }}/project/{{ project.name }}"
+            >{{ project.title }}</a
+          >
+        </h4>
       </div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4><a href="{{ site.baseurl }}/project/{{ project.name }}" target="_blank">{{ project.name }}</a></h4>
-        </div>
-        <div class="timeline-body">
-          {% if project.desc %}
-            {{ project.desc}}   
+      <div class="timeline-body">
+        {% if project.desc %} {{ project.desc}} {% endif %}
+        <div class="ghbtn" style="margin-top: 10px">
+          {% if project.code %}
+          <a target="_blank" href="{{ project.code }}"
+            ><i class="fa fa-star"></i><span class="star">code</span></a
+          >&emsp;&emsp; {% endif %} {% if project.report %}
+          <a target="_blank" href="{{ project.report }}"
+            ><i class="fa fa-code-fork"></i><span class="fork">report</span></a
+          >&emsp;&emsp; {% endif %} {% if project.video %}
+          <a target="_blank" href="{{ project.video }}"
+            ><i class="far fa-eye"></i><span class="watchers">video</span></a
+          >
           {% endif %}
-          <div class="ghbtn" style="margin-top: 10px;">
-            {% if project.code %}
-            <a target="_blank" href="{{ project.code }}"><i class="fa fa-star"></i><span class="star"> ...</span></a>&emsp;&emsp;
-            {% endif %}
-            {% if project.report %}
-            <a target="_blank" href="{{ project.report }}"><i class="fa fa-code-fork"></i><span class="fork"> ...</span></a>&emsp;&emsp;
-            {% endif %}
-            {% if project.video %}
-            <a target="_blank" href="{{ project.video }}"><i class="far fa-eye"></i><span class="watchers"> ...</span></a>
-            {% endif %}
-            <div style="height: 10px;"></div>
+          <div style="height: 10px"></div>
         </div>
       </div>
-    </li>
+    </div>
+  </li>
   {% endfor %}
 </ul>

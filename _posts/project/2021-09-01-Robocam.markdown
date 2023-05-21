@@ -1,0 +1,14 @@
+---
+index: 1
+permalink: /project/Robocam
+---
+
+## rrrrr
+
+- Ubuntu environment
+
+- Cross-development System
+
+- Beaglebone
+
+- NFS

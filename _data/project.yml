@@ -1,6 +1,31 @@
 # projects section data
+- name: Analysis-of-YouTube-Trending-Videos
+  title: Analysis of YouTube Trending Videos
+  link: https://github.com/Heejinee3/Data-Science
+  code: https://github.com/Heejinee3/Data-Science/tree/master/Code
+  report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
+  video:
+  img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.png
+  desc: description
+  start_date: Sep 2020
+  end_date: Dec 2020
+  categories: [project]
+  tags: [R]
+
 - name: Robocam
   link: https://github.com/Heejinee3/Robocam
+  code: https://github.com/Heejinee3/Robocam/tree/master/Code
+  report: https://github.com/Heejinee3/Robocam/tree/master/Report
+  video:
+  img:
+  desc: description
+  start_date: Sep 2021
+  end_date: Dec 2021
+  categories: [project]
+  tags: [dss, sdd]
+
+- name: Ulidongne
+  link: https://github.com/Heejinee3/Ulidongne
   code: https://github.com/Heejinee3/Robocam/tree/master/Code
   report: https://github.com/Heejinee3/Robocam/tree/master/Report
   video:
