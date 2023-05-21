@@ -62,7 +62,7 @@ Taking these features into consideration, strategic planning to get more views, 
 
 ## Dataset
 
-The dataset was extracted from Kaggle, 'Trending YouTube Video Statistics'(https://
+The dataset was extracted from Kaggle, [Trending YouTube Video Statistics](https://
 www.kaggle.com/datasnaek/youtube-new).
 
 According to the contributor of this dataset, it is a daily record of the top trending
