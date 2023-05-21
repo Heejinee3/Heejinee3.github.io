@@ -26,7 +26,7 @@ Anyone using a computer could upload videos, making them visible to millions of 
 It is used in various fields for communication in society.
 It is used in most fields such as marketing, politics, education, games, entertainment, music, and sports.
 
-![Figure1](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure1.png)
+![Figure1](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure1.PNG)
 
 According to the 'Social media and Scanning portal Trend report 2020' of Opensurvey,
 which is an online-based survey firm in Korea, YouTube becomes peerless social media
@@ -71,7 +71,7 @@ They are not simply selected because of their high number of views, but are sele
 
 The table below(Figure 2) sets out the 1 to 35 rows of 34,567 entries, and first 8 columns of this dataset.
 
-![Figure2](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure2.png)
+![Figure2](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure2.PNG)
 
 #### Dimension
 
@@ -85,7 +85,7 @@ The table below(Figure 2) sets out the 1 to 35 rows of 34,567 entries, and first
 
 There are total 16 variables (except index)
 
-![Figure3](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure3.png)
+![Figure3](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure3.PNG)
 
 <br>
 
@@ -97,7 +97,7 @@ What makes the number of views high?
     According to the statistical analysis, common features of the most popular videos are
     as follows.
 
-    ![Figure4](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure4.png)
+    ![Figure4](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure4.PNG)
 
 2.  Clustering
 
@@ -111,7 +111,7 @@ What makes the number of views high?
     2.  Data Pre-processing
         We made a subset of videos from the whole dataset that have the following characteristics.
 
-        ![Figure5](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure5.png)
+        ![Figure5](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure5.PNG)
 
         To adjust all features to calculate a distance that better aligns with our expectations, we converted the features to be on a similar scale with one another using scale() function.
 
@@ -127,7 +127,7 @@ What makes the number of views high?
         The result shows the fact that the more view, the more likes.
         So we can also write them as high-likes-group(cluster 2), middle-likes-group(cluster 1), and low-likesgroup(cluster 3).
 
-        ![Figure6](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure6.png)
+        ![Figure6](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure6.PNG)
 
         For the each groups, we analyzed seven characteristics as follows.
 
@@ -146,7 +146,7 @@ What makes the number of views high?
         category ID.
         So we visualized differences of those five variables by clusters.
 
-        ![Figure7](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure7.png)
+        ![Figure7](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure7.PNG)
 
         According to the Figure 28, the high-view-group(cluster 2) has 0~30 number of tags while other groups has more or less tags.
         This facts do stack up with our analysis for number of tags on 14 page: there was a tendency to increase of the view at 0~30, and after that, the number of views decreases slightly as the number of tags increases.
