@@ -6,7 +6,7 @@
   report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
   video:
   img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
-  desc: description
+  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
   start_date: Sep 2020
   end_date: Dec 2020
   categories: [project]

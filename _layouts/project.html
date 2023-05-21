@@ -19,7 +19,9 @@ layout: default
         </h4>
       </div>
       <div class="timeline-body">
-        {% if project.desc %} {{ project.desc}} {% endif %}
+        <span class="project-timline-desc"
+          >{% if project.desc %} {{ project.desc}} {% endif %}</span
+        >
         <div class="ghbtn" style="margin-top: 10px">
           {% if project.code %}
           <a target="_blank" href="{{ project.code }}"
