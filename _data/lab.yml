@@ -1,5 +1,6 @@
 # labs section data
 - name: Programming-Structure
+  index: 0
   title: Programming Structure
   link: https://github.com/Heejinee3/Programming-Structure
   lab:
@@ -16,8 +17,8 @@
     - name: A-Unix-Shell
       title: A Unix Shell
   img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
-  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
-  start_date: Sep 2020
-  end_date: Dec 2020
+  desc: "The objective of these labs are to acquire programming techniques necessary for 'systems' development. The labs will cover topics such as low-level machine-oriented programming, device-control programming, and various other programming techniques for the computer operating environment."
+  start_date: Mar 2018
+  end_date: Jun 2018
   categories: [lab]
   tags: [C, Assembly]

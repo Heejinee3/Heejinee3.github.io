@@ -13,7 +13,7 @@ layout: default
     <div class="timeline-panel">
       <div class="timeline-heading">
         <h4>
-          <a>{{ labs.title }}</a>
+          <a href="/assignment?index={{ labs.index }}">{{ labs.title }}</a>
         </h4>
       </div>
       <div class="timeline-body">
@@ -23,11 +23,7 @@ layout: default
         <div class="ghbtn" style="margin-top: 10px">
           {% for lab in labs.lab %}
           <div>
-            <a
-              class="project-timline-desc"
-              href="/lab/{{ labs.name }}/{{ lab.name }}"
-              >{{lab.title}}</a
-            >&emsp; {% endfor %}
+            <a class="project-timline-desc">{{lab.title}}</a>&emsp; {% endfor %}
             <div style="height: 10px"></div>
           </div>
         </div>
