@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div></div>
+<ul class="timeline project-timline-ul">
+  {% for labs in site.data.lab %}
+
+  <li class="timeline-inverted">
+    <div class="timeline-image">
+      <img class="img-me" src="{{ labs.img }}" alt="" />
+    </div>
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <h4>
+          <a>{{ labs.title }}</a>
+        </h4>
+      </div>
+      <div class="timeline-body">
+        <span class="project-timline-desc"
+          >{% if labs.desc %} {{ labs.desc}} {% endif %}</span
+        >
+        <div class="ghbtn" style="margin-top: 10px">
+          {% for lab in labs.lab %}
+          <div>
+            <a
+              class="project-timline-desc"
+              href="/lab/{{ labs.name }}/{{ lab.name }}"
+              >{{lab.title}}</a
+            >&emsp; {% endfor %}
+            <div style="height: 10px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

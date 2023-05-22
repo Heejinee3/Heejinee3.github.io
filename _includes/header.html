@@ -21,7 +21,7 @@
         <hr class="panel-cover__divider" />
         <p class="panel-cover__description">{{ site.description }}</p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
-
+        <!-- About -->
         <div class="navigation-wrapper">
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
@@ -35,7 +35,7 @@
               </li>
             </ul>
           </nav>
-
+          <!-- Project -->
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
               <li class="navigation__item">
@@ -44,6 +44,19 @@
                   title="link to {{ site.title }} projects"
                   class="blog-button projects-button"
                   >Project</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- Lab -->
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item">
+                <a
+                  href="{{ site.baseurl }}/lab"
+                  title="link to {{ site.title }} labs"
+                  class="blog-button projects-button"
+                  >Lab</a
                 >
               </li>
             </ul>

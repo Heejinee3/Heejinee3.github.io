@@ -1,0 +1,23 @@
+# labs section data
+- name: Programming-Structure
+  title: Programming Structure
+  link: https://github.com/Heejinee3/Programming-Structure
+  lab:
+    - name: A-Word-Counting-Program
+      title: A Word Counting Program
+    - name: String-Manipulation
+      title: String Manipulation
+    - name: Customer-Management-Table
+      title: Customer Management Table
+    - name: Assembly-Lanuage-Programming
+      title: Assembly Lanuage Programming
+    - name: A-Dynamic-Memory-Manager-Module
+      title: A Dynamic Memory Manager Module
+    - name: A-Unix-Shell
+      title: A Unix Shell
+  img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
+  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
+  start_date: Sep 2020
+  end_date: Dec 2020
+  categories: [lab]
+  tags: [C, Assembly]
