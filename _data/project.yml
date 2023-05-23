@@ -12,6 +12,32 @@
   categories: [project]
   tags: [R]
 
+- name: mysoho-shoppingmall-website
+  title: mysoho 쇼핑몰 웹사이트 개발
+  link: https://github.com/Heejinee3/Data-Science
+  code: https://github.com/Heejinee3/Data-Science/tree/master/Code
+  report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
+  video:
+  img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
+  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
+  start_date: Sep 2020
+  end_date: Dec 2020
+  categories: [project]
+  tags: [R]
+
+- name: 우리동네
+  title: 우리동네 앱 개발
+  link: https://github.com/Heejinee3/Data-Science
+  code: https://github.com/Heejinee3/Data-Science/tree/master/Code
+  report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
+  video:
+  img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
+  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
+  start_date: Sep 2020
+  end_date: Dec 2020
+  categories: [project]
+  tags: [R]
+
 - name: Robocam
   link: https://github.com/Heejinee3/Robocam
   code: https://github.com/Heejinee3/Robocam/tree/master/Code
