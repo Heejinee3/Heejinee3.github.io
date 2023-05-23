@@ -6,8 +6,40 @@
   lab:
     - name: A-Word-Counting-Program
       title: A Word Counting Program
+      desc: [
+          "The purpose of this lab is to learn or review the
+          fundamentals of the C programming language, a portion of the 'decommenting' task of the C preprocessor, and how to use the
+          GNU/Unix programming tools, especially bash, emacs, and gcc209.",
+          "The task is to write a C program named wc209 that prints the number of
+          lines, words, and characters in the input text fed from standard input to
+          standard ouput. The program behaves similarly to Linux wc,
+          but wc209 skips 'commented text'(e.g., text in /* ... */) and does not
+          count such text in the output.",
+        ]
+      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/A%20Word%20Counting%20Program/Guidelines.pdf
+      link: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program
+      code: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program/Code
+      report:
+      video:
     - name: String-Manipulation
       title: String Manipulation
+      desc: [
+          "The purpose of this assignment is to help you learn/review arrays
+          and pointers in the C programming language, how to create and use
+          stateless modules in C, the 'design by contract' style of
+          programming, and (4) how to use the GNU/UNIX programming tools,
+          especially bash, emacs, gcc, and gdb.",
+          "The task is to write a C program named wc209 that prints the number of
+          lines, words, and characters in the input text fed from standard input to
+          standard ouput. The program behaves similarly to Linux wc,
+          but wc209 skips 'commented text'(e.g., text in /* ... */) and does not
+          count such text in the output.",
+        ]
+      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/String%20Manipulation/Guidelines.pdf
+      link: https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation
+      code: https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation/Code
+      report:
+      video:
     - name: Customer-Management-Table
       title: Customer Management Table
     - name: Assembly-Lanuage-Programming

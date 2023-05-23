@@ -13,7 +13,7 @@ layout: default
     <div class="timeline-panel">
       <div class="timeline-heading">
         <h4>
-          <a href="/assignment?index={{ labs.index }}">{{ labs.title }}</a>
+          <a>{{ labs.title }}</a>
         </h4>
       </div>
       <div class="timeline-body">
@@ -23,12 +23,75 @@ layout: default
         <div class="ghbtn" style="margin-top: 10px">
           {% for lab in labs.lab %}
           <div>
-            <a class="project-timline-desc">{{lab.title}}</a>&emsp; {% endfor %}
-            <div style="height: 10px"></div>
+            <a
+              id="popup-link{{ forloop.index }}"
+              class="project-timline-desc"
+              onclick="openPopup({{ forloop.index }})"
+              >{{lab.title}}</a
+            >&emsp;
+            <!-- 팝업 시작 -->
+            <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
+              <div class="popup">
+                <div class="popup-header">
+                  <span class="popup-title">{{lab.title}}</span>
+                  <span
+                    class="popup-close"
+                    onclick="closePopup({{ forloop.index }})"
+                    >X</span
+                  >
+                </div>
+                {% if lab.desc %} {% for descs in lab.desc %}
+                <div>{{descs}}</div>
+                {% endfor %} {% endif %}
+                <div class="popup-tags">
+                  {% if lab.guide %}
+                  <a target="_blank" href="{{ lab.guide }}"
+                    ><i class="fa fa-paperclip"></i
+                    ><span class="project-url">guidelines</span></a
+                  >&emsp; {% endif %} {% if lab.link %}
+                  <a target="_blank" href="{{ lab.link }}"
+                    ><i class="fa fa-external-link"></i
+                    ><span class="project-url">link</span></a
+                  >&emsp; {% endif %} {% if lab.code %}
+                  <a target="_blank" href="{{ lab.code }}"
+                    ><i class="fa fa-code"></i
+                    ><span class="project-url">code</span></a
+                  >&emsp; {% endif %} {% if lab.report %}
+                  <a target="_blank" href="{{ lab.report }}"
+                    ><i class="fa fa-file-text"></i
+                    ><span class="project-url">report</span></a
+                  >&emsp; {% endif %} {% if lab.video %}
+                  <a target="_blank" href="{{ lab.video }}"
+                    ><i class="fa fa-video-camera"></i
+                    ><span class="project-url">video</span></a
+                  >&emsp; {% endif %}
+                </div>
+              </div>
+            </div>
+            <!-- 팝업 끝 -->
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
   </li>
   {% endfor %}
 </ul>
+<script>
+  function openPopup(idx) {
+    const background = document.getElementById("layer-bg" + idx);
+
+    background.classList.remove("hidden");
+    background.classList.add("visible");
+  }
+  function closePopup(idx) {
+    const background = document.getElementById("layer-bg" + idx);
+
+    background.classList.remove("visible");
+    background.classList.add("hidden-animation");
+    setTimeout(function () {
+      background.classList.remove("hidden-animation");
+      background.classList.add("hidden");
+    }, 300); // 애니메이션 시간과 동일한 시간을 설정해주세요.
+  }
+</script>
