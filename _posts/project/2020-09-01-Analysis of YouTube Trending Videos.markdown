@@ -3,7 +3,7 @@ index: 0
 permalink: /project/Analysis-of-YouTube-Trending-Videos
 ---
 
-## Overview
+#### **Overview**
 
 Nowadays, the online video market is starting to be more and more competitive under
 the broadening influence of YouTube, which is the very famous social media platform all
@@ -18,7 +18,7 @@ number of views, and 2) what is the better way to get more view counts.
 
 <br>
 
-## Introduction
+#### **Introduction**
 
 YouTube is a video sharing platform serviced by Google.
 As the largest video sharing site in the world, YouTube users can watch, upload, and share videos.
@@ -49,7 +49,7 @@ Taking these features into consideration, strategic planning to get more views, 
 
 <br>
 
-## Workflow
+#### **Workflow**
 
 1. Preprocessing of the dataset & Column modifications
 2. Exploratory analysis: review of data characteristics & visualization
@@ -60,7 +60,7 @@ Taking these features into consideration, strategic planning to get more views, 
 
 <br>
 
-## Dataset
+#### **Dataset**
 
 The dataset was extracted from Kaggle, [Trending YouTube Video Statistics](https://
 www.kaggle.com/datasnaek/youtube-new).
@@ -73,23 +73,23 @@ The table below(Figure 2) sets out the 1 to 35 rows of 34,567 entries, and first
 
 ![Figure2](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure2.PNG)
 
-#### Dimension
+- Dimension
 
-34,567 rows, 16 columns
+  34,567 rows, 16 columns
 
-#### Percentage of null values
+- Percentage of null values
 
-3,163 / 553,032 = 0.572%
+  3,163 / 553,032 = 0.572%
 
-#### Variable
+- Variable
 
-There are total 16 variables (except index)
+  There are total 16 variables (except index)
 
 ![Figure3](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure3.PNG)
 
 <br>
 
-## Conclusions with Clustering
+#### **Conclusions with Clustering**
 
 What makes the number of views high?
 

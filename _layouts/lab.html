@@ -45,8 +45,14 @@ layout: default
                     >X</span
                   >
                 </div>
-                {% if lab.desc %} {% for descs in lab.desc %}
-                <div class="popup-tags">{{descs}}</div>
+                {% if lab.purpose %}
+                <div>Purpose</div>
+                {% for purpose in lab.purpose %}
+                <div class="popup-desc">{{purpose}}</div>
+                {% endfor %} {% endif %} {% if lab.desc %}
+                <div>Description</div>
+                {% for desc in lab.desc %}
+                <div class="popup-desc">{{desc}}</div>
                 {% endfor %} {% endif %}
                 <div class="popup-tags">
                   {% if lab.guide %}

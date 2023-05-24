@@ -1,7 +1,3 @@
-// body:lang(ko) {
-//   font-family: "Noto Sans KR", sans-serif;
-// }
-
 .activity-list {
   display: flex;
   flex-flow: column;
@@ -88,17 +84,21 @@
   margin-top: 10px;
   display: flex;
   justify-content: end;
+  flex-flow: row wrap;
 }
 
 .project-post-tag {
   color: #e25440;
   border: 1px solid #e25440;
   border-radius: 20px;
-  padding: 2px 7px;
+  padding: 7px 7px;
+  margin: 3px 0;
+  font-size: 13px;
 }
 
 .project-post-title {
   text-align: center;
+  margin: 40px 0 50px;
 }
 
 .project-timline-desc {
@@ -132,7 +132,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  height: 70%;
+  max-height: 70%;
   background: #fff;
   box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
   overflow-y: scroll;
@@ -180,6 +180,10 @@
 
 .popup-title {
   color: #e25440;
+}
+
+.popup-desc {
+  font-size: 13px;
 }
 
 .popup-close {

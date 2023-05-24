@@ -8,10 +8,12 @@
   lab:
     - name: A-Word-Counting-Program
       title: A Word Counting Program
-      desc: [
+      purpose: [
           "The purpose of this lab is to learn or review the
           fundamentals of the C programming language, a portion of the 'decommenting' task of the C preprocessor, and how to use the
           GNU/Unix programming tools, especially bash, emacs, and gcc209.",
+        ]
+      desc: [
           "The task is to write a C program named wc209 that prints the number of
           lines, words, and characters in the input text fed from standard input to
           standard ouput. The program behaves similarly to Linux wc,

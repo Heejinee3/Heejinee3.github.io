@@ -6,24 +6,41 @@
   report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
   video:
   img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
-  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts"
+  desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts."
   start_date: Sep 2020
   end_date: Dec 2020
   categories: [project]
   tags: [R]
 
 - name: Mysoho-Shopping-Mall-Website
-  title: mysoho 쇼핑몰 웹사이트
+  title: 마이소호 쇼핑몰 웹사이트
   link:
   code:
   report:
   video:
   img:
-  desc:
-  start_date:
-  end_date:
-  categories: []
-  tags: []
+  desc: "이 프로젝트는 HTML, JavaScript, CSS, 그리고 SpringBoot(Java)을 이용하여 쇼핑몰 웹사이트를 구현한 프로젝트이다. 마이소호 샘플샵 웹사이트을 기반으로 만들어졌으며, 사용자에게 편리한 쇼핑 경험을 제공하기 위해 다양한 기능을 포함하고 있다."
+  start_date: Jan 2023
+  end_date: Mar 2023
+  categories: [project]
+  tags:
+    [
+      Java,
+      JavaScript,
+      HTML,
+      CSS,
+      Kotlin,
+      SpringBoot,
+      IntelliJ,
+      Bootstrap5,
+      Github,
+      MariaDB,
+      AWS RDS,
+      Github Actions,
+      AWS CodeDeploy,
+      AWS S3,
+      AWS EC2,
+    ]
 
 - name: Ulidongne-App
   title: 우리동네 앱
@@ -33,7 +50,7 @@
   video:
   img:
   desc:
-  start_date:
-  end_date:
-  categories: []
+  start_date: Apr 2023
+  end_date: May 2023
+  categories: [project]
   tags: []
