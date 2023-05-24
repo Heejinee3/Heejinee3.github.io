@@ -1,4 +1,6 @@
 # labs section data
+# Programming Structure
+# A Unix Shell, tags, desc
 - name: Programming-Structure
   index: 0
   title: Programming Structure
@@ -94,7 +96,7 @@
     - name: A-Dynamic-Memory-Manager-Module
       title: A Dynamic Memory Manager Module
       desc: [
-          "The purpose of this assignment is to help you understand how dynamic
+          "The purpose of this assignment is to understand how dynamic
           memory management works in C. It also will give you more opportunity
           to use the GNU/Unix programming tools,
           especially bash, emacs, gcc209, gdb, and make.",
@@ -122,9 +124,93 @@
       code: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Unix%20Shell/Code
       report:
       video:
-  img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
-  desc: "The objective of these labs are to acquire programming techniques necessary for 'systems' development. The labs will cover topics such as low-level machine-oriented programming, device-control programming, and various other programming techniques for the computer operating environment."
+  img: /assets/lab/Programming-Structure.PNG
+  desc: ""
   start_date: Mar 2018
   end_date: Jun 2018
   categories: [lab]
   tags: [C, Assembly]
+  # Computer Architecture
+- name: Computer-Architecture
+  index: 1
+  title: Computer Architecture
+  link: https://github.com/Heejinee3/Computer-Architecture
+  lab: []
+  img: /assets/lab/Computer-Architecture.PNG
+  desc: "The objective of these labs is to understand the basic principles and hardware structures of computer systems including personal computers and workstations, and to learn how to design computers. This course covers data representation, CPU organization, instruction classification, language processing of assemblers and compilers, pipelining for performance enhancement, memory hierarchy, cache memory, and IO peripheral devices. In addition, high-performance computer systems are to be introduced."
+  start_date: Sep 2019
+  end_date: Dec 2019
+  categories: [lab]
+  tags: []
+  # Discrete Mathematics
+- name: Discrete-Mathematics
+  index: 2
+  title: Discrete Mathematics
+  link: https://github.com/Heejinee3/Discrete-Mathematics
+  lab: []
+  img: /assets/lab/Discrete-Mathematics.PNG
+  desc: "The objective of these labs is to offer practical experience and application of fundamental mathematical concepts employed in computer science. The topics encompassed comprise proofs, relations, counting, graph theory, logic, automata, and formal languages. This practical approach aims to strengthen comprehension and foster problem-solving abilities within the realm of computer science."
+  start_date: Mar 2020
+  end_date: Jun 2020
+  categories: [lab]
+  tags: []
+  # Machine Learning
+- name: Machine-Learning
+  index: 3
+  title: Machine Learning
+  link: https://github.com/Heejinee3/Machine-Learning
+  lab: []
+  img: /assets/lab/Machine-Learning.PNG
+  desc: "The objective of these labs is to explore optimization and machine learning techniques for computer vision, specifically focusing on face recognition using subspace learning. Topics covered include PCA, discriminant analysis, kernel machines, object categorization, CNNs, GANs, activity recognition, regression forests, pose estimation, and object detection."
+  start_date: Sep 2020
+  end_date: Dec 2020
+  categories: [lab]
+  tags: []
+  # Database
+- name: Database
+  index: 4
+  title: Database
+  link: https://github.com/Heejinee3/Database
+  lab: []
+  img: /assets/lab/Database.PNG
+  desc: "The objective of these labs is to gain a comprehensive understanding of database fundamentals and the implementation of data systems. These practical exercises cover the relational model, ER model, SQL, design theory, transactions, file and system structure, indexing, query processing, crash recovery, concurrency control, and transaction processing. Furthermore, emerging technologies like NoSQL and NewSQL systems will be explored."
+  start_date: Mar 2021
+  end_date: Jun 2021
+  categories: [lab]
+  tags: []
+  # Bigdata Analytics
+- name: Bigdata-Analytics
+  index: 5
+  title: Bigdata Analytics
+  link: https://github.com/Heejinee3/Bigdata-Analytics
+  lab: []
+  img: /assets/lab/Bigdata-Analytics.PNG
+  desc: "The objective of these labs is to study data mining and machine learning algorithms for analyzing big data, utilizing Apache Spark as the primary tool. Topics covered include frequent itemsets, finding similar items, clustering, dimensionality reduction, recommendation systems, link analysis, data streams, large-scale machine learning, and Web advertising. The labs aim to develop a deep understanding of the algorithms and techniques involved in effectively mining and analyzing large datasets using Spark, and their applications in different domains."
+  start_date: Sep 2021
+  end_date: Dec 2021
+  categories: [lab]
+  tags: []
+  # Computer Vision
+- name: Computer-Vision
+  index: 6
+  title: Computer Vision
+  link: https://github.com/Heejinee3/Computer-Vision
+  lab: []
+  img: /assets/lab/Computer-Vision.PNG
+  desc: "The objective of these labs is to provide a comprehensive introduction to low-level computer vision, covering foundational concepts such as camera image formation, geometric optics, feature detection, stereo matching, motion estimation, image recognition, scene understanding, and more. These labs aim to help develop an intuitive understanding and mathematical proficiency in various computer vision applications."
+  start_date: Sep 2021
+  end_date: Dec 2021
+  categories: [lab]
+  tags: []
+  # Robocam
+- name: Robocam
+  index: 7
+  title: Robocam
+  link: https://github.com/Heejinee3/Robocam
+  lab: []
+  img: /assets/lab/Robocam.PNG
+  desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
+  start_date: Sep 2021
+  end_date: Dec 2021
+  categories: [lab]
+  tags: []

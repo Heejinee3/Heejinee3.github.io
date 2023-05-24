@@ -1,14 +1,17 @@
 ---
 index: 1
-permalink: /project/Robocam
+permalink: /project/Mysoho-Shopping-Mall-Website
 ---
 
-## rrrrr
+## Overview
 
-- Ubuntu environment
+Nowadays, the online video market is starting to be more and more competitive under
+the broadening influence of YouTube, which is the very famous social media platform all
+over the world.
+So the creators should develop their ability to quickly analyze new trends
+and suggest effective strategies to survive in the market, as this change goes through.
 
-- Cross-development System
-
-- Beaglebone
-
-- NFS
+This document contains the R-based analysis of YouTube, especially on its ranking
+factors and statistics which you can use when you manage your own video channel.
+Our main focus will be the questions 1) which variables are highly influential on the matter in
+number of views, and 2) what is the better way to get more view counts.
