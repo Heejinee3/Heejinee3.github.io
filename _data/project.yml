@@ -31,7 +31,6 @@
       CSS,
       Kotlin,
       SpringBoot,
-      IntelliJ,
       Bootstrap5,
       Github,
       MariaDB,
@@ -48,9 +47,29 @@
   code:
   report:
   video:
-  img:
+  img: /assets/project/Ulidongne-App/MainFigure.png
   desc:
+    "'우리동네'는 동일한 동네에 사는 사람들을 위한 안드로이드 어플리케이션이며, 사용자들이 공유하는
+    취미와 관심사를 기반으로 다른 사람들과 온라인 및 오프라인에서 일정을 잡을 수 있다.
+    사용자들은 앱을 통해 자신의 취미, 관심사를 등록하고, 동일한 동네에 있는 다른 사용자들과
+    쉽게 소통하며 일정을 조율할 수 있다."
   start_date: Apr 2023
   end_date: May 2023
   categories: [project]
-  tags: []
+  tags:
+    [
+      Java,
+      JavaScript,
+      HTML,
+      CSS,
+      Kotlin,
+      SpringBoot,
+      Bootstrap5,
+      Github,
+      MariaDB,
+      AWS RDS,
+      Github Actions,
+      AWS CodeDeploy,
+      AWS S3,
+      AWS EC2,
+    ]

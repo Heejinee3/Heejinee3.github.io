@@ -27,12 +27,14 @@
       video:
     - name: String-Manipulation
       title: String Manipulation
-      desc: [
+      purpose: [
           "The purpose of this lab is to learn/review arrays
           and pointers in the C programming language, how to create and use
           stateless modules in C, the 'design by contract' style of
           programming, and how to use the GNU/UNIX programming tools,
           especially bash, emacs, gcc, and gdb.",
+        ]
+      desc: [
           "The task is to use C to create the 'Str' module that
           provides string manipulation functions. Specifically, design Str
           module so that each function behaves the same as described below.
@@ -52,12 +54,14 @@
       video:
     - name: Customer-Management-Table
       title: Customer Management Table
-      desc: [
+      purpose: [
           "The purpose of this lab is to learn how to implement
           common data structures in C and how to exploit them to achieve
           modularity in a real-world application. It also will give you the
           opportunity to gain more experience with the GNU/Linux programming
           tools, especially bash, emacs, and gdb.",
+        ]
+      desc: [
           "The task is to implement and improve the customer data management API
           using various data structures. The task in this lab is threefold:",
           "[Part 1] Implement an API library for the customer data
@@ -73,12 +77,14 @@
       video:
     - name: Assembly-Lanuage-Programming
       title: Assembly Lanuage Programming
-      desc: [
+      purpose: [
           "The purpose of this lab is to learn about computer
           architecture, assembly language programming, and testing strategies. It
           also will give you the opportunity to learn more about the GNU/Unix
           programming tools, especially bash, emacs, gcc209, and gdb for assembly
           language programs.",
+        ]
+      desc: [
           "A Desk Calculator Program in Assembly Language",
           "[Part 1] Implement basic functions of dc",
           "dc is a Unix-like operating system tool used for performing calculations. It reads numbers from standard input and
@@ -97,11 +103,13 @@
       video:
     - name: A-Dynamic-Memory-Manager-Module
       title: A Dynamic Memory Manager Module
-      desc: [
+      purpose: [
           "The purpose of this assignment is to understand how dynamic
           memory management works in C. It also will give you more opportunity
           to use the GNU/Unix programming tools,
           especially bash, emacs, gcc209, gdb, and make.",
+        ]
+      desc: [
           "The task involves creating two additional implementations of the HeapMgr module.",
           "[Part 1] The first implementation, heapmgr1.c, aims to enhance efficiency by using a single doubly-linked list with headers and footers.
           However, it may have poor worst-case behavior.",
@@ -115,7 +123,7 @@
       video:
     - name: A-Unix-Shell
       title: A Unix Shell
-      desc: [
+      purpose: [
           "The purpose of this assignment is to help you learn about Unix
           processes, low-level input/output, and signals. It will also give you ample
           opportunity to define software modules; in that sense the assignment is
@@ -205,14 +213,32 @@
   categories: [lab]
   tags: []
   # Robocam
+# - name: Robocam
+#   index: 7
+#   title: Robocam
+#   link: https://github.com/Heejinee3/Robocam
+#   lab: []
+#   img: /assets/lab/Robocam.PNG
+#   desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
+#   start_date: Sep 2021
+#   end_date: Dec 2021
+#   categories: [lab]
+#   tags: []
+
 - name: Robocam
   index: 7
   title: Robocam
   link: https://github.com/Heejinee3/Robocam
-  lab: []
+  lab:
+    - name: Cross-Development-Environment
+      title: Cross Development Environment
+      link:
+      code:
+      report:
+      video:
+      tags:
   img: /assets/lab/Robocam.PNG
   desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
   start_date: Sep 2021
   end_date: Dec 2021
   categories: [lab]
-  tags: []

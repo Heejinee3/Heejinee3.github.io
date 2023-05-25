@@ -2,10 +2,11 @@
 layout: default
 ---
 
+{% if page.category == "project" %}
 <article class="post-container post-container--single">
   {% assign project = site.data.project[page.index] %}
   <header class="post-header">
-    <div class="post-meta">
+    <!-- <div class="post-meta">
       <div class="project-post-date">{{ project.start_date }} - {{ project.end_date }}</div>
       {% if project.tags.size > 0 %}
       <div class="project-post-tags"
@@ -15,7 +16,26 @@ layout: default
       >
       {% endif %}
     </div>
-    <h3 class="post-title project-post-title">{{ project.title }}</h3>
+    <h3 class="post-title project-post-title">{{ project.title }}</h3> -->
   </header>
   <section class="post">{{ content }}</section>
 </article>
+
+{% endif %} {% if page.category == "lab" %}
+<article class="post-container post-container--single">
+  {% assign lab = site.data.lab[page.index][page.num] %}
+  <header class="post-header">
+    <div class="post-meta">
+      {% if site.tags.size > 0 %}
+      <div class="project-post-tags">
+        {% for tag in site.tags %}
+        <span class="project-post-tag">{{ tag }}</span>
+        {% if forloop.last == false %}&nbsp{% endif %}{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <h3 class="post-title project-post-title">{{ lab.title }}</h3>
+  </header>
+  <section class="post">{{ content }}</section>
+</article>
+{% endif %}

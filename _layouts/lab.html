@@ -31,11 +31,11 @@ layout: default
             <a
               id="popup-link{{ forloop.index }}"
               class="project-timline-desc"
-              onclick="openPopup({{ forloop.index }})"
+              href="/lab/{{labs.name}}/{{lab.name}}"
               >{{lab.title}}</a
             >&emsp;
             <!-- 팝업 시작 -->
-            <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
+            <!-- <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
               <div class="popup">
                 <div class="popup-header">
                   <span class="popup-title">{{lab.title}}</span>
@@ -46,11 +46,11 @@ layout: default
                   >
                 </div>
                 {% if lab.purpose %}
-                <div>Purpose</div>
+                <div class="popup-subtitle">Purpose</div>
                 {% for purpose in lab.purpose %}
                 <div class="popup-desc">{{purpose}}</div>
                 {% endfor %} {% endif %} {% if lab.desc %}
-                <div>Description</div>
+                <div class="popup-subtitle">Description</div>
                 {% for desc in lab.desc %}
                 <div class="popup-desc">{{desc}}</div>
                 {% endfor %} {% endif %}
@@ -78,7 +78,7 @@ layout: default
                   >&emsp; {% endif %}
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- 팝업 끝 -->
           </div>
           {% endfor %}
