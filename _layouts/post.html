@@ -20,22 +20,28 @@ layout: default
   </header>
   <section class="post">{{ content }}</section>
 </article>
+{% endif %}
 
-{% endif %} {% if page.category == "lab" %}
+<!-- lab -->
+{% if page.category == "lab" %}
 <article class="post-container post-container--single">
-  {% assign lab = site.data.lab[page.index][page.num] %}
+  {% assign lab = site.data.lab[page.index].lab[page.num] %}
+  <!-- header -->
   <header class="post-header">
+    <!-- tag -->
     <div class="post-meta">
-      {% if site.tags.size > 0 %}
+      {% if lab.tags.size > 0 %}
       <div class="project-post-tags">
-        {% for tag in site.tags %}
+        {% for tag in lab.tags %}
         <span class="project-post-tag">{{ tag }}</span>
         {% if forloop.last == false %}&nbsp{% endif %}{% endfor %}
       </div>
       {% endif %}
     </div>
-    <h3 class="post-title project-post-title">{{ lab.title }}</h3>
+    <!-- title -->
+    <h3 class="post-title project-post-title">{{lab.title}}</h3>
   </header>
+  <!-- content -->
   <section class="post">{{ content }}</section>
 </article>
 {% endif %}

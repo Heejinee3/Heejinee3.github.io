@@ -212,31 +212,21 @@
   end_date: Dec 2021
   categories: [lab]
   tags: []
-  # Robocam
-# - name: Robocam
-#   index: 7
-#   title: Robocam
-#   link: https://github.com/Heejinee3/Robocam
-#   lab: []
-#   img: /assets/lab/Robocam.PNG
-#   desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
-#   start_date: Sep 2021
-#   end_date: Dec 2021
-#   categories: [lab]
-#   tags: []
 
+  # Robocam
 - name: Robocam
-  index: 7
   title: Robocam
   link: https://github.com/Heejinee3/Robocam
   lab:
     - name: Cross-Development-Environment
       title: Cross Development Environment
-      link:
-      code:
-      report:
-      video:
-      tags:
+      tags: [Ubuntu, Beaglebone Debian, NFS, C]
+    - name: Light-Control
+      title: Light Control
+      tags: [Ubuntu, Beaglebone Debian, NFS, C]
+    - name: Mobile-Robot-Control
+      title: Mobile Robot Control
+      tags: [Ubuntu, Beaglebone Debian, NFS, C]
   img: /assets/lab/Robocam.PNG
   desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
   start_date: Sep 2021

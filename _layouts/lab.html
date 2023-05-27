@@ -5,15 +5,19 @@ layout: default
 <div></div>
 <ul class="timeline project-timline-ul">
   {% for labs in site.data.lab %}
+  <!-- labs 시작 -->
 
+  <!-- 목록 -->
   <li class="timeline-inverted">
+    <!-- 이미지 -->
     <div class="timeline-image">
       <img class="img-me" src="{{ labs.img }}" alt="" />
     </div>
     <div class="timeline-panel">
+      <!-- 제목과 날짜 -->
       <div class="timeline-heading">
         <h4>
-          <a>{{ labs.title }}</a>
+          <a onclick="openPopup({{ forloop.index }})">{{ labs.title }}</a>
         </h4>
         <div class="project-dates">
           <span class="project-date">{{ labs.start_date }}</span>
@@ -22,9 +26,9 @@ layout: default
         </div>
       </div>
       <div class="timeline-body">
-        <span class="project-timline-desc"
-          >{% if labs.desc %} {{ labs.desc}} {% endif %}</span
-        >
+        <!-- 설명 -->
+        <div class="project-timline-desc">{{ labs.desc}}</div>
+        <!-- lab -->
         <div class="ghbtn" style="margin-top: 10px">
           {% for lab in labs.lab %}
           <div>
@@ -34,58 +38,50 @@ layout: default
               href="/lab/{{labs.name}}/{{lab.name}}"
               >{{lab.title}}</a
             >&emsp;
-            <!-- 팝업 시작 -->
-            <!-- <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
-              <div class="popup">
-                <div class="popup-header">
-                  <span class="popup-title">{{lab.title}}</span>
-                  <span
-                    class="popup-close"
-                    onclick="closePopup({{ forloop.index }})"
-                    >X</span
-                  >
-                </div>
-                {% if lab.purpose %}
-                <div class="popup-subtitle">Purpose</div>
-                {% for purpose in lab.purpose %}
-                <div class="popup-desc">{{purpose}}</div>
-                {% endfor %} {% endif %} {% if lab.desc %}
-                <div class="popup-subtitle">Description</div>
-                {% for desc in lab.desc %}
-                <div class="popup-desc">{{desc}}</div>
-                {% endfor %} {% endif %}
-                <div class="popup-tags">
-                  {% if lab.guide %}
-                  <a target="_blank" href="{{ lab.guide }}"
-                    ><i class="fa fa-paperclip"></i
-                    ><span class="project-url">guidelines</span></a
-                  >&emsp; {% endif %} {% if lab.link %}
-                  <a target="_blank" href="{{ lab.link }}"
-                    ><i class="fa fa-external-link"></i
-                    ><span class="project-url">link</span></a
-                  >&emsp; {% endif %} {% if lab.code %}
-                  <a target="_blank" href="{{ lab.code }}"
-                    ><i class="fa fa-code"></i
-                    ><span class="project-url">code</span></a
-                  >&emsp; {% endif %} {% if lab.report %}
-                  <a target="_blank" href="{{ lab.report }}"
-                    ><i class="fa fa-file-text"></i
-                    ><span class="project-url">report</span></a
-                  >&emsp; {% endif %} {% if lab.video %}
-                  <a target="_blank" href="{{ lab.video }}"
-                    ><i class="fa fa-video-camera"></i
-                    ><span class="project-url">video</span></a
-                  >&emsp; {% endif %}
-                </div>
-              </div>
-            </div> -->
-            <!-- 팝업 끝 -->
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
   </li>
+
+  <!-- 팝업 -->
+  <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
+    <div class="popup">
+      <!-- 제목 -->
+      <div class="popup-header">
+        <span class="popup-title">{{labs.title}}</span>
+        <span class="popup-close" onclick="closePopup({{ forloop.index }})"
+          >X</span
+        >
+      </div>
+      <!-- 날짜 -->
+      <div class="popup-dates">
+        <span class="project-date">{{ labs.start_date }}</span>
+        <span class="project-date"> - </span>
+        <span class="project-date">{{ labs.end_date }}</span>
+      </div>
+      <div class="timeline-body">
+        <!-- 설명 -->
+        <div class="project-timline-desc">{{ labs.desc}}</div>
+        <!-- lab -->
+        <div class="ghbtn" style="margin-top: 10px">
+          {% for lab in labs.lab %}
+          <div>
+            <a
+              id="popup-link{{ forloop.index }}"
+              class="project-timline-desc"
+              href="/lab/{{labs.name}}/{{lab.name}}"
+              >{{lab.title}}</a
+            >&emsp;
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- labs 끝 -->
   {% endfor %}
 </ul>
 <script>

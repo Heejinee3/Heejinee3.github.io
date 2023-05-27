@@ -1,6 +1,6 @@
 ---
 index: 7 # labs number
-num: 0 # lab number
+num: 2 # lab number
 permalink: /lab/Robocam/Cross-Development-Environment # link
 category: lab # project or lab
 ---
