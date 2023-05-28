@@ -101,11 +101,11 @@
   margin: 40px 0 50px;
 }
 
-.project-timline-desc {
+.project-timeline-desc {
   font-size: 13px;
 }
 
-.project-timline-ul {
+.project-timeline-ul {
   margin: 0;
 }
 
@@ -132,6 +132,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
+  max-width: 700px;
   max-height: 70%;
   background: #fff;
   box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
@@ -195,6 +196,48 @@
   text-align: end;
 }
 
-.popup-dates {
-  margin-bottom: 10px;
+.popup-post-tags {
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+  flex-flow: row wrap;
+}
+
+.popup-post-tag {
+  color: #e25440;
+  border: 1px solid #e25440;
+  border-radius: 20px;
+  padding: 4px 4px;
+  margin: 3px 0;
+  font-size: 10px;
+}
+
+.popup-timeline-desc {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.project-title {
+  cursor: pointer;
+}
+
+.popup-image {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.popup-image-div {
+  padding: 10px;
+}
+
+sub {
+  /* <sub> 태그에 적용할 스타일 */
+  font-size: 0.8em; /* 폰트 크기를 줄여서 아래 첨자로 표시 */
+  vertical-align: sub; /* 텍스트를 기준선 아래로 정렬 */
+}
+
+sup {
+  /* <sup> 태그에 적용할 스타일 */
+  font-size: 0.8em; /* 폰트 크기를 줄여서 위 첨자로 표시 */
+  vertical-align: super; /* 텍스트를 기준선 위로 정렬 */
 }

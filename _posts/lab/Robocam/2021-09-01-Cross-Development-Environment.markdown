@@ -9,10 +9,7 @@ category: lab # project or lab
 
 ---
 
-Suitable Linux software cross development system based on a PC will be constructed and tested. This cross
-development system will be used for developing a specific embedded system. We test various aspects: PC
-Ubuntu on PC, Debian on Beaglebone, cross-compile, NFS, module build, and reaction time measurement
-application.
+Suitable Linux software cross development system based on a PC will be constructed and tested. This cross development system will be used for developing a specific embedded system. We test various aspects: PC Ubuntu on PC, Debian on Beaglebone, cross-compile, NFS, module build, and reaction time measurement application.
 
 <br>
 
@@ -22,8 +19,8 @@ application.
 
 - Cross Development Environment and an Application
 
-Construct a cross-development system on a PC for application and module programs development, and implement a reaction timer application program.
-We start from the simplest and perform step-by-step improvements.
+  Construct a cross-development system on a PC for application and module programs development, and implement a reaction timer application program.
+  We start from the simplest and perform step-by-step improvements.
 
 1.  An Example of Embedded Application Program
 
@@ -71,11 +68,7 @@ We start from the simplest and perform step-by-step improvements.
 
 ---
 
-[Guidelines](https://github.com/Heejinee3/Robocam/blob/master/Guidelines/Lab1.pdf)
-
-[Code](https://github.com/Heejinee3/Robocam/tree/master/Code/Lab1)
-
-[Report](https://github.com/Heejinee3/Robocam/blob/master/Report/Lab1.pdf)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/Cross%20Development%20Environment)
 
 <br>
 

@@ -152,18 +152,21 @@
   end_date: Dec 2019
   categories: [lab]
   tags: []
+
   # Discrete Mathematics
 - name: Discrete-Mathematics
-  index: 2
   title: Discrete Mathematics
   link: https://github.com/Heejinee3/Discrete-Mathematics
-  lab: []
-  img: /assets/lab/Discrete-Mathematics.PNG
+  lab:
+    - name: Lucas-Lehmer-Riesel-Primality-Test
+      title: Lucas-Lehmer-Riesel Primality Test
+  preview_img: /assets/lab/Discrete-Mathematics/PreviewFigure.jpg
+  img: /assets/lab/Discrete-Mathematics/MainFigure.jpg
   desc: "The objective of these labs is to offer practical experience and application of fundamental mathematical concepts employed in computer science. The topics encompassed comprise proofs, relations, counting, graph theory, logic, automata, and formal languages. This practical approach aims to strengthen comprehension and foster problem-solving abilities within the realm of computer science."
   start_date: Mar 2020
   end_date: Jun 2020
   categories: [lab]
-  tags: []
+
   # Machine Learning
 - name: Machine-Learning
   index: 3
@@ -176,18 +179,22 @@
   end_date: Dec 2020
   categories: [lab]
   tags: []
+
   # Database
 - name: Database
-  index: 4
   title: Database
   link: https://github.com/Heejinee3/Database
-  lab: []
+  lab:
+    - name: Lab1
+      title: Lab1
+      tags: [MySql, Ubuntu]
   img: /assets/lab/Database.PNG
   desc: "The objective of these labs is to gain a comprehensive understanding of database fundamentals and the implementation of data systems. These practical exercises cover the relational model, ER model, SQL, design theory, transactions, file and system structure, indexing, query processing, crash recovery, concurrency control, and transaction processing. Furthermore, emerging technologies like NoSQL and NewSQL systems will be explored."
   start_date: Mar 2021
   end_date: Jun 2021
   categories: [lab]
-  tags: []
+  tags: [MySql, Ubuntu]
+
   # Bigdata Analytics
 - name: Bigdata-Analytics
   index: 5
@@ -220,15 +227,24 @@
   lab:
     - name: Cross-Development-Environment
       title: Cross Development Environment
-      tags: [Ubuntu, Beaglebone Debian, NFS, C]
+      tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C]
     - name: Light-Control
       title: Light Control
-      tags: [Ubuntu, Beaglebone Debian, NFS, C]
+      tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C]
     - name: Mobile-Robot-Control
       title: Mobile Robot Control
-      tags: [Ubuntu, Beaglebone Debian, NFS, C]
-  img: /assets/lab/Robocam.PNG
+      tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C]
+    - name: WiFi
+      title: WiFi
+      tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C]
+    - name: WebCam-and-System-Integration
+      title: WebCam and System Integration
+      tags:
+        [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C, C++]
+  preview_img: /assets/lab/Robocam/PreviewFigure.PNG
+  img: /assets/lab/Robocam/MainFigure.PNG
   desc: "The objective of these labs is to design a RoboCam (Robotic Camera) as a prototypical embedded system, incorporating various components such as a cross-development system, light control, robot functionality, WiFi connectivity, a WebCam, and system integration. Additionally, the objective includes exploring possibilities for system enhancement."
   start_date: Sep 2021
   end_date: Dec 2021
+  tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C, C++]
   categories: [lab]

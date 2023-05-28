@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div></div>
-<ul class="timeline project-timline-ul">
+<ul class="timeline project-timeline-ul">
   {% for labs in site.data.lab %}
   <!-- labs 시작 -->
 
@@ -11,13 +11,15 @@ layout: default
   <li class="timeline-inverted">
     <!-- 이미지 -->
     <div class="timeline-image">
-      <img class="img-me" src="{{ labs.img }}" alt="" />
+      <img class="img-me" src="{{ labs.preview_img }}" alt="" />
     </div>
     <div class="timeline-panel">
       <!-- 제목과 날짜 -->
       <div class="timeline-heading">
         <h4>
-          <a onclick="openPopup({{ forloop.index }})">{{ labs.title }}</a>
+          <a class="project-title" onclick="openPopup({{ forloop.index }})"
+            >{{ labs.title }}</a
+          >
         </h4>
         <div class="project-dates">
           <span class="project-date">{{ labs.start_date }}</span>
@@ -27,14 +29,14 @@ layout: default
       </div>
       <div class="timeline-body">
         <!-- 설명 -->
-        <div class="project-timline-desc">{{ labs.desc}}</div>
+        <div class="project-timeline-desc">{{ labs.desc}}</div>
         <!-- lab -->
         <div class="ghbtn" style="margin-top: 10px">
           {% for lab in labs.lab %}
           <div>
             <a
               id="popup-link{{ forloop.index }}"
-              class="project-timline-desc"
+              class="project-timeline-desc"
               href="/lab/{{labs.name}}/{{lab.name}}"
               >{{lab.title}}</a
             >&emsp;
@@ -56,21 +58,35 @@ layout: default
         >
       </div>
       <!-- 날짜 -->
-      <div class="popup-dates">
+      <div class="project-dates">
         <span class="project-date">{{ labs.start_date }}</span>
         <span class="project-date"> - </span>
         <span class="project-date">{{ labs.end_date }}</span>
       </div>
+      <!-- tag -->
+      <div class="post-meta">
+        {% if labs.tags.size > 0 %}
+        <div class="popup-post-tags">
+          {% for tag in labs.tags %}
+          <span class="popup-post-tag">{{ tag }}</span>
+          {% if forloop.last == false %}&nbsp{% endif %}{% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <!-- image -->
+      <div class="popup-image-div">
+        <img class="popup-image" src="{{ labs.img }}" alt="" />
+      </div>
       <div class="timeline-body">
         <!-- 설명 -->
-        <div class="project-timline-desc">{{ labs.desc}}</div>
+        <div class="popup-timeline-desc">{{ labs.desc }}</div>
         <!-- lab -->
         <div class="ghbtn" style="margin-top: 10px">
           {% for lab in labs.lab %}
           <div>
             <a
               id="popup-link{{ forloop.index }}"
-              class="project-timline-desc"
+              class="popup-timeline-desc"
               href="/lab/{{labs.name}}/{{lab.name}}"
               >{{lab.title}}</a
             >&emsp;

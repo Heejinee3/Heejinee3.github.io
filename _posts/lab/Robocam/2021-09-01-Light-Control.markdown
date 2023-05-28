@@ -19,9 +19,9 @@ The purpose of this lab is to control two lights for illumination: hardwired LED
 
 - Light Control
 
-Implement an illumination light controller with two white LEDs with Beaglebone: Wire two LEDs using GPIO and transistor array, and drive these using commands with sys file system (sysfs), shell script, C program, and device driver module.
+  Implement an illumination light controller with two white LEDs with Beaglebone: Wire two LEDs using GPIO and transistor array, and drive these using commands with sys file system (sysfs), shell script, C program, and device driver module.
 
-We start from the simplest and perform step-by-step improvements.
+  We start from the simplest and perform step-by-step improvements.
 
 1. Light Control Commands with sysfs
 
@@ -60,11 +60,7 @@ We start from the simplest and perform step-by-step improvements.
 
 ---
 
-[Guidelines](https://github.com/Heejinee3/Robocam/blob/master/Guidelines/Lab2.pdf)
-
-[Code](https://github.com/Heejinee3/Robocam/tree/master/Code/Lab2)
-
-[Report](https://github.com/Heejinee3/Robocam/blob/master/Report/Lab2.pdf)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/Light%20Control)
 
 <br>
 

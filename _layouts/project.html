@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div></div>
-<ul class="timeline project-timline-ul">
+<ul class="timeline project-timeline-ul">
   {% for project in site.data.project %}
 
   <li class="timeline-inverted">
@@ -24,7 +24,7 @@ layout: default
         </div>
       </div>
       <div class="timeline-body">
-        <span class="project-timline-desc"
+        <span class="project-timeline-desc"
           >{% if project.desc %} {{ project.desc}} {% endif %}</span
         >
         <div class="ghbtn" style="margin-top: 10px">
