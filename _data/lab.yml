@@ -210,8 +210,8 @@
         ]
     - name: Lab6
       title: Lab6
-  preview_img: /assets/lab/Database/PreviewFigure.PNG
-  img: /assets/lab/Database/MainFigure.PNG
+  preview_img: /assets/lab/Database/PreviewFigure.png
+  img: /assets/lab/Database/MainFigure.png
   desc: "The objective of these labs is to gain a comprehensive understanding of database fundamentals and the implementation of data systems. These practical exercises cover the relational model, ER model, SQL, design theory, transactions, file and system structure, indexing, query processing, crash recovery, concurrency control, and transaction processing. Furthermore, emerging technologies like NoSQL and NewSQL systems will be explored."
   start_date: Mar 2021
   end_date: Jun 2021
