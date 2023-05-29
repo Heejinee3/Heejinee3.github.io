@@ -67,7 +67,7 @@ The purpose of this lab is to design and implement a remote video viewer using o
 
 <br>
 
-#### **Link**
+#### **Code and Report**
 
 ---
 

@@ -56,7 +56,7 @@ The purpose of this lab is to control two lights for illumination: hardwired LED
 
 <br>
 
-#### **Link**
+#### **Code and Report**
 
 ---
 

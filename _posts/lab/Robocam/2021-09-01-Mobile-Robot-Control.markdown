@@ -55,7 +55,7 @@ The purpose of this lab is to design and implement hardware and software for a t
 
 <br>
 
-#### **Link**
+#### **Code and Report**
 
 ---
 

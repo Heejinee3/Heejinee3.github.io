@@ -55,7 +55,7 @@ category: lab # project or lab
 
 <br>
 
-#### **Link**
+#### **Report**
 
 ---
 
