@@ -221,3 +221,17 @@ We assume that, whatever consistency constraints there are on the database, thes
 [Github](https://github.com/Heejinee3/Database/tree/master/Lab6)
 
 <br>
+
+#### **Glossary**
+
+---
+
+[B+ Tree](https://velog.io/@chunjakim/B-Tree)
+
+[Extensible Hashing](https://velog.io/@chunjakim/Extensible-Hashing)
+
+[Query Processing](https://velog.io/@chunjakim/Query-Processing)
+
+[Crash Recovery](https://velog.io/@chunjakim/Crash-Recovery)
+
+[Concurrency Control](https://velog.io/@chunjakim/Concurrency-Control)
