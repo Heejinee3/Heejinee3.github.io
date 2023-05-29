@@ -140,18 +140,37 @@
   end_date: Jun 2018
   categories: [lab]
   tags: [C, Assembly]
+
   # Computer Architecture
 - name: Computer-Architecture
-  index: 1
   title: Computer Architecture
   link: https://github.com/Heejinee3/Computer-Architecture
-  lab: []
-  img: /assets/lab/Computer-Architecture.PNG
+  lab:
+    - name: ALU
+      title: ALU
+      tags: [Verilog]
+    - name: Vending-Machine
+      title: Vending Machine
+      tags: [Verilog]
+    - name: Single-cycle-CPU
+      title: Single-cycle CPU
+      tags: [Verilog]
+    - name: Multi-cycle-CPU
+      title: Multi-cycle CPU
+      tags: [Verilog]
+    - name: Pipeline-CPU
+      title: Pipeline CPU
+      tags: [Verilog]
+    - name: Cache
+      title: Cache
+      tags: [Verilog]
+  preview_img: /assets/lab/Computer-Architecture/PreviewFigure.PNG
+  img: /assets/lab/Computer-Architecture/MainFigure.PNG
   desc: "The objective of these labs is to understand the basic principles and hardware structures of computer systems including personal computers and workstations, and to learn how to design computers. This course covers data representation, CPU organization, instruction classification, language processing of assemblers and compilers, pipelining for performance enhancement, memory hierarchy, cache memory, and IO peripheral devices. In addition, high-performance computer systems are to be introduced."
   start_date: Sep 2019
   end_date: Dec 2019
   categories: [lab]
-  tags: []
+  tags: [Verilog]
 
   # Discrete Mathematics
 - name: Discrete-Mathematics
@@ -216,7 +235,16 @@
   start_date: Mar 2021
   end_date: Jun 2021
   categories: [lab]
-  tags: [MySql, Ubuntu]
+  tags:
+    [
+      MySql,
+      Ubuntu,
+      Google Cloud SQL,
+      Python,
+      Google Cloud App Engine,
+      Flask,
+      SQLAlchemy,
+    ]
 
   # Bigdata Analytics
 - name: Bigdata-Analytics

@@ -1,0 +1,55 @@
+---
+index: 1 # labs number
+num: 0 # lab number
+permalink: /lab/Computer-Architecture/ALU # link
+category: lab # project or lab
+---
+
+#### **Overview**
+
+---
+
+ALU Lab is a toy project that teaches you the basics of Verilog language. You are going to learn how to write a Verilog code and how to simulate it. In ALU Lab, you are required to implement an Arithmetic Logic Unit (ALU) by using Verilog language. You are able to complete ALU Lab based on what you have learned from the Verilog tutorial.
+
+<br>
+
+#### **Task**
+
+---
+
+In ALU Lab, you are required to make an ALU that has the following specifications:
+
+1. Inputs and outputs are 16-bit signed binary numbers.
+2. Operations are 4-bit binary numbers.
+3. Overflow must be detected.
+
+For Add & Sub operation, the ALU should be able to handle overflow. Cout must be one if overflow happens; otherwise, Cout should be zero.
+
+The detailed explanations of the operations that your ALU module is required to handle are shown in below.
+
+| OP   | operation    | description           |
+| ---- | ------------ | --------------------- |
+| 0000 | A + B        | 16-bit addition       |
+| 0001 | A – B        | 16-bit subtraction    |
+| 0010 | A and B      | 16-bit and            |
+| 0011 | A or B       | 16-bit or             |
+| 0100 | A nand B     | 16-bit nand           |
+| 0101 | A nor B      | 16-bit nor            |
+| 0110 | A xor B      | 16-bit xor            |
+| 0111 | A xnor B     | 16-bit xnor           |
+| 1000 | A            | Identity              |
+| 1001 | ~A           | 16-bit not            |
+| 1010 | A >> 1       | Logical right shift   |
+| 1011 | A >>> 1      | Arithmetic rightshift |
+| 1100 | A[0]A[15:1]  | Rotate right          |
+| 1101 | A << 1       | Logical left shift    |
+| 1110 | A <<< 1      | Arithmetic leftshift  |
+| 1111 | A[14:0]A[15] | Rotate l              |
+
+<br>
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/ALU)
