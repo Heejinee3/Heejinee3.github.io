@@ -1,6 +1,7 @@
 ---
 index: 7 # labs number
 num: 2 # lab number
+title: Mobile Robot Control
 permalink: /lab/Robocam/Mobile-Robot-Control # link
 category: lab # project or lab
 ---

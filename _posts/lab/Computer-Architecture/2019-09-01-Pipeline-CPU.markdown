@@ -1,81 +1,81 @@
 ---
-index: 4 # labs number
-num: 0 # lab number
-permalink: /lab/Database/Lab1 # link
+index: 1 # labs number
+num: 4 # lab number
+title: Pipeline CPU
+permalink: /lab/Computer-Architecture/Pipeline-CPU # link
 category: lab # project or lab
 ---
 
-#### **Database**
+#### **Overview**
 
 ---
 
-The figure below shows the schema of the Sakila database. This database has 23 tables:
-16 normal tables and 8 view tables. You can use view tables, but we recommend that you
-use only normaltables. You can find the information related to the schema in the following
-link: [Sakila](https://dev.mysql.com/doc/sakila/en/sakila-structure.html)
-
-![Figure1](/assets/lab/Database/Figure1.png)
+Pipeline CPU Lab is intended to give you hands-on experience in designing a modern microprocessor, whose operations are conducted in pipelined fashion. Based on the concepts and skills you have acquired through the lab assignments, you are now ready to implement a pipeline CPU. Through this lab assignment, you will be gaining an in-depth understanding on the fundamentals of designing a CPU microarchitecture.
 
 <br>
 
-#### **Problems**
+#### **Task**
 
 ---
 
-1. For each combination of category and actor, we want to find category_id,
-   actor_id, and the number of the films which belong to the category, and at the same time,
-   in which the actor appears. We want to find only the cases where the number of such films
-   is more than five.
+In Pipeline CPU Lab, you are required to implement a pipeline CPU.
 
-2. For each store, we want to find store_id and the number of the films that are
-   kept in inventory by the store, but have been rented less than five times. (Note: mySQL
-   does not support the EXCEPT operation. So, you must write SQL without using EXCEPT.)
+The template assumes the system with following rules:
 
-3. We want to find film_id, title, and the number of rentals of the films that are
-   rented in between 2005.06.01 and 2005.08.31. We want to find only the films which has
-   been rented more than 26 times. We also want the films to be sorted by the number of
-   rentals in descending order.
+1. The instruction memory and data memory is physically separated as two independent modules (check the testbench files).
 
-4. We want to find customer_id and the number of overdues for every customer
-   of the store of store_id=1. The condition of overdue is the gap between CURRENT_DATE()
-   and rental_date is more than 30, and at the same time, return_date is NULL (i.e., not be
-   returned yet). For a customer who has no overdue, the number of overdues in output
-   should be NULL. Only print out the customers which customer_id is less than 100 as the
-   query result.
+2. The overall memory size is 4KB for instructions and 16KB for data.
 
-5. We want to find customer_id, first_name, and last_name of all the customers
-   who have rented ALL the films which satisfy the following conditions: film_id is greater
-   than or equal to 10, and at the same time, less than 20; rental_rate is greater than 4; at
-   least one prolific actor appears. A prolific actor is the actor who has appeared in more
-   than 30 films. (Note: mySQL does not support the DIVISION operation. So, you must write
-   SQL using NOT EXISTS two times.)
+3. The memory follows byte addressing, which supports accessing individual bytes of data rather than only larger units called words (for instructions, this is naturally handled whereas for data, this is enabled using the D_MEM_BE port, check the testbench files and the RISCV_TOP.v file).
 
-6. Each film has a different number of inventories. Let avgKeep be the average
-   number of inventories for a film. Then, we want to find film_id and the number of rentals
-   of the films that are kept in inventory more than avgKeep, and at the same time, have been
-   rented greater than or equal to 30 times. We also want the films to be sorted by film_id in
-   ascending order.
+4. Little-endian
 
-7. For each country, we want to find country name, the number of stores, and the
-   sum of incomes of all stores in the country. The income of a store can be calculated as the
-   sum of amount attribute values in the payment tuples that are related to the store.
+5. The control path and data path should be separated.
 
-8. For each category of each store, we want to find store_id, name of the category,
-   and the number of rentals, if the rentals are done more than 500 times for the category in
-   the store. We also want the result to be sorted by store_id in ascending order and sorted
-   by the number of rentals in descending order.
+6. As we have not covered the concept of “Virtual Memory” in this course just yet, you can assume that the lower N-bits of the instruction and data memory addresses are used as-is to access instruction memory and data memory.
 
-9. For each country and each category, we want to find country name, category
-   name, and actor_id of the top actor in 2005. The top actor in a country and a category
-   means that the films in which an actor has appeared have the highest income in the
-   category and in the stores of the country. The income means the sum of amount values in
-   the payment tuples. There exists a single top actor for each combination of country and
-   category.
+   1. For accessing instructions, use (Effective_Address & 0xFFF) as the translation
+      function
+   2. For accessing data, use (Effective_Address & 0x3FFF) as the translation function
+
+7. The initial value of the Program Counter (PC) is 0x000.
+
+8. The initial value of the stack pointer is 0xF00.
+
+Your implementation MUST comply with the following rules:
+
+1. RISC-V ISA (RV 32I)
+
+2. You’re required to implement 5 stage pipeline
+
+3. You need to resolve data hazards and control hazards.
+   Refer the grading policy
+
+4. You need to implement only below instructions
+   1. JAL
+   2. JALR
+   3. BEQ, BNE, BLT, BGE, BLTU, BGEU
+   4. LW
+   5. SW
+   6. ADDI, SLTI, SLTIU, XORI, ORI, ANDI, SLLI, SRLI, SRAI
+   7. ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND
+
+The template of memory and register file is already given to you. You are only required to implement the control and data path of the pipeline. If you implement correctly, you will see a “Success” message in the console log when you run the testbench file. The TAs recommend you to carefully design which modules are needed, how to connect them, and which control signals are necessary to transfer to the data units, before you start to write the code.
 
 <br>
 
-#### **Code and Results**
+#### **Code and Report**
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab1)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Pipeline%20CPU)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[Pipeline CPU](https://velog.io/@chunjakim/Pipeline-CPU)
+
+[Hazard](https://velog.io/@chunjakim/Hazard)

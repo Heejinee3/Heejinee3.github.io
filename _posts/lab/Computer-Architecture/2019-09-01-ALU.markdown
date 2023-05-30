@@ -1,6 +1,7 @@
 ---
 index: 1 # labs number
 num: 0 # lab number
+title: ALU
 permalink: /lab/Computer-Architecture/ALU # link
 category: lab # project or lab
 ---
@@ -25,7 +26,7 @@ In ALU Lab, you are required to make an ALU that has the following specification
 
 For Add & Sub operation, the ALU should be able to handle overflow. Cout must be one if overflow happens; otherwise, Cout should be zero.
 
-The detailed explanations of the operations that your ALU module is required to handle are shown in below.
+The detailed explanations of the operations that your ALU module is required to handle are shown in the table below.
 
 | OP   | operation    | description           |
 | ---- | ------------ | --------------------- |

@@ -1,6 +1,7 @@
 ---
 index: 2 # labs number
 num: 0 # lab number
+title: Lucas-Lehmer-Riesel Primality Test
 permalink: /lab/Discrete-Mathematics/Lucas-Lehmer-Riesel-Primality-Test # link
 category: lab # project or lab
 ---

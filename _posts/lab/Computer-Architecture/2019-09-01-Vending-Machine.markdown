@@ -1,6 +1,7 @@
 ---
 index: 1 # labs number
 num: 1 # lab number
+title: Vending Machine
 permalink: /lab/Computer-Architecture/Vending-Machine # link
 category: lab # project or lab
 ---
@@ -20,7 +21,7 @@ you finish Vending Machine Lab by yourself, you will have a good understanding o
 
 In Vending Machine Lab, you are required to implement a vending machine, which is an example of FSMs. There might be several corner cases while you implement the vending machine, so you have to make sure that your implementation of the vending machine functions properly for all use cases.
 
-You are given a template of a vending machine in vending_machine.v. The template defines the interface of the vending machine, as shown in below.
+You are given a template of a vending machine in vending_machine.v. The template defines the interface of the vending machine, as shown in the table below.
 
 <table>
    <tr>
@@ -79,8 +80,18 @@ You are given a template of a vending machine in vending_machine.v. The template
 
 <br>
 
-#### **Code and Results**
+#### **Code, Report and Results**
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab1)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Vending-Machine)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[RTL](https://velog.io/@chunjakim/RTL-Register-Transfer-Level)
+
+[FSM](https://velog.io/@chunjakim/FSM-Finite-State-Machine)

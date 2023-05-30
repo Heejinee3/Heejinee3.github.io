@@ -1,6 +1,7 @@
 ---
 index: 4 # labs number
 num: 0 # lab number
+title: Lab1
 permalink: /lab/Database/Lab1 # link
 category: lab # project or lab
 ---

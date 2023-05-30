@@ -1,6 +1,7 @@
 ---
 index: 7 # labs number
 num: 1 # lab number
+title: Light Control
 permalink: /lab/Robocam/Light-Control # link
 category: lab # project or lab
 ---

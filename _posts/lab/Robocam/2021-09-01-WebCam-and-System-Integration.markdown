@@ -1,6 +1,7 @@
 ---
 index: 7 # labs number
 num: 4 # lab number
+title: WebCam and System Integration
 permalink: /lab/Robocam/WebCam-and-System-Integration # link
 category: lab # project or lab
 ---

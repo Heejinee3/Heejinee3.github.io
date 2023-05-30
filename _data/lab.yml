@@ -154,23 +154,23 @@
       tags: [Verilog]
     - name: Single-cycle-CPU
       title: Single-cycle CPU
-      tags: [Verilog]
+      tags: [Verilog, RISC-V]
     - name: Multi-cycle-CPU
       title: Multi-cycle CPU
-      tags: [Verilog]
+      tags: [Verilog, RISC-V]
     - name: Pipeline-CPU
       title: Pipeline CPU
-      tags: [Verilog]
+      tags: [Verilog, RISC-V]
     - name: Cache
       title: Cache
-      tags: [Verilog]
+      tags: [Verilog, RISC-V]
   preview_img: /assets/lab/Computer-Architecture/PreviewFigure.PNG
   img: /assets/lab/Computer-Architecture/MainFigure.PNG
   desc: "The objective of these labs is to understand the basic principles and hardware structures of computer systems including personal computers and workstations, and to learn how to design computers. This course covers data representation, CPU organization, instruction classification, language processing of assemblers and compilers, pipelining for performance enhancement, memory hierarchy, cache memory, and IO peripheral devices. In addition, high-performance computer systems are to be introduced."
   start_date: Sep 2019
   end_date: Dec 2019
   categories: [lab]
-  tags: [Verilog]
+  tags: [Verilog, RISC-V]
 
   # Discrete Mathematics
 - name: Discrete-Mathematics

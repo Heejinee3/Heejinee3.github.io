@@ -1,6 +1,7 @@
 ---
 index: 7 # labs number
 num: 3 # lab number
+title: WiFi
 permalink: /lab/Robocam/WiFi # link
 category: lab # project or lab
 ---
