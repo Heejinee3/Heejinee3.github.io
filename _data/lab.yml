@@ -1,141 +1,30 @@
 # labs section data
 # Programming Structure
-# A Unix Shell, tags, desc
 - name: Programming-Structure
-  index: 0
   title: Programming Structure
   link: https://github.com/Heejinee3/Programming-Structure
   lab:
     - name: A-Word-Counting-Program
       title: A Word Counting Program
-      purpose: [
-          "The purpose of this lab is to learn or review the
-          fundamentals of the C programming language, a portion of the 'decommenting' task of the C preprocessor, and how to use the
-          GNU/Unix programming tools, especially bash, emacs, and gcc209.",
-        ]
-      desc: [
-          "The task is to write a C program named wc209 that prints the number of
-          lines, words, and characters in the input text fed from standard input to
-          standard ouput. The program behaves similarly to Linux wc,
-          but wc209 skips 'commented text'(e.g., text in /* ... */) and does not
-          count such text in the output.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/A%20Word%20Counting%20Program/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program
-      code: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program/Code
-      report:
-      video:
+      tags: [C]
     - name: String-Manipulation
       title: String Manipulation
-      purpose: [
-          "The purpose of this lab is to learn/review arrays
-          and pointers in the C programming language, how to create and use
-          stateless modules in C, the 'design by contract' style of
-          programming, and how to use the GNU/UNIX programming tools,
-          especially bash, emacs, gcc, and gdb.",
-        ]
-      desc: [
-          "The task is to use C to create the 'Str' module that
-          provides string manipulation functions. Specifically, design Str
-          module so that each function behaves the same as described below.
-          The task in this lab is twofold.",
-          "[Part 1] Read the description of the basic string library functions
-          carefully, and implement each function. The basic functions are most
-          commonly used standard string functions. Each function should behave
-          the same as its corresponding standard C function.",
-          "[Part 2] Implement a simplified version of grep using Str functions. Read
-          the provided file that contains skeleton code carefully, edit the file to
-          make it process the required functionalities: find, replace, diff.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/String%20Manipulation/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation
-      code: https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation/Code
-      report:
-      video:
+      tags: [C]
     - name: Customer-Management-Table
       title: Customer Management Table
-      purpose: [
-          "The purpose of this lab is to learn how to implement
-          common data structures in C and how to exploit them to achieve
-          modularity in a real-world application. It also will give you the
-          opportunity to gain more experience with the GNU/Linux programming
-          tools, especially bash, emacs, and gdb.",
-        ]
-      desc: [
-          "The task is to implement and improve the customer data management API
-          using various data structures. The task in this lab is threefold:",
-          "[Part 1] Implement an API library for the customer data
-          management, using a dynamically resizable array.",
-          "[Part 2] Implement the same API library using a hash table.",
-          "[Part 3] Test the correctness of two libraries and measure the
-          performance.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/Customer%20Management%20Table/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/Customer%20Management%20Table
-      code: https://github.com/Heejinee3/Programming-Structure/tree/master/Customer%20Management%20Table/Code
-      report:
-      video:
+      tags: [C]
     - name: Assembly-Lanuage-Programming
       title: Assembly Lanuage Programming
-      purpose: [
-          "The purpose of this lab is to learn about computer
-          architecture, assembly language programming, and testing strategies. It
-          also will give you the opportunity to learn more about the GNU/Unix
-          programming tools, especially bash, emacs, gcc209, and gdb for assembly
-          language programs.",
-        ]
-      desc: [
-          "A Desk Calculator Program in Assembly Language",
-          "[Part 1] Implement basic functions of dc",
-          "dc is a Unix-like operating system tool used for performing calculations. It reads numbers from standard input and
-          uses command keys to display results on standard output. The implemented operations include printing (p),
-          arithmetic operators (+, -, *, /, %, ^), and a terminating operator (q). The % operator calculates the remainder,
-          and the ^ operator performs exponentiation. Negative exponents are not supported.",
-          "[Part 2] Advanced functions",
-          "dc tool for this lab requires the implementation of four operators: 'f' to print the stack contents in LIFO order,
-          'c' to clear the stack, 'd' to duplicate the top entry, and 'r' to swap the top two values on the stack.
-          These operators provide additional functionality for manipulating the input stack.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/Assembly%20Language%20Programming/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/Assembly%20Language%20Programming
-      code: https://github.com/Heejinee3/Programming-Structure/blob/master/Assembly%20Language%20Programming/mydc.s
-      report:
-      video:
+      tags: [Assembly]
     - name: A-Dynamic-Memory-Manager-Module
       title: A Dynamic Memory Manager Module
-      purpose: [
-          "The purpose of this assignment is to understand how dynamic
-          memory management works in C. It also will give you more opportunity
-          to use the GNU/Unix programming tools,
-          especially bash, emacs, gcc209, gdb, and make.",
-        ]
-      desc: [
-          "The task involves creating two additional implementations of the HeapMgr module.",
-          "[Part 1] The first implementation, heapmgr1.c, aims to enhance efficiency by using a single doubly-linked list with headers and footers.
-          However, it may have poor worst-case behavior.",
-          "[Part 2] The second implementation, heapmgr2.c, improves on heapmgr1.c by using multiple doubly-linked lists or bins to address the worst-case behavior.
-          Both implementations should validate function parameters, check invariants, and not rely on standard memory allocation functions.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/A%20Dynamic%20Memory%20Manager%20Module/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Dynamic%20Memory%20Manager%20Module
-      code: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Dynamic%20Memory%20Manager%20Module/Code
-      report:
-      video:
+      tags: [C]
     - name: A-Unix-Shell
       title: A Unix Shell
-      purpose: [
-          "The purpose of this assignment is to help you learn about Unix
-          processes, low-level input/output, and signals. It will also give you ample
-          opportunity to define software modules; in that sense the assignment is
-          a capstone for the course.",
-        ]
-      guide: https://github.com/Heejinee3/Programming-Structure/blob/master/A%20Unix%20Shell/Guidelines.pdf
-      link: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Unix%20Shell
-      code: https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Unix%20Shell/Code
-      report:
-      video:
-  img: /assets/lab/Programming-Structure.PNG
-  desc: ""
+      tags: [C]
+  preview_img: /assets/lab/Programming-Structure/PreviewFigure.jpg
+  img: /assets/lab/Programming-Structure/MainFigure.jpg
+  desc: "The objective of these labs is to provide a comprehensive understanding of C programming for electrical engineering, with the goal of learning procedure-oriented programming techniques and gaining proficiency in using the C programming language. The labs will serve as practical exercises to reinforce theoretical concepts, apply knowledge, and develop programming skills within the context of electrical engineering."
   start_date: Mar 2018
   end_date: Jun 2018
   categories: [lab]
