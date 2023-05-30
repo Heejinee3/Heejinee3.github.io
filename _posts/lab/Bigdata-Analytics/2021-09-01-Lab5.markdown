@@ -1,0 +1,82 @@
+---
+index: 5 # labs number
+num: 4 # lab number
+title: Lab5
+permalink: /lab/Bigdata-Analytics/Lab5 # link
+category: lab # project or lab
+---
+
+#### **Neural Nets and Deep Learning**
+
+---
+
+1. Compute the gradients using the chain rule
+   Below figure shows a simple neural network which consists of two input nodes, two hidden nodes and two output nodes. Given input data x1, x2, we want the network to predict the target label y1, y2 correctly. In other words, the network outputs o1, o2 are equal to the target labels y1, y2. In order to train the network using gradient descent, we have to compute the gradient of the loss function with respect to the parameters of the network using the backpropagation algorithm.
+
+   Suppose we use the sigmoid activation function in the hidden and output layers. Also say we use the mean squared error for the loss function. Express the answer using the parameters in the below figure.
+
+   • Compute the gradient of the loss with respect to w<sub>ij</sub><sup>2</sup> (i, j = 1, 2)
+
+   • Compute the gradient of the loss with respect to w<sub>ij</sub><sup>1</sup> (i, j = 1, 2)
+
+   ![Figure8](/assets/lab/Bigdata-Analytics/Figure8.PNG)
+
+2. Implement a fully-connected network to distinguish digits using Python.
+
+   The dataset is sampled from the MNIST dataset, which is one of the most common datasets used for image classification and contains 70,000 grayscale images of handwritten digits (0 to 9). Each image has 28 x 28 resolution and is transformed to a one-dimensional vector of length 784.
+
+   ```
+   • training.csv: Used for the model training and contains 100 data points for each digit. Each line contains a vector of length 784 and the corresponding label.
+   • testing.csv: Used for the model testing. Uses the same format as training.csv.
+   ```
+
+   Construct a fully-connected network, which has an input layer, one hidden layer, and an output layer. First, convert the label to a vector of size 10 using one-hot encoding where the vector element corresponding to the label has a 1 while all the other elements are 0. For example, 0 is encoded as [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] while 5 is encoded as [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]. One-hot encoding is commonly used to deal with categorical values. Then, implement the gradient descent algorithm using forward and backward propagation to train the network. Use the sigmoid activation function and mean squared error loss function as in 1.
+
+<br>
+
+#### **Mining Data Streams**
+
+---
+
+1. Solve the following problems.
+
+   - Suppose our stream consists of the integers 3, 1, 4, 1, 5, 9, 2, 6, 5. Our hash functions will all be of the form h(x) = ax + b mod 32 for some a and b. You should treat the result as a 5-bit binary integer. Determine the tail length for each stream element and the resulting estimate of the number of distinct elements if the hash function is:
+
+     (a) h(x) = 2x + 1 mod 32.
+
+     (b) h(x) = 3x + 7 mod 32.
+
+     (c) h(x) = 4x mod 32.
+
+     Do you see any problems with the choice of hash functions? What advice could you give someone who was going to use a hash function of the form h(x) = ax + b mod 2<sup>k</sup>?
+
+   - Suppose we are given the stream 3, 1, 4, 1, 3, 4, 2, 1, 2 and apply the Alon-Matias-Szegedy Algorithm to estimate the surprise number. For each possible value of i, if Xi is a variable starting position i, what is the value of Xi.value?
+
+2. Implement the DGIM algorithm.
+
+   The stream is randomly generated and contains a sequence of 10 million 0’s and 1’s.
+   Each line contains a 0 or 1. Suppose that this sequence is the window (i.e., N =
+   10M) and that we need to summarize the window due to its large size. The goal is
+   to estimate the number of 1’s in the last k bits.
+
+<br>
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab5)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[Fully-connected Network](https://velog.io/@chunjakim/Fully-connected-Network)
+
+[MNIST](https://velog.io/@chunjakim/MNIST)
+
+[AMS Algorithm](https://velog.io/@chunjakim/AMS-Algorithm-Alon-Matias-Szegedy-Algorithm)
+
+[DGIM Algorithm](https://velog.io/@chunjakim/DGIM-Algorithm)

@@ -1,0 +1,144 @@
+---
+index: 5 # labs number
+num: 3 # lab number
+title: Lab4
+permalink: /lab/Bigdata-Analytics/Lab4 # link
+category: lab # project or lab
+---
+
+#### **Link Analysis**
+
+---
+
+1. Solve the following problems.
+
+   - Compute the PageRank of each page in the below figure, assuming β = 0.8.
+     You can use programs for simple calculations. If you use any code to solve the problem, please attach your code with a brief explanation.
+
+     ![Figure4](/assets/lab/Bigdata-Analytics/Figure4.PNG)
+
+   - Compute the topic-sensitive PageRank for the graph of the below figure, assuming β = 0.8 and the teleport set is:
+
+     (a) A only
+
+     (b) A and C
+
+     You can use programs for simple calculations. If you use any code to solve the problem, please attach your code with a brief explanation.
+
+     ![Figure5](/assets/lab/Bigdata-Analytics/Figure5.PNG)
+
+2. Implement the PageRank algorithm using Spark.
+
+   The graph is randomly generated and has 1000 nodes and about 8000 edges with no dead ends. For each row, the left page id represents the source and the right id represents the destination. If there are duplicate edges from one page to another, treat them as the same.
+
+   You may set β = 0.9 and start from the vector v initialized as all 1’s divided by the number of pages. You do not have to break the transition matrix M into stripes. Run your algorithm for 50 iterations to produce the final vector v and return the ids of the top-10 pages with the highest PageRank scores.
+
+<br>
+
+#### **Mining Social-Network Graphs**
+
+---
+
+1. Solve the following problems.
+
+   - Suppose there is a community of 2n nodes. Divide the community into two
+     groups of n members, at random, and form the bipartite graph between the
+     two groups. Suppose that the average degree of the nodes of the bipartite graph
+     is d. Find the set of maximal pairs (t, s), with t ≤ s, such that an instance of
+     Ks,t is guaranteed to exist, for the following combinations of n and d:
+
+     (a) n = 20 and d = 5.
+
+     (b) n = 200 and d = 150.
+
+     By “maximal,” we mean there is no different pair (s′, t′) such that both s′ ≥ s and t′ ≥ t hold.
+
+   - Compute the MLE for the graph for the following guesses of the memberships of the two communities.
+
+     (a) C = {w, x}; D = {y, z}
+
+     (b) C = {w, x, y, z}; D = {x, y, z}
+
+     ![Figure6](/assets/lab/Bigdata-Analytics/Figure6.PNG)
+
+2. Implement the algorithm for finding triangles.
+
+   You will analyze part of the Facebook (now Meta) social network to identify communities.
+
+   The dataset consists of three columns:
+
+   ```
+   • user_id1 : Corresponds to a user ID.
+   • user_id2 : Corresponds to the user ID of the friend of user_id1.
+   • time_stamp : Corresponds to the UNIX timestamp with the time of link establishment. You do not need to use this column.
+   ```
+
+   Although the data is in the form of a directed graph, consider it an undirected graph where each edge (user_id1, user_id2) means that the two users are friends with each other. There are about 63,700 users and 817,000 edges in the graph.
+
+   The algorithm is composed into two parts:
+
+   ```
+   • Step1 : Count heavy-hitter triangles.
+   • Step2 : Count other triangles.
+   ```
+
+<br>
+
+#### **Large-Scale Machine Learning**
+
+---
+
+1. Solve the following problems.
+
+   An important property of a function f is concavity, meaning that if x < z < y, then
+
+   ![Figure7](/assets/lab/Bigdata-Analytics/Figure7.PNG)
+
+   Less formally, the curve of f between x and y lies above the straight line between the points (x, f(x)) and (y, f(y)). In the following, assume there are two
+   classes, and f(x) is the impurity when x is the fraction of examples in the first
+   class.
+
+   (a) Prove that the GINI impurity is concave.
+
+   (b) Prove that the Entropy measure of impurity is concave.
+
+2. Implement the gradient descent SVM algorithm using Python.
+
+   There are two files:
+
+   ```
+   • features.txt: Contains the feature vectors of 6K data points used for the training data. Each line is a feature vector of 122 components.
+   • labels.txt: Contains the corresponding labels of the 6K data points in features.txt.
+   ```
+
+   Implement the batch gradient descent approach where, for each round, all the training examples are considered as a “batch.”
+
+   For selecting the test data, use k-fold cross validation. For this problem, set k = 10 where the 6K data points are sequentially divided into 10 chunks of size 600. In turn, let each chunk be the test data, and use the remaining 9 chunks be the training data. After training an SVM model on the training data, compute the accuracy of the model on the test data where we define accuracy as the portion of correctly predicted data points among all the data points in the test data. For example, if 300 out of 600 data points were correctly predicted, the accuracy is 0.5.
+
+   Finally, tune the C and η parameters for better accuracy.
+
+<br>
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab4)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[PageRank](https://velog.io/@chunjakim/PageRank)
+
+[Bipartite Graph](https://velog.io/@chunjakim/Bipartite-Graph)
+
+[MLE](https://velog.io/@chunjakim/MLE-Maximum-Likelihood-Estimation)
+
+[GINI Impurity](https://velog.io/@chunjakim/GINI-Impurity)
+
+[Entropy Measure of Impurity](https://velog.io/@chunjakim/Entropy-Measure-of-Impurity)
+
+[SVM](https://velog.io/@chunjakim/SVM-Support-Vector-Machine)

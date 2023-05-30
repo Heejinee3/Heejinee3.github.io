@@ -1,0 +1,40 @@
+---
+index: 5 # labs number
+num: 0 # lab number
+title: Lab1
+permalink: /lab/Bigdata-Analytics/Lab1 # link
+category: lab # project or lab
+---
+
+#### **Purpose**
+
+---
+
+Here you will learn how to write, compile, debug, and execute a simple Spark program.
+
+<br>
+
+#### **Contents**
+
+---
+
+1. How to download and install a stand-alone Spark instance. All operations
+   done in this Spark instance will be performed against the files in your local file system.
+
+2. How to launch the Spark shell for interactively building Spark applications.
+
+3. How to use Spark to launch Spark applications written in an IDE or editor.
+
+4. An example of writing a simple word count application for Spark.
+
+5. The actual homework assignment. There are no deliverables for sections 2,
+   3, and 4. In section 5, you are asked to write and submit your own Spark application
+   based on the word count example.
+
+<br>
+
+#### **Code**
+
+---
+
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab1)

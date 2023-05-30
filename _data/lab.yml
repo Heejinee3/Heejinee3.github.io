@@ -248,16 +248,32 @@
 
   # Bigdata Analytics
 - name: Bigdata-Analytics
-  index: 5
   title: Bigdata Analytics
   link: https://github.com/Heejinee3/Bigdata-Analytics
-  lab: []
-  img: /assets/lab/Bigdata-Analytics.PNG
+  lab:
+    - name: Lab1
+      title: Lab1
+      tags: [Python, Spark]
+    - name: Lab2
+      title: Lab2
+      tags: [Python, Spark]
+    - name: Lab3
+      title: Lab3
+      tags: [Python, Spark]
+    - name: Lab4
+      title: Lab4
+      tags: [Python, Spark]
+    - name: Lab5
+      title: Lab5
+      tags: [Python]
+  preview_img: /assets/lab/Bigdata-Analytics/PreviewFigure.jpg
+  img: /assets/lab/Bigdata-Analytics/MainFigure.jpg
   desc: "The objective of these labs is to study data mining and machine learning algorithms for analyzing big data, utilizing Apache Spark as the primary tool. Topics covered include frequent itemsets, finding similar items, clustering, dimensionality reduction, recommendation systems, link analysis, data streams, large-scale machine learning, and Web advertising. The labs aim to develop a deep understanding of the algorithms and techniques involved in effectively mining and analyzing large datasets using Spark, and their applications in different domains."
   start_date: Sep 2021
   end_date: Dec 2021
   categories: [lab]
-  tags: []
+  tags: [Python, Spark]
+
   # Computer Vision
 - name: Computer-Vision
   index: 6

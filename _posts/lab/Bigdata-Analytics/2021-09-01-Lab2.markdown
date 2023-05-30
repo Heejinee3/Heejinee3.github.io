@@ -1,0 +1,87 @@
+---
+index: 5 # labs number
+num: 1 # lab number
+title: Lab2
+permalink: /lab/Bigdata-Analytics/Lab2 # link
+category: lab # project or lab
+---
+
+#### **MapReduce and Spark**
+
+---
+
+We will find potential friends in a social network using Spark.
+
+Social networks like Facebook, Twitter, and LiveJournal have users who are connected as friends in the form of a graph. In this problem, you will use a real dataset containing a LiveJournal friends graph to discover potential friends who have many mutual friends.
+
+<br>
+
+#### **Frequent Itemsets**
+
+---
+
+1. Solve the following problems.
+
+   Suppose we have market baskets that satisfy the following assumptions:
+
+   ```
+   - The support threshold is 10,000.
+   - There are one million kinds of items, represented by the integers 0, 1, ...,
+   - There are N frequent items, that is, items that occur 10,000 times or more.
+   - There are one million pairs that occur 10,000 times or more.
+   - There are 2M pairs that occur exactly once. Of these pairs, M consist of
+      two frequent items; the other M each have at least one nonfrequent item.
+   - No other pairs occur at all.
+   - Integers are always represented by 4 bytes.
+   ```
+
+   Suppose we run the A-Priori Algorithm and can choose on the second pass between the triangular-matrix method for counting candidate pairs and a hash table of item-item-count triples. Neglect in the first case the space needed to translate between original item numbers and numbers for the frequent items, and in the second case neglect the space needed for the hash table. As a function of N and M, what is the minimum number of bytes of main memory needed to execute the A-Priori Algorithm on this data?
+
+2. Find frequent itemsets using the A-Priori algorithm
+
+   Suppose you are an online retailer like Amazon and want to improve the shopping experience by analyzing customer behavior. In this problem implement the A-Priori algorithm to find frequent items and item pairs in an online browsing dataset.
+
+<br>
+
+#### **Finding Similar Items**
+
+---
+
+1. Solve the following exercises.
+
+   What is the effect on probability of starting with the family of minhash functions and applying:
+
+   1. A 2-way AND construction followed by a 3-way OR construction.
+
+   2. A 3-way OR construction followed by a 2-way AND construction.
+
+   3. A 2-way AND construction followed by a 2-way OR construction, followed
+      by a 2-way AND construction.
+
+   4. A 2-way OR construction followed by a 2-way AND construction, followed
+      by a 2-way OR construction followed by a 2-way AND construction.
+
+2. Find similar documents using minhash-based LSH
+   Suppose you are looking for very similar articles within a large article set. In this problem, implement the minhash-based LSH algorithm to efficiently find articles that have high Jaccard similarities.
+
+   Before you solve this problem, you should understand the concept of minhash-based LSH.
+
+<br>
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab2)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[MapReduce](https://velog.io/@chunjakim/MapReduce)
+
+[A-Priori Algorithm](https://velog.io/@chunjakim/A-Priori-Algorithm)
+
+[Minhash-based LSH](https://velog.io/@chunjakim/minhash-based-LSH-MinHash-based-Locality-Sensitive-Hashing)

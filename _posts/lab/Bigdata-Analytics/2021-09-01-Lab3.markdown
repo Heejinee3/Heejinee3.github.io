@@ -1,0 +1,145 @@
+---
+index: 5 # labs number
+num: 2 # lab number
+title: Lab3
+permalink: /lab/Bigdata-Analytics/Lab3 # link
+category: lab # project or lab
+---
+
+#### **Clustering**
+
+---
+
+1. Solve the following problem.
+
+   ```
+   Edit distance:
+   The distance between two strings x = x1x2...xn and y = y1y2...ym is the smallest number of insertions and deletions of single characters that will convert x to y.
+   For example, edit distance between abcde and acf deg is 3.
+   ```
+
+   Consider the space of strings with edit distance as the distance measure. Give an example of a set of strings such that if we choose the clustroid by minimizing the sum of the distances to the other points we get one point as the clustroid, but if we choose the clustroid by minimizing the maximum distance to the other points, another point becomes the clustroid.
+
+2. Implement the k-Means algorithm using Spark.
+
+   We will implement the classic k-Means algorithm using Spark. In particular, we are interested in finding the right k value (i.e., the number of clusters) for the given data. For the distance measure, always use the Euclidean distance.
+
+<br>
+
+#### **Dimensionality Reduction**
+
+---
+
+Solve the following problems. In some exercises, we recommend you to use Python.
+
+1. For the matrix:
+   ![Figure1](/assets/lab/Bigdata-Analytics/Figure1.PNG)
+   (We recommend you to use Python, but you CANNOT use numpy.linalg.eig() function in this exercise.)
+
+   1. Starting with a vector of three 1’s, use power iteration to find an approximate value of the principal eigenvector.
+
+   2. Compute an estimate the principal eigenvalue for the matrix.
+
+   3. Construct a new matrix by subtracting out the effect of the principal eigenpair.
+
+   4. From your matrix of (c), find the second eigenpair for the original matrix.
+
+   5. Repeat (c) and (d) to find the third eigenpair for the original matrix.
+
+2. Consider the matrix M below. It has rank 2, as you can see by observing that the first column plus the third column minus twice the second column equals 0.
+
+   (We recommend you to use Python, but you CANNOT use numpy.linalg.svd() function in this exercise.)
+   ![Figure2](/assets/lab/Bigdata-Analytics/Figure2.PNG)
+
+   1. Compute the matrices M<sup>T</sup>M and MM<sup>T</sup>.
+
+   2. Find the eigenpairs (eigenvalues, eigenvectors) for your matrices of part 1 using Python NumPy function (numpy.linalg.eig()).
+
+   3. Find the SVD for the original matrix M from parts 2. Note that there are only two nonzero eigenvalues, so your matrix Σ should have only two singular values, while U and V have only two columns.
+
+   4. Set your smaller singular value to 0 and compute the one-dimensional approximation to the matrix M.
+
+   5. How much of the energy of the original singular values is retained by the onedimensional approximation? (Hint: energy = sum of the squares of the singular values)
+
+<br>
+
+#### **Recommendation Systems**
+
+---
+
+1. Solve the following problems.
+   You CANNOT use Python in this part. Please write your answer with the solving process in your document.
+
+   ![Figure3](/assets/lab/Bigdata-Analytics/Figure3.PNG)
+
+   - Above figure is a utility matrix, representing the ratings, on a 1–5 star scale, of eight items, a through h, by three users A, B, and C. Compute the following from the data of this matrix.
+
+     1. Treating the utility matrix as boolean, compute the Jaccard distance between each pair of users. (Hint: Blank is false, and others are true.)
+
+     2. Repeat Part 1, but use the cosine distance.
+
+     3. Treat ratings of 3, 4, and 5 as 1 and 1, 2, and blank as 0. Compute the Jaccard distance between each pair of users.
+
+     4. Repeat Part 3, but use the cosine distance.
+
+     5. Normalize the matrix by subtracting from each nonblank entry the average value for its user.
+
+     6. Using the normalized matrix from Part (e), compute the cosine distance between each pair of users.
+
+   - In this exercise, we cluster items in the matrix of above figure. Do the following steps.
+
+     1. Cluster the eight items hierarchically into four clusters. The following method should be used to cluster. Replace all 3’s, 4’s, and 5’s by 1 and replace 1’s, 2’s, and blanks by 0. use the Jaccard distance to measure the distance between the resulting column vectors. For clusters of more than one element, take the distance between clusters to be the minimum distance between pairs of elements, one from each cluster.
+
+     2. Then, construct from the original matrix of above figure a new matrix whose rows correspond to users, as before, and whose columns correspond to clusters. Compute the entry for a user and cluster of items by averaging the nonblank entries for that user and all the items in the cluster.
+
+     3. Compute the cosine distance between each pair of users, according to your matrix from Part 2.
+
+2. Implement collaborative filtering
+
+   We will implement user-based and item-based collaborative filtering and run it on a real movie dataset.
+
+   Implement the collaborative filtering algorithm where we use the cosine distance for measuring similarity. As a first step, compute the utility matrix M with normalized ratings from ratings.txt. That is, for normalization, subtract from each rating the average rating of that user. Then implement the following two methods for predicting the rating of user U to movie I:
+
+   ```
+   • User-based:
+   Find the 10 most similar users to U. Then compute the average ratings for I, only for the similar users who have rated I (i.e., similar users who have not rated I are not counted).
+
+   • Item-based:
+   Find the 10 most similar movies to I. While there are multiple ways to compute movie-movie similarity, compute the cosine distance of their rating vectors in M. Then take the average of the ratings that U gave to those similar movies (i.e., movies that were not rated by U are not counted). Note: this method takes longer than the user-based method.
+   ```
+
+3. Movie Recommendation Challenge
+
+   Similar to the NetFlix Challenge, we will have a EE412 Movie Recommendation Challenge. Improve the Recommendation System you implemented in 3-2 using any method you like (e.g., better normalization, clustering, different similarity measures, UV-decomposition, or even winning techniques used in the NetFlix Challenge) and predict the ratings.
+
+<br>
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab3)
+
+<br>
+
+#### **Glossary**
+
+---
+
+[Edit Distance](https://velog.io/@chunjakim/Edit-Distance)
+
+[k-Means Algorithm](https://velog.io/@chunjakim/k-Means-Algorithm)
+
+[Euclidean Distance](https://velog.io/@chunjakim/Euclidean-Distance)
+
+[PCA](https://velog.io/@chunjakim/PCA-Principal-Component-Analysis)
+
+[SVD](https://velog.io/@chunjakim/SVD-Singular-Value-Decomposition)
+
+[Content-based Filtering](https://velog.io/@chunjakim/Content-Based-Filtering)
+
+[Collaborative Filtering](https://velog.io/@chunjakim/Collaborative-Filtering)
+
+[Jaccard Distance](https://velog.io/@chunjakim/Jaccard-Distance)
+
+[Cosine Distance](https://velog.io/@chunjakim/Cosine-Distance)
