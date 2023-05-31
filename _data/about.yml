@@ -38,6 +38,43 @@ skill:
     img:
   - name: MariaDB
     img:
+  - name: Oracle
+    img:
+  - name: MongoDB
+    img:
+  - name: ElasticSearch
+    img:
+  # 배포
+  - name: AWS
+    img:
+  - name: Docker
+    img:
+  - name: Kubernetes
+    img:
+  - name: Nginx
+    img:
+  - name: Jenkins
+    img:
+  # App
+  - name: Android Studio with Java
+    img:
+  - name: Android Studio with Kotlin
+    img:
+  - name: Objective-C
+    img:
+  - name: Swift
+    img:
+  - name: Flutter
+    img:
+  - name: React Native
+    img:
+  - name: App Inventor
+    img:
+  # Game
+  - name: Unity
+    img:
+  - name: Unreal
+    img:
 
   - name: Assembly
     img:
@@ -52,10 +89,6 @@ skill:
   - name: Java
     img:
   - name: R
-    img:
-  - name: MySql
-    img:
-  - name: MariaDB
     img:
   - name: Spark
     img:
