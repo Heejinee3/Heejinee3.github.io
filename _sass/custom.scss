@@ -241,3 +241,40 @@ sup {
   font-size: 0.8em; /* 폰트 크기를 줄여서 위 첨자로 표시 */
   vertical-align: super; /* 텍스트를 기준선 위로 정렬 */
 }
+
+.about-me-title {
+  font-size: 30px;
+}
+
+.about-me-content {
+  margin: 10px 0px;
+}
+
+.about-container {
+  position: relative;
+  display: inline-block;
+}
+
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.about-container:hover .about-overlay {
+  opacity: 1;
+}
+
+.about-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

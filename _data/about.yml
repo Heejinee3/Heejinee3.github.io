@@ -1,0 +1,61 @@
+skill:
+  # Web Front-end
+  - name: HTML
+    img:
+  - name: CSS
+    img:
+  - name: JavaScript
+    img:
+  - name: JQuery
+    img:
+  - name: React
+    img:
+  - name: Vue
+    img:
+  - name: Angular
+    img:
+  - name: TypeScript
+    img:
+  # Web Back-end
+  - name: Springboot
+    img:
+  - name: Node.js
+    img:
+  - name: Flask
+    img:
+  - name: Django
+    img:
+  - name: Laravel
+    img:
+  - name: Ruby on Rails
+    img:
+  - name: ASP.NET
+    img:
+  # Database
+  - name: GraphQL
+    img:
+  - name: MySql
+    img:
+  - name: MariaDB
+    img:
+
+  - name: Assembly
+    img:
+  - name: Verilog
+    img:
+  - name: C
+    img:
+  - name: C++
+    img:
+  - name: Python
+    img:
+  - name: Java
+    img:
+  - name: R
+    img:
+  - name: MySql
+    img:
+  - name: MariaDB
+    img:
+  - name: Spark
+    img:

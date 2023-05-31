@@ -6,29 +6,29 @@
   lab:
     - name: A-Word-Counting-Program
       title: A Word Counting Program
-      tags: [C]
+      tags: [C, Linux]
     - name: String-Manipulation
       title: String Manipulation
-      tags: [C]
+      tags: [C, Linux]
     - name: Customer-Management-Table
       title: Customer Management Table
-      tags: [C]
+      tags: [C, Linux]
     - name: Assembly-Lanuage-Programming
       title: Assembly Lanuage Programming
-      tags: [Assembly]
+      tags: [Assembly, Linux]
     - name: A-Dynamic-Memory-Manager-Module
       title: A Dynamic Memory Manager Module
-      tags: [C]
+      tags: [C, Linux]
     - name: A-Unix-Shell
       title: A Unix Shell
-      tags: [C]
+      tags: [C, Linux]
   preview_img: /assets/lab/Programming-Structure/PreviewFigure.jpg
   img: /assets/lab/Programming-Structure/MainFigure.jpg
   desc: "The objective of these labs is to provide a comprehensive understanding of C programming for electrical engineering, with the goal of learning procedure-oriented programming techniques and gaining proficiency in using the C programming language. The labs will serve as practical exercises to reinforce theoretical concepts, apply knowledge, and develop programming skills within the context of electrical engineering."
   start_date: Mar 2018
   end_date: Jun 2018
   categories: [lab]
-  tags: [C, Assembly]
+  tags: [C, Assembly, Linux]
 
   # Computer Architecture
 - name: Computer-Architecture
