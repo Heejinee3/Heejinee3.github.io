@@ -120,7 +120,7 @@ Solve the following problems. In some exercises, we recommend you to use Python.
 
 ---
 
-[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab3)
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab3){:target="\_blank"}
 
 <br>
 
@@ -128,20 +128,20 @@ Solve the following problems. In some exercises, we recommend you to use Python.
 
 ---
 
-[Edit Distance](https://velog.io/@chunjakim/Edit-Distance)
+[Edit Distance](https://velog.io/@chunjakim/Edit-Distance){:target="\_blank"}
 
-[k-Means Algorithm](https://velog.io/@chunjakim/k-Means-Algorithm)
+[k-Means Algorithm](https://velog.io/@chunjakim/k-Means-Algorithm){:target="\_blank"}
 
-[Euclidean Distance](https://velog.io/@chunjakim/Euclidean-Distance)
+[Euclidean Distance](https://velog.io/@chunjakim/Euclidean-Distance){:target="\_blank"}
 
-[PCA](https://velog.io/@chunjakim/PCA-Principal-Component-Analysis)
+[PCA](https://velog.io/@chunjakim/PCA-Principal-Component-Analysis){:target="\_blank"}
 
-[SVD](https://velog.io/@chunjakim/SVD-Singular-Value-Decomposition)
+[SVD](https://velog.io/@chunjakim/SVD-Singular-Value-Decomposition){:target="\_blank"}
 
-[Content-based Filtering](https://velog.io/@chunjakim/Content-Based-Filtering)
+[Content-based Filtering](https://velog.io/@chunjakim/Content-Based-Filtering){:target="\_blank"}
 
-[Collaborative Filtering](https://velog.io/@chunjakim/Collaborative-Filtering)
+[Collaborative Filtering](https://velog.io/@chunjakim/Collaborative-Filtering){:target="\_blank"}
 
-[Jaccard Distance](https://velog.io/@chunjakim/Jaccard-Distance)
+[Jaccard Distance](https://velog.io/@chunjakim/Jaccard-Distance){:target="\_blank"}
 
-[Cosine Distance](https://velog.io/@chunjakim/Cosine-Distance)
+[Cosine Distance](https://velog.io/@chunjakim/Cosine-Distance){:target="\_blank"}

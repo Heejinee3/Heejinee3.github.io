@@ -72,7 +72,7 @@ Social networks like Facebook, Twitter, and LiveJournal have users who are conne
 
 ---
 
-[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab2)
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab2){:target="\_blank"}
 
 <br>
 
@@ -80,8 +80,8 @@ Social networks like Facebook, Twitter, and LiveJournal have users who are conne
 
 ---
 
-[MapReduce](https://velog.io/@chunjakim/MapReduce)
+[MapReduce](https://velog.io/@chunjakim/MapReduce){:target="\_blank"}
 
-[A-Priori Algorithm](https://velog.io/@chunjakim/A-Priori-Algorithm)
+[A-Priori Algorithm](https://velog.io/@chunjakim/A-Priori-Algorithm){:target="\_blank"}
 
-[Minhash-based LSH](https://velog.io/@chunjakim/minhash-based-LSH-MinHash-based-Locality-Sensitive-Hashing)
+[Minhash-based LSH](https://velog.io/@chunjakim/minhash-based-LSH-MinHash-based-Locality-Sensitive-Hashing){:target="\_blank"}

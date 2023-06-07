@@ -37,4 +37,4 @@ Here you will learn how to write, compile, debug, and execute a simple Spark pro
 
 ---
 
-[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab1)
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab1){:target="\_blank"}

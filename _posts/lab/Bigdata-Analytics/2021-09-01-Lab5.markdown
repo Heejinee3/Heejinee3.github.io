@@ -65,7 +65,7 @@ category: lab # project or lab
 
 ---
 
-[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab5)
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab5){:target="\_blank"}
 
 <br>
 
@@ -73,10 +73,10 @@ category: lab # project or lab
 
 ---
 
-[Fully-connected Network](https://velog.io/@chunjakim/Fully-connected-Network)
+[Fully-connected Network](https://velog.io/@chunjakim/Fully-connected-Network){:target="\_blank"}
 
-[MNIST](https://velog.io/@chunjakim/MNIST)
+[MNIST](https://velog.io/@chunjakim/MNIST){:target="\_blank"}
 
-[AMS Algorithm](https://velog.io/@chunjakim/AMS-Algorithm-Alon-Matias-Szegedy-Algorithm)
+[AMS Algorithm](https://velog.io/@chunjakim/AMS-Algorithm-Alon-Matias-Szegedy-Algorithm){:target="\_blank"}
 
-[DGIM Algorithm](https://velog.io/@chunjakim/DGIM-Algorithm)
+[DGIM Algorithm](https://velog.io/@chunjakim/DGIM-Algorithm){:target="\_blank"}

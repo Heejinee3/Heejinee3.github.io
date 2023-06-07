@@ -123,7 +123,7 @@ category: lab # project or lab
 
 ---
 
-[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab4)
+[Github](https://github.com/Heejinee3/Bigdata-Analytics/tree/master/Lab4){:target="\_blank"}
 
 <br>
 
@@ -131,14 +131,14 @@ category: lab # project or lab
 
 ---
 
-[PageRank](https://velog.io/@chunjakim/PageRank)
+[PageRank](https://velog.io/@chunjakim/PageRank){:target="\_blank"}
 
-[Bipartite Graph](https://velog.io/@chunjakim/Bipartite-Graph)
+[Bipartite Graph](https://velog.io/@chunjakim/Bipartite-Graph){:target="\_blank"}
 
-[MLE](https://velog.io/@chunjakim/MLE-Maximum-Likelihood-Estimation)
+[MLE](https://velog.io/@chunjakim/MLE-Maximum-Likelihood-Estimation){:target="\_blank"}
 
-[GINI Impurity](https://velog.io/@chunjakim/GINI-Impurity)
+[GINI Impurity](https://velog.io/@chunjakim/GINI-Impurity){:target="\_blank"}
 
-[Entropy Measure of Impurity](https://velog.io/@chunjakim/Entropy-Measure-of-Impurity)
+[Entropy Measure of Impurity](https://velog.io/@chunjakim/Entropy-Measure-of-Impurity){:target="\_blank"}
 
-[SVM](https://velog.io/@chunjakim/SVM-Support-Vector-Machine)
+[SVM](https://velog.io/@chunjakim/SVM-Support-Vector-Machine){:target="\_blank"}

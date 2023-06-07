@@ -1,5 +1,4 @@
 skill:
-  # Web Front-end
   - name: HTML
     img:
   - name: CSS
@@ -8,87 +7,27 @@ skill:
     img:
   - name: JQuery
     img:
-  - name: React
-    img:
-  - name: Vue
-    img:
-  - name: Angular
-    img:
-  - name: TypeScript
-    img:
-  # Web Back-end
   - name: Springboot
-    img:
-  - name: Node.js
-    img:
-  - name: Flask
-    img:
-  - name: Django
-    img:
-  - name: Laravel
-    img:
-  - name: Ruby on Rails
-    img:
-  - name: ASP.NET
-    img:
-  # Database
-  - name: GraphQL
     img:
   - name: MySql
     img:
   - name: MariaDB
     img:
-  - name: Oracle
-    img:
-  - name: MongoDB
-    img:
-  - name: ElasticSearch
-    img:
-  # 배포
   - name: AWS
     img:
-  - name: Docker
-    img:
-  - name: Kubernetes
-    img:
-  - name: Nginx
-    img:
-  - name: Jenkins
-    img:
-  # App
-  - name: Android Studio with Java
-    img:
-  - name: Android Studio with Kotlin
-    img:
-  - name: Objective-C
-    img:
-  - name: Swift
-    img:
-  - name: Flutter
-    img:
-  - name: React Native
-    img:
-  - name: App Inventor
-    img:
-  # Game
-  - name: Unity
-    img:
-  - name: Unreal
-    img:
-
-  - name: Assembly
-    img:
-  - name: Verilog
-    img:
-  - name: C
-    img:
-  - name: C++
+  - name: R
     img:
   - name: Python
     img:
   - name: Java
     img:
-  - name: R
+  - name: C
+    img:
+  - name: Assembly
+    img:
+  - name: Verilog
     img:
   - name: Spark
+    img:
+  - name: Linux
     img:
