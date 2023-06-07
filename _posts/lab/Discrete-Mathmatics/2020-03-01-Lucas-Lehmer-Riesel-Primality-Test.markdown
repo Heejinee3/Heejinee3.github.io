@@ -60,4 +60,4 @@ category: lab # project or lab
 
 ---
 
-[Github](https://github.com/Heejinee3/Discrete-Mathematics/tree/master/Lucas-Lehmer-Riesel%20Primality%20Test)
+[Github](https://github.com/Heejinee3/Discrete-Mathematics/tree/master/Lucas-Lehmer-Riesel%20Primality%20Test){:target="\_blank"}

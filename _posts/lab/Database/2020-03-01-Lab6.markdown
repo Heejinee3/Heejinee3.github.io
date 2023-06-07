@@ -80,17 +80,18 @@ Answer the following:
 
 Consider an extensible hash structure where buckets can hold up to three records. Initially the structure is empty. The hashed key values are as follows (in binary):
 
+| Hashed Key Values   |
 | ------------------- |
 | h(Ashley) = [00010] |
-| h(Brian) = [00101] |
-| h(Chris) = [00110] |
+| h(Brian) = [00101]  |
+| h(Chris) = [00110]  |
 | h(Daniel) = [01010] |
-| h(Ethel) = [01101] |
-| h(Frank) = [10010] |
+| h(Ethel) = [01101]  |
+| h(Frank) = [10010]  |
 | h(George) = [10101] |
 | h(Harold) = [10110] |
-| h(Jeff) = [11101] |
-| h(Karen) = [11111] |
+| h(Jeff) = [11101]   |
+| h(Karen) = [11111]  |
 
 1. We insert records in the following order: Ashley, Karen, Brian, Jeff, Chris, Harold,
    Ethel, George, Frank, Daniel Show the structure after all these records have been
@@ -219,7 +220,7 @@ We assume that, whatever consistency constraints there are on the database, thes
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab6)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab6){:target="\_blank"}
 
 <br>
 
@@ -227,12 +228,12 @@ We assume that, whatever consistency constraints there are on the database, thes
 
 ---
 
-[B+ Tree](https://velog.io/@chunjakim/B-Tree)
+[B+ Tree](https://velog.io/@chunjakim/B-Tree){:target="\_blank"}
 
-[Extensible Hashing](https://velog.io/@chunjakim/Extensible-Hashing)
+[Extensible Hashing](https://velog.io/@chunjakim/Extensible-Hashing){:target="\_blank"}
 
-[Query Processing](https://velog.io/@chunjakim/Query-Processing)
+[Query Processing](https://velog.io/@chunjakim/Query-Processing){:target="\_blank"}
 
-[Crash Recovery](https://velog.io/@chunjakim/Crash-Recovery)
+[Crash Recovery](https://velog.io/@chunjakim/Crash-Recovery){:target="\_blank"}
 
-[Concurrency Control](https://velog.io/@chunjakim/Concurrency-Control)
+[Concurrency Control](https://velog.io/@chunjakim/Concurrency-Control){:target="\_blank"}

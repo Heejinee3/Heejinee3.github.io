@@ -32,7 +32,7 @@ You will implement and improve the customer data management API using various da
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/Customer%20Management%20Table)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/Customer%20Management%20Table){:target="\_blank"}
 
 <br>
 
@@ -40,4 +40,4 @@ You will implement and improve the customer data management API using various da
 
 ---
 
-[Hash Table](https://velog.io/@chunjakim/Hash-Table)
+[Hash Table](https://velog.io/@chunjakim/Hash-Table){:target="\_blank"}

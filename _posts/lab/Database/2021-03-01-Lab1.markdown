@@ -13,7 +13,7 @@ category: lab # project or lab
 The figure below shows the schema of the Sakila database. This database has 23 tables:
 16 normal tables and 8 view tables. You can use view tables, but we recommend that you
 use only normaltables. You can find the information related to the schema in the following
-link: [Sakila](https://dev.mysql.com/doc/sakila/en/sakila-structure.html)
+link: [Sakila](https://dev.mysql.com/doc/sakila/en/sakila-structure.html){:target="\_blank"}
 
 ![Figure1](/assets/lab/Database/Figure1.png)
 
@@ -79,4 +79,4 @@ link: [Sakila](https://dev.mysql.com/doc/sakila/en/sakila-structure.html)
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab1)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab1){:target="\_blank"}

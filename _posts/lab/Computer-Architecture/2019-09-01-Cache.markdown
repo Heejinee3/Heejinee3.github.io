@@ -76,7 +76,7 @@ Your implementation MUST comply with the following rules:
 
 ---
 
-[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Cache)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Cache){:target="\_blank"}
 
 <br>
 
@@ -84,6 +84,6 @@ Your implementation MUST comply with the following rules:
 
 ---
 
-[Cache Associativity](https://velog.io/@chunjakim/Cache-Associativity)
+[Cache Associativity](https://velog.io/@chunjakim/Cache-Associativity){:target="\_blank"}
 
-[Cache Replacement & Write Policy](https://velog.io/@chunjakim/Cache-Replacement-Write-Policy)
+[Cache Replacement & Write Policy](https://velog.io/@chunjakim/Cache-Replacement-Write-Policy){:target="\_blank"}

@@ -103,4 +103,4 @@ This is a guide for you to get started with Google Cloud SQL. Cloud SQL is a ful
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab2)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab2){:target="\_blank"}

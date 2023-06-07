@@ -44,4 +44,4 @@ only user of the system.
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab5)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab5){:target="\_blank"}

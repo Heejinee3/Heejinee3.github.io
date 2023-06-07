@@ -32,4 +32,4 @@ The task in this assignment is twofold.
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/String%20Manipulation){:target="\_blank"}

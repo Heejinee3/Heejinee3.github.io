@@ -109,7 +109,7 @@ correct solutions, briefly explain why you made any design choices
 In this problem, we will use a real dataset (called Black Friday) to identify functional
 dependencies (FDs) in a table and normalize its schema.
 
-You can download the Black Friday dataset on Kaggle using [this link](https://www.kaggle.com/datasets/llopesolivei/blackfriday) (CSV file). The CSV file is one table where the first row contains the attribute names.
+You can download the Black Friday dataset on Kaggle using [this link](https://www.kaggle.com/datasets/llopesolivei/blackfriday){:target="\_blank"} (CSV file). The CSV file is one table where the first row contains the attribute names.
 
 [Task 1] Find all the non-trivial FDs in the table based on its schema.
 
@@ -128,7 +128,7 @@ schema is in 3NF, BCNF, and/or 4NF.
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab4)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab4){:target="\_blank"}
 
 <br>
 
@@ -136,8 +136,8 @@ schema is in 3NF, BCNF, and/or 4NF.
 
 ---
 
-[Relational Algebra](https://velog.io/@chunjakim/Relational-Algebra)
+[Relational Algebra](https://velog.io/@chunjakim/Relational-Algebra){:target="\_blank"}
 
-[Entity-Relationship Model](https://velog.io/@chunjakim/ER-Model-Entity-Relationship-Model)
+[Entity-Relationship Model](https://velog.io/@chunjakim/ER-Model-Entity-Relationship-Model){:target="\_blank"}
 
-[Normal Forms](https://velog.io/@chunjakim/Normal-Forms)
+[Normal Forms](https://velog.io/@chunjakim/Normal-Forms){:target="\_blank"}

@@ -60,7 +60,7 @@ The purpose of this lab is to design and implement hardware and software for a t
 
 ---
 
-[Github](https://github.com/Heejinee3/Robocam/tree/master/Mobile%20Robot%20Control)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/Mobile%20Robot%20Control){:target="\_blank"}
 
 <br>
 
@@ -68,4 +68,4 @@ The purpose of this lab is to design and implement hardware and software for a t
 
 ---
 
-[PWM](https://velog.io/@chunjakim/PWM-Pulse-Width-Modulation)
+[PWM](https://velog.io/@chunjakim/PWM-Pulse-Width-Modulation){:target="\_blank"}

@@ -23,7 +23,7 @@ a capstone for the course.
 
 Your task in this assignment is to create a program named ish. Your
 program should be a minimal but realistic interactive Unix shell.
-[A Supplementary Information](https://www.ndsl.kaist.edu/~swhang/ee209/assignment/unixshell/shellsupplementary.html) page lists detailed implementation
+[A Supplementary Information](https://www.ndsl.kaist.edu/~swhang/ee209/assignment/unixshell/shellsupplementary.html){:target="\_blank"} page lists detailed implementation
 requirements and recommendations.
 
 <br>
@@ -32,7 +32,7 @@ requirements and recommendations.
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Unix%20Shell)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Unix%20Shell){:target="\_blank"}
 
 <br>
 
@@ -40,4 +40,4 @@ requirements and recommendations.
 
 ---
 
-[Unix Shell](https://velog.io/@chunjakim/Unix-Shell)
+[Unix Shell](https://velog.io/@chunjakim/Unix-Shell){:target="\_blank"}

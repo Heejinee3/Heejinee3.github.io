@@ -61,7 +61,7 @@ The purpose of this lab is to control two lights for illumination: hardwired LED
 
 ---
 
-[Github](https://github.com/Heejinee3/Robocam/tree/master/Light%20Control)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/Light%20Control){:target="\_blank"}
 
 <br>
 
@@ -69,6 +69,6 @@ The purpose of this lab is to control two lights for illumination: hardwired LED
 
 ---
 
-[GPIO](https://velog.io/@chunjakim/GPIOGeneral-Purpose-InputOutput)
+[GPIO](https://velog.io/@chunjakim/GPIOGeneral-Purpose-InputOutput){:target="\_blank"}
 
-[sysfs](https://velog.io/@chunjakim/sysfs-sys-File-System)
+[sysfs](https://velog.io/@chunjakim/sysfs-sys-File-System){:target="\_blank"}

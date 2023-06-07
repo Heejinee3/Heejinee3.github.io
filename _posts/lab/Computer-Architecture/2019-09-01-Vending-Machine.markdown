@@ -84,7 +84,7 @@ You are given a template of a vending machine in vending_machine.v. The template
 
 ---
 
-[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Vending-Machine)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Vending-Machine){:target="\_blank"}
 
 <br>
 
@@ -92,6 +92,6 @@ You are given a template of a vending machine in vending_machine.v. The template
 
 ---
 
-[RTL](https://velog.io/@chunjakim/RTL-Register-Transfer-Level)
+[RTL](https://velog.io/@chunjakim/RTL-Register-Transfer-Level){:target="\_blank"}
 
-[FSM](https://velog.io/@chunjakim/FSM-Finite-State-Machine)
+[FSM](https://velog.io/@chunjakim/FSM-Finite-State-Machine){:target="\_blank"}

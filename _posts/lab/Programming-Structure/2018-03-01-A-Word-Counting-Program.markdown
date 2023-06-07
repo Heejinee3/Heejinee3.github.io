@@ -26,7 +26,7 @@ The task is to write a C program named wc209 that prints the number of lines, wo
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Word%20Counting%20Program){:target="\_blank"}
 
 <br>
 
@@ -34,4 +34,4 @@ The task is to write a C program named wc209 that prints the number of lines, wo
 
 ---
 
-[GCC](https://velog.io/@chunjakim/GCC-GNU-Compiler-Collection)
+[GCC](https://velog.io/@chunjakim/GCC-GNU-Compiler-Collection){:target="\_blank"}

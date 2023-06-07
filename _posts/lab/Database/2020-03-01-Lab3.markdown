@@ -127,4 +127,4 @@ Notes
 
 ---
 
-[Github](https://github.com/Heejinee3/Database/tree/master/Lab3)
+[Github](https://github.com/Heejinee3/Database/tree/master/Lab3){:target="\_blank"}

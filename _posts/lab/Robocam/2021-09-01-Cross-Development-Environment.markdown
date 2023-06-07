@@ -69,7 +69,7 @@ Suitable Linux software cross development system based on a PC will be construct
 
 ---
 
-[Github](https://github.com/Heejinee3/Robocam/tree/master/Cross%20Development%20Environment)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/Cross%20Development%20Environment){:target="\_blank"}
 
 <br>
 
@@ -77,6 +77,6 @@ Suitable Linux software cross development system based on a PC will be construct
 
 ---
 
-[Beaglebone Debian](https://velog.io/@chunjakim/Beaglebone-Debian)
+[Beaglebone Debian](https://velog.io/@chunjakim/Beaglebone-Debian){:target="\_blank"}
 
-[NFS](https://velog.io/@chunjakim/NFSNetwork-File-System)
+[NFS](https://velog.io/@chunjakim/NFSNetwork-File-System){:target="\_blank"}

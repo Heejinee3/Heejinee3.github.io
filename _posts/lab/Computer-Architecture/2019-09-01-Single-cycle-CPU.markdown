@@ -62,7 +62,7 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Single-cycle%20CPU)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Single-cycle%20CPU){:target="\_blank"}
 
 <br>
 
@@ -70,8 +70,8 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Control Path & Data Path](https://velog.io/@chunjakim/Control-Path-Data-Path)
+[Control Path & Data Path](https://velog.io/@chunjakim/Control-Path-Data-Path){:target="\_blank"}
 
-[Single-cycle CPU](https://velog.io/@chunjakim/Single-cycle-CPU)
+[Single-cycle CPU](https://velog.io/@chunjakim/Single-cycle-CPU){:target="\_blank"}
 
-[ISA](https://velog.io/@chunjakim/ISA-Instruction-Set-Architecture)
+[ISA](https://velog.io/@chunjakim/ISA-Instruction-Set-Architecture){:target="\_blank"}

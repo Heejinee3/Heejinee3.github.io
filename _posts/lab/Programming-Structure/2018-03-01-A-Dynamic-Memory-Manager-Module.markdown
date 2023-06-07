@@ -67,7 +67,7 @@ Your HeapMgr implementations should check invariants by:
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Dynamic%20Memory%20Manager%20Module)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/A%20Dynamic%20Memory%20Manager%20Module){:target="\_blank"}
 
 <br>
 
@@ -75,4 +75,4 @@ Your HeapMgr implementations should check invariants by:
 
 ---
 
-[Heap](https://velog.io/@chunjakim/Heap)
+[Heap](https://velog.io/@chunjakim/Heap){:target="\_blank"}

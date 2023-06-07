@@ -67,7 +67,7 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Multi-cycle%20CPU)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Multi-cycle%20CPU){:target="\_blank"}
 
 <br>
 
@@ -75,4 +75,4 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Multi-cycle CPU](https://velog.io/@chunjakim/Multi-cycle-CPU)
+[Multi-cycle CPU](https://velog.io/@chunjakim/Multi-cycle-CPU){:target="\_blank"}

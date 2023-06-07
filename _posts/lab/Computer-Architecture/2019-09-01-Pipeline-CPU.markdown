@@ -68,7 +68,7 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Pipeline%20CPU)
+[Github](https://github.com/Heejinee3/Computer-Architecture/tree/master/Pipeline%20CPU){:target="\_blank"}
 
 <br>
 
@@ -76,6 +76,6 @@ The template of memory and register file is already given to you. You are only r
 
 ---
 
-[Pipeline CPU](https://velog.io/@chunjakim/Pipeline-CPU)
+[Pipeline CPU](https://velog.io/@chunjakim/Pipeline-CPU){:target="\_blank"}
 
-[Hazard](https://velog.io/@chunjakim/Hazard)
+[Hazard](https://velog.io/@chunjakim/Hazard){:target="\_blank"}

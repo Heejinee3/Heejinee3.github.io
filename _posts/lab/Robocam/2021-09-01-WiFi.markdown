@@ -59,7 +59,7 @@ The purpose of this lab is to setup WiFi device driver with security, and contro
 
 ---
 
-[Github](https://github.com/Heejinee3/Robocam/tree/master/WiFi)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/WiFi){:target="\_blank"}
 
 <br>
 
@@ -67,4 +67,4 @@ The purpose of this lab is to setup WiFi device driver with security, and contro
 
 ---
 
-[UDP](https://velog.io/@chunjakim/UDP-User-Datagram-Protocol)
+[UDP](https://velog.io/@chunjakim/UDP-User-Datagram-Protocol){:target="\_blank"}

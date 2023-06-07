@@ -34,7 +34,7 @@ A Desk Calculator Program in Assembly Language
 
 ---
 
-[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/Assembly%20Language%20Programming)
+[Github](https://github.com/Heejinee3/Programming-Structure/tree/master/Assembly%20Language%20Programming){:target="\_blank"}
 
 <br>
 
@@ -42,4 +42,4 @@ A Desk Calculator Program in Assembly Language
 
 ---
 
-[Assembly Language](https://velog.io/@chunjakim/Assembly-Language)
+[Assembly Language](https://velog.io/@chunjakim/Assembly-Language){:target="\_blank"}

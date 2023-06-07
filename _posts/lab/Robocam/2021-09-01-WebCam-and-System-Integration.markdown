@@ -72,7 +72,7 @@ The purpose of this lab is to design and implement a remote video viewer using o
 
 ---
 
-[Github](https://github.com/Heejinee3/Robocam/tree/master/WebCam%20and%20System%20Integration)
+[Github](https://github.com/Heejinee3/Robocam/tree/master/WebCam%20and%20System%20Integration){:target="\_blank"}
 
 <br>
 
@@ -80,4 +80,4 @@ The purpose of this lab is to design and implement a remote video viewer using o
 
 ---
 
-[SDL](https://velog.io/@chunjakim/SDL-Simple-DirectMedia-Layer)
+[SDL](https://velog.io/@chunjakim/SDL-Simple-DirectMedia-Layer){:target="\_blank"}
