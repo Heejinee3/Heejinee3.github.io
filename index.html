@@ -28,19 +28,159 @@ robots: noindex
 
 </div> -->
 
-<div class="about-me-title">About Me</div>
-<div class="about-me-content">
-  전기 및 전자공학부를 전공하고, 전산학부를 복수 전공한 정 희 집ㅂㄴ이비ㅣ니당
-</div>
-
-<div class="about-me-title">Skills</div>
-<div class="about-container">
-  <img src="your-image.jpg" alt="Your Image" />
-  <div class="about-overlay">
-    <div class="about-text">Your Text</div>
+<link rel="stylesheet" href="/about.css" />
+<div>
+  {% assign about = site.data.about %}
+  <div class="scroll-animation in-view">
+    <div class="about-me-title">About Me</div>
+    <div class="about-me-content">
+      <p class="about-me-text">
+        전기 및 전자공학부를 전공하고, 전산학부를 복수 전공한 정 희
+        집ㅂㄴ이비ㅣ니당
+      </p>
+    </div>
   </div>
+
+  <!-- Projects -->
+
+  <!-- Labs -->
+  <div class="scroll-animation">
+    <div class="about-title">Labs</div>
+    <div class="about-labs">
+      {% for labs in site.data.lab %}
+      <span
+        onclick="openPopup({{ forloop.index }})"
+        class="about-lab"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{labs.img}});"
+        >{{labs.name}}</span
+      >
+      {% endfor %}
+    </div>
+  </div>
+  {% for labs in site.data.lab %}
+  <!-- Labs Popup 시작-->
+  <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
+    <div class="popup">
+      <!-- 제목 -->
+      <div class="popup-header">
+        <span class="popup-title">{{labs.title}}</span>
+        <span class="popup-close" onclick="closePopup({{ forloop.index }})"
+          >X</span
+        >
+      </div>
+      <!-- 날짜 -->
+      <div class="project-dates">
+        <span class="project-date">{{ labs.start_date }}</span>
+        <span class="project-date"> - </span>
+        <span class="project-date">{{ labs.end_date }}</span>
+      </div>
+      <!-- tag -->
+      <div class="post-meta">
+        {% if labs.tags.size > 0 %}
+        <div class="popup-post-tags">
+          {% for tag in labs.tags %}
+          <span class="popup-post-tag">{{ tag }}</span>
+          {% if forloop.last == false %}&nbsp{% endif %}{% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <!-- image -->
+      <div class="popup-image-div">
+        <img class="popup-image" src="{{ labs.img }}" alt="" />
+      </div>
+      <div class="timeline-body">
+        <!-- 설명 -->
+        <div class="popup-timeline-desc">{{ labs.desc }}</div>
+        <!-- lab -->
+        <div class="ghbtn" style="margin-top: 10px">
+          {% for lab in labs.lab %}
+          <div>
+            <a
+              id="popup-link{{ forloop.index }}"
+              class="popup-timeline-desc"
+              href="/lab/{{labs.name}}/{{lab.name}}"
+              >{{lab.title}}</a
+            >&emsp;
+          </div>
+          {% endfor %}
+        </div>
+        <!-- 링크 -->
+        <div class="popup-timeline-link">
+          <a href="{{ labs.link }}" target="_blank"> → Go to Github </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Labs Popup 끝-->
+
+  <!-- Skills -->
+  <div class="scroll-animation">
+    <div class="about-title">Skills</div>
+    <div class="about-skills">
+      {% for skill in about.skill %}
+      <span class="about-skill">{{skill}}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Certificates -->
+  <div class="scroll-animation">
+    <div class="about-title">Certificates</div>
+    <table class="about-certificates">
+      <tr>
+        <th>자격증</th>
+        <th>점수</th>
+        <th>날짜</th>
+      </tr>
+      {% for certificate in about.certificate %}
+      <tr>
+        <td>{{certificate.name}}</td>
+        <td>{{certificate.score}}</td>
+        <td>{{certificate.date}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <!-- History -->
 </div>
 
-<div class="about-me-title">Certificates</div>
+<script>
+  window.addEventListener("scroll", function () {
+    var elements = document.querySelectorAll(".scroll-animation");
 
-<div>ㅇㅇ</div>
+    for (var i = 0; i < elements.length; i++) {
+      var element = elements[i];
+      var position = element.getBoundingClientRect();
+
+      // 스크롤 화면에 나타날 때
+      if (position.bottom >= 0 && position.top <= window.innerHeight) {
+        element.classList.add("in-view");
+        element.classList.remove("out-of-view");
+      } else {
+        // 스크롤 화면에서 사라질 때
+        element.classList.add("out-of-view");
+        element.classList.remove("in-view");
+      }
+    }
+  });
+</script>
+<script>
+  function openPopup(idx) {
+    const background = document.getElementById("layer-bg" + idx);
+
+    background.classList.remove("hidden");
+    background.classList.add("visible");
+  }
+  function closePopup(idx) {
+    const background = document.getElementById("layer-bg" + idx);
+
+    background.classList.remove("visible");
+    background.classList.add("hidden-animation");
+    setTimeout(function () {
+      background.classList.remove("hidden-animation");
+      background.classList.add("hidden");
+    }, 300); // 애니메이션 시간과 동일한 시간을 설정해주세요.
+  }
+</script>

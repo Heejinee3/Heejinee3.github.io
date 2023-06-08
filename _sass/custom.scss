@@ -217,6 +217,11 @@
   line-height: 1.5;
 }
 
+.popup-timeline-link {
+  text-align: end;
+  font-size: 15px;
+}
+
 .project-title {
   cursor: pointer;
 }
@@ -242,39 +247,140 @@ sup {
   vertical-align: super; /* 텍스트를 기준선 위로 정렬 */
 }
 
+.about-title {
+  font-size: 30px;
+  text-align: center;
+  margin: 150px 0 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666;
+}
+
 .about-me-title {
   font-size: 30px;
+  text-align: center;
+  margin: 30px 0 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666;
 }
 
 .about-me-content {
-  margin: 10px 0px;
-}
-
-.about-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/about/about-me.jpg");
+  background-size: cover;
+  background-position: center;
   position: relative;
-  display: inline-block;
-}
-
-.about-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+}
+
+.about-me-text {
   color: white;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.about-container:hover .about-overlay {
-  opacity: 1;
-}
-
-.about-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+// .about-me-content {
+//   margin: 10px 0px;
+// }
+
+.about-labs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.about-lab {
+  display: inline-block;
+  padding: 10px;
+  width: 300px;
+  min-height: 150px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: font-size 0.2s;
+}
+
+.about-lab:hover {
+  font-size: 17px;
+}
+
+.about-skills {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.about-skill {
+  display: inline-block;
+  border: 1px solid #e25440;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 1s;
+}
+
+.about-skill:hover {
+  background-color: #e25440;
+  color: #fff;
+}
+
+.about-certificates {
+  width: 100%;
+  box-shadow: 2px 2px 10px 3px #cccccc5e;
+}
+
+.about-certificates th {
+  padding: 12px;
+}
+
+.about-certificates tr:nth-child(even) td {
+  background-color: #e253408a;
+  color: white;
+}
+
+.about-certificates tr:nth-child(odd) td {
+  background-color: #fff;
+}
+
+.scroll-animation {
+  opacity: 0;
+}
+
+@keyframes scroll-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scroll-animation.in-view {
+  animation: scroll-fade-in 1s ease-in forwards;
+}
+
+.scroll-animation.out-of-view {
+  animation: scroll-fade-out 1s ease-out forwards;
 }

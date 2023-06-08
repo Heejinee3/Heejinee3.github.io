@@ -1,33 +1,43 @@
 skill:
-  - name: HTML
-    img:
-  - name: CSS
-    img:
-  - name: JavaScript
-    img:
-  - name: JQuery
-    img:
-  - name: Springboot
-    img:
-  - name: MySql
-    img:
-  - name: MariaDB
-    img:
-  - name: AWS
-    img:
-  - name: R
-    img:
-  - name: Python
-    img:
-  - name: Java
-    img:
-  - name: C
-    img:
-  - name: Assembly
-    img:
-  - name: Verilog
-    img:
-  - name: Spark
-    img:
-  - name: Linux
-    img:
+  [
+    C,
+    Java,
+    Python,
+    HTML,
+    CSS,
+    JavaScript,
+    Bootstrap,
+    JQuery,
+    Thymeleaf,
+    Spring Boot,
+    MySQL,
+    MariaDB,
+    AWS,
+    R,
+    Assembly,
+    Verilog,
+    Spark,
+    Linux,
+  ]
+
+certificate:
+  - name: TOEIC
+    score: 810
+    date: 2022-09-25
+  - name: 정보처리기사
+    date: 2022-09-25
+  - name: TOEIC
+    score: 810
+    date: 2022-09-25
+  - name: 정보처리기사
+    date: 2022-09-25
+  - name: TOEIC
+    score: 810
+    date: 2022-09-25
+  - name: 정보처리기사
+    date: 2022-09-25
+  - name: TOEIC
+    score: 810
+    date: 2022-09-25
+  - name: 정보처리기사
+    date: 2022-09-25
