@@ -1,15 +1,13 @@
 # projects section data
 - name: Analysis-of-YouTube-Trending-Videos
   title: Analysis of YouTube Trending Videos
-  link: https://github.com/Heejinee3/Data-Science
-  code: https://github.com/Heejinee3/Data-Science/tree/master/Code
+  link: https://github.com/Heejinee3/Analysis-of-YouTube-Trending-Videos
+  code: https://github.com/Heejinee3/Analysis-of-YouTube-Trending-Videos/tree/master/Code
   report: https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf
-  video:
   img: /assets/project/Analysis-of-YouTube-Trending-Videos/MainFigure.PNG
   desc: "This is the project in which we analyzed YouTube Trending Videos using R to determine which variables had a significant impact on the number of views and identify the most effective approach to increase view counts."
   start_date: Sep 2020
   end_date: Dec 2020
-  categories: [project]
   tags: [R]
 
 - name: Mysoho-Shopping-Mall-Website

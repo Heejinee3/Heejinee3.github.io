@@ -27,7 +27,6 @@
   desc: "The objective of these labs is to provide a comprehensive understanding of C programming for electrical engineering, with the goal of learning procedure-oriented programming techniques and gaining proficiency in using the C programming language. The labs will serve as practical exercises to reinforce theoretical concepts, apply knowledge, and develop programming skills within the context of electrical engineering."
   start_date: Mar 2018
   end_date: Jun 2018
-  categories: [lab]
   tags: [C, Assembly, Linux]
 
   # Computer Architecture
@@ -58,7 +57,6 @@
   desc: "The objective of these labs is to understand the basic principles and hardware structures of computer systems including personal computers and workstations, and to learn how to design computers. This course covers data representation, CPU organization, instruction classification, language processing of assemblers and compilers, pipelining for performance enhancement, memory hierarchy, cache memory, and IO peripheral devices. In addition, high-performance computer systems are to be introduced."
   start_date: Sep 2019
   end_date: Dec 2019
-  categories: [lab]
   tags: [Verilog, RISC-V]
 
   # Discrete Mathematics
@@ -73,7 +71,6 @@
   desc: "The objective of these labs is to offer practical experience and application of fundamental mathematical concepts employed in computer science. The topics encompassed comprise proofs, relations, counting, graph theory, logic, automata, and formal languages. This practical approach aims to strengthen comprehension and foster problem-solving abilities within the realm of computer science."
   start_date: Mar 2020
   end_date: Jun 2020
-  categories: [lab]
 
   # Machine Learning
 - name: Machine-Learning
@@ -85,7 +82,6 @@
   desc: "The objective of these labs is to explore optimization and machine learning techniques for computer vision, specifically focusing on face recognition using subspace learning. Topics covered include PCA, discriminant analysis, kernel machines, object categorization, CNNs, GANs, activity recognition, regression forests, pose estimation, and object detection."
   start_date: Sep 2020
   end_date: Dec 2020
-  categories: [lab]
   tags: []
 
   # Database
@@ -123,7 +119,6 @@
   desc: "The objective of these labs is to gain a comprehensive understanding of database fundamentals and the implementation of data systems. These practical exercises cover the relational model, ER model, SQL, design theory, transactions, file and system structure, indexing, query processing, crash recovery, concurrency control, and transaction processing. Furthermore, emerging technologies like NoSQL and NewSQL systems will be explored."
   start_date: Mar 2021
   end_date: Jun 2021
-  categories: [lab]
   tags:
     [
       MySql,
@@ -160,7 +155,6 @@
   desc: "The objective of these labs is to study data mining and machine learning algorithms for analyzing big data, utilizing Apache Spark as the primary tool. Topics covered include frequent itemsets, finding similar items, clustering, dimensionality reduction, recommendation systems, link analysis, data streams, large-scale machine learning, and Web advertising. The labs aim to develop a deep understanding of the algorithms and techniques involved in effectively mining and analyzing large datasets using Spark, and their applications in different domains."
   start_date: Sep 2021
   end_date: Dec 2021
-  categories: [lab]
   tags: [Python, Spark]
 
   # Computer Vision
@@ -173,7 +167,6 @@
   desc: "The objective of these labs is to provide a comprehensive introduction to low-level computer vision, covering foundational concepts such as camera image formation, geometric optics, feature detection, stereo matching, motion estimation, image recognition, scene understanding, and more. These labs aim to help develop an intuitive understanding and mathematical proficiency in various computer vision applications."
   start_date: Sep 2021
   end_date: Dec 2021
-  categories: [lab]
   tags: []
 
   # Robocam
@@ -203,4 +196,3 @@
   start_date: Sep 2021
   end_date: Dec 2021
   tags: [Ubuntu, Beaglebone Debian, NFS, Cross Development Environment, C, C++]
-  categories: [lab]

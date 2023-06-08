@@ -1,6 +1,8 @@
 ---
 index: 1
+title: Mysoho Shopping Mall Website
 permalink: /project/Mysoho-Shopping-Mall-Website
+category: project # project or lab
 ---
 
 #### **Purpose**

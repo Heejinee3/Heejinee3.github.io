@@ -7,6 +7,8 @@ category: project # project or lab
 
 #### **Overview**
 
+---
+
 Nowadays, the online video market is starting to be more and more competitive under
 the broadening influence of YouTube, which is the very famous social media platform all
 over the world.
@@ -21,6 +23,8 @@ number of views, and 2) what is the better way to get more view counts.
 <br>
 
 #### **Introduction**
+
+---
 
 YouTube is a video sharing platform serviced by Google.
 As the largest video sharing site in the world, YouTube users can watch, upload, and share videos.
@@ -53,6 +57,8 @@ Taking these features into consideration, strategic planning to get more views, 
 
 #### **Workflow**
 
+---
+
 1. Preprocessing of the dataset & Column modifications
 2. Exploratory analysis: review of data characteristics & visualization
 3. Statistical analysis of ranking factors: length of the title, number of tags, common
@@ -64,8 +70,10 @@ Taking these features into consideration, strategic planning to get more views, 
 
 #### **Dataset**
 
+---
+
 The dataset was extracted from Kaggle, [Trending YouTube Video Statistics](https://
-www.kaggle.com/datasnaek/youtube-new).
+www.kaggle.com/datasnaek/youtube-new){:target="\_blank"}.
 
 According to the contributor of this dataset, it is a daily record of the top trending
 YouTube videos.
@@ -92,6 +100,8 @@ The table below(Figure 2) sets out the 1 to 35 rows of 34,567 entries, and first
 <br>
 
 #### **Conclusions with Clustering**
+
+---
 
 What makes the number of views high?
 
@@ -153,7 +163,7 @@ What makes the number of views high?
         According to the Figure 28, the high-view-group(cluster 2) has 0~30 number of tags while other groups has more or less tags.
         This facts do stack up with our analysis for number of tags on 14 page: there was a tendency to increase of the view at 0~30, and after that, the number of views decreases slightly as the number of tags increases.
 
-        Length of the title is also concordant with result shown in Figure 17([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf)).
+        Length of the title is also concordant with result shown in Figure 17([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf){:target="\_blank"}).
         Videos have 50-60 of title length are getting higher view counts.
         We can find that the value of 'common_tag' of cluster 2 and 1 are higher than cluster 3, but the range is not that big.
 
@@ -165,6 +175,6 @@ What makes the number of views high?
 
         So we can successfully conclud that 'Music(number 10)' and 'Entertainment(number
         24)' are the most popular category between YouTube trending videos, as it has been
-        shown at Figure 20([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf)).
+        shown at Figure 20([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf){:target="\_blank"}).
 
     Conclusionally, clustering shows highly similar results with statistical analysis.
