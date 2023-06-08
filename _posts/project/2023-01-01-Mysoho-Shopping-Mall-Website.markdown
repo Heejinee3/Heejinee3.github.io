@@ -7,7 +7,9 @@ category: project # project or lab
 
 #### **Purpose**
 
-이 프로젝트의 목적은 HTML, JavaScript, CSS, 그리고 Spring Boot (Java)을 이용하여 쇼핑몰 웹사이트를 구현하는 것이다. 이 웹사이트는 [마이소호 샘플샵 웹사이트](https://sohonara.mysoho.com/)를 기반으로 만들어졌으며, 사용자에게 편리한 쇼핑 경험을 제공하기 위해 다양한 기능을 포함하고 있다.
+---
+
+이 프로젝트의 목적은 HTML, JavaScript, CSS, 그리고 Spring Boot (Java)을 이용하여 쇼핑몰 웹사이트를 구현하는 것이다. 이 웹사이트는 [마이소호 샘플샵 웹사이트](https://sohonara.mysoho.com/){:target="\_blank"}를 기반으로 만들어졌으며, 사용자에게 편리한 쇼핑 경험을 제공하기 위해 다양한 기능을 포함하고 있다.
 
 또한, 관리자 페이지도 구현하여 쇼핑몰 웹사이트의 운영과 관련된 작업을 수행할 수 있도록 한다. 관리자 페이지는 상품, 주문, 회원, 리뷰, 상품 문의, 통합 문의, 공지사항 관리 등의 기능으로 구성되어 있으며, 오직 관리자 권한을 가진 사람들만 접근할 수 있다.
 
@@ -16,6 +18,8 @@ category: project # project or lab
 <br>
 
 #### **Functionality**
+
+---
 
 - 상품 목록 및 상세 정보
 
@@ -53,6 +57,8 @@ category: project # project or lab
 
 #### **Development Environment**
 
+---
+
 <table>
   <tbody>
     <tr>
@@ -86,11 +92,15 @@ category: project # project or lab
 
 #### **ERD**
 
+---
+
 ![Figure2](/assets/project/Mysoho-Shopping-Mall-Website/Figure1.PNG)
 
 <br>
 
 #### **Deploy**
+
+---
 
 GitHub Actions를 통해 소스 코드를 빌드하고, AWS S3에 아티팩트를 업로드했다. 다음으로, AWS CodeDeploy를 설정하고, 배포 대상 EC2 인스턴스에 애플리케이션을 배포한 후, 결과를 확인하는 과정을 거쳤다.
 
@@ -100,18 +110,24 @@ GitHub Actions를 통해 소스 코드를 빌드하고, AWS S3에 아티팩트�
 
 #### **Demo Video**
 
-[![시연 영상](http://img.youtube.com/vi/A38tptt7irM/0.jpg)](https://www.youtube.com/watch?v=A38tptt7irM)
+---
+
+[![시연 영상](http://img.youtube.com/vi/A38tptt7irM/0.jpg)](https://www.youtube.com/watch?v=A38tptt7irM){:target="\_blank"}
 
 <br>
 
 #### **Report**
 
-[관리자 화면기획서](https://github.com/psk910903/mySohoAdmin/blob/main/화면기획서-관리자.pdf)
+---
 
-[완료보고서](https://github.com/psk910903/mySohoAdmin/blob/main/mysoho완료보고서.pdf)
+[관리자 화면기획서](https://github.com/psk910903/mySohoAdmin/blob/main/화면기획서-관리자.pdf){:target="\_blank"}
+
+[완료보고서](https://github.com/psk910903/mySohoAdmin/blob/main/mysoho완료보고서.pdf){:target="\_blank"}
 
 <br>
 
 #### **Reference**
 
-[마이소호 샘플샵](https://sohonara.mysoho.com/)
+---
+
+[마이소호 샘플샵](https://sohonara.mysoho.com/){:target="\_blank"}

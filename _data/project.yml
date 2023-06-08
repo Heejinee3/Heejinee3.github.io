@@ -12,15 +12,14 @@
 
 - name: Mysoho-Shopping-Mall-Website
   title: 마이소호 쇼핑몰 웹사이트
-  link:
-  code:
-  report:
-  video:
-  img:
+  link: https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website
+  code: https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website/tree/main/Code
+  report: https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website/tree/main/Report
+  video: https://www.youtube.com/watch?v=A38tptt7irM
+  img: /assets/project/Mysoho-Shopping-Mall-Website/MainFigure.PNG
   desc: "이 프로젝트는 HTML, JavaScript, CSS, 그리고 SpringBoot(Java)을 이용하여 쇼핑몰 웹사이트를 구현한 프로젝트이다. 마이소호 샘플샵 웹사이트을 기반으로 만들어졌으며, 사용자에게 편리한 쇼핑 경험을 제공하기 위해 다양한 기능을 포함하고 있다."
   start_date: Jan 2023
   end_date: Mar 2023
-  categories: [project]
   tags:
     [
       Java,
@@ -30,7 +29,7 @@
       Kotlin,
       SpringBoot,
       Bootstrap5,
-      Github,
+      Git,
       MariaDB,
       AWS RDS,
       Github Actions,
@@ -53,7 +52,6 @@
     쉽게 소통하며 일정을 조율할 수 있다."
   start_date: Apr 2023
   end_date: May 2023
-  categories: [project]
   tags:
     [
       Java,
@@ -63,7 +61,7 @@
       Kotlin,
       SpringBoot,
       Bootstrap5,
-      Github,
+      Git,
       MariaDB,
       AWS RDS,
       Github Actions,
