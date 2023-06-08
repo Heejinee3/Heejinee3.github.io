@@ -5,19 +5,22 @@ layout: default
 {% if page.category == "project" %}
 <article class="post-container post-container--single">
   {% assign project = site.data.project[page.index] %}
+  <!-- header -->
   <header class="post-header">
-    <!-- <div class="post-meta">
-      <div class="project-post-date">{{ project.start_date }} - {{ project.end_date }}</div>
+    <!-- tag -->
+    <div class="post-meta">
       {% if project.tags.size > 0 %}
-      <div class="project-post-tags"
-        >{% for tag in project.tags %}<span class="project-post-tag"
-          >{{ tag }}</span
-        >{% if forloop.last == false %}&nbsp{% endif %}{% endfor %}</span
-      >
+      <div class="project-post-tags">
+        {% for tag in project.tags %}
+        <span class="project-post-tag">{{ tag }}</span>
+        {% if forloop.last == false %}&nbsp{% endif %}{% endfor %}
+      </div>
       {% endif %}
     </div>
-    <h3 class="post-title project-post-title">{{ project.title }}</h3> -->
+    <!-- title -->
+    <h3 class="post-title project-post-title">{{project.title}}</h3>
   </header>
+  <!-- content -->
   <section class="post">{{ content }}</section>
 </article>
 {% endif %}

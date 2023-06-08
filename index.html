@@ -46,19 +46,24 @@ robots: noindex
   <!-- Labs -->
   <div class="scroll-animation">
     <div class="about-title">Labs</div>
+    <div class="about-labs-link">
+      <div class="about-labs-desc">Mini project / Academic activity</div>
+      <a href="/lab"> → Go to Lab Page </a>
+    </div>
     <div class="about-labs">
       {% for labs in site.data.lab %}
       <span
         onclick="openPopup({{ forloop.index }})"
         class="about-lab"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{labs.img}});"
-        >{{labs.name}}</span
+        >{{labs.title}}</span
       >
       {% endfor %}
     </div>
   </div>
+
+  <!-- Labs Popup -->
   {% for labs in site.data.lab %}
-  <!-- Labs Popup 시작-->
   <div id="layer-bg{{ forloop.index }}" class="layer-bg hidden">
     <div class="popup">
       <!-- 제목 -->
@@ -112,7 +117,6 @@ robots: noindex
     </div>
   </div>
   {% endfor %}
-  <!-- Labs Popup 끝-->
 
   <!-- Skills -->
   <div class="scroll-animation">

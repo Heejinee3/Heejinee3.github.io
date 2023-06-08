@@ -1,6 +1,8 @@
 ---
 index: 0
+title: Analysis of YouTube Trending Videos
 permalink: /project/Analysis-of-YouTube-Trending-Videos
+category: project # project or lab
 ---
 
 #### **Overview**
