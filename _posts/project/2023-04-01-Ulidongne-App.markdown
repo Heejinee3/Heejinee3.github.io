@@ -1,6 +1,8 @@
 ---
 index: 2
+title: Ulidongne App
 permalink: /project/Ulidongne-App
+category: project
 ---
 
 #### **Introduction**

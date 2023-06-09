@@ -160,8 +160,8 @@ What makes the number of views high?
 
         ![Figure7](/assets/project/Analysis-of-YouTube-Trending-Videos/Figure7.PNG)
 
-        According to the Figure 28, the high-view-group(cluster 2) has 0~30 number of tags while other groups has more or less tags.
-        This facts do stack up with our analysis for number of tags on 14 page: there was a tendency to increase of the view at 0~30, and after that, the number of views decreases slightly as the number of tags increases.
+        According to the Figure 28, the high-view-group(cluster 2) has 0-30 number of tags while other groups has more or less tags.
+        This facts do stack up with our analysis for number of tags on 14 page: there was a tendency to increase of the view at 0-30, and after that, the number of views decreases slightly as the number of tags increases.
 
         Length of the title is also concordant with result shown in Figure 17([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf){:target="\_blank"}).
         Videos have 50-60 of title length are getting higher view counts.
@@ -178,3 +178,13 @@ What makes the number of views high?
         shown at Figure 20([see document](https://github.com/Heejinee3/Data-Science/blob/master/Report.pdf){:target="\_blank"}).
 
     Conclusionally, clustering shows highly similar results with statistical analysis.
+
+<br>
+
+#### **Code and Final Report**
+
+---
+
+[Code](https://github.com/Heejinee3/Analysis-of-YouTube-Trending-Videos/tree/master/Code){:target="\_blank"}
+
+[Final Report](https://github.com/Heejinee3/Analysis-of-YouTube-Trending-Videos/blob/master/Docs/Report.pdf){:target="\_blank"}

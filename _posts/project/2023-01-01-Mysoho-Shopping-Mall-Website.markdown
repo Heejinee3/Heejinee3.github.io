@@ -94,7 +94,7 @@ category: project # project or lab
 
 ---
 
-![Figure2](/assets/project/Mysoho-Shopping-Mall-Website/Figure1.PNG)
+![Figure1](/assets/project/Mysoho-Shopping-Mall-Website/Figure1.png)
 
 <br>
 
@@ -120,9 +120,17 @@ GitHub Actions를 통해 소스 코드를 빌드하고, AWS S3에 아티팩트�
 
 ---
 
-[관리자 화면기획서](https://github.com/psk910903/mySohoAdmin/blob/main/화면기획서-관리자.pdf){:target="\_blank"}
+[관리자 화면기획서(PPT)](https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website/blob/main/Docs/UIUX-design-report.pdf){:target="\_blank"}
 
-[완료보고서](https://github.com/psk910903/mySohoAdmin/blob/main/mysoho완료보고서.pdf){:target="\_blank"}
+[완료보고서(PPT)](https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website/blob/main/Docs/final-report.pdf){:target="\_blank"}
+
+<br>
+
+#### **Repository**
+
+---
+
+[Github](https://github.com/Heejinee3/Mysoho-Shopping-Mall-Website){:target="\_blank"}
 
 <br>
 
