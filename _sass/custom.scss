@@ -286,6 +286,57 @@ sup {
 // .about-me-content {
 //   margin: 10px 0px;
 // }
+.about-projects {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.about-project {
+  display: flex;
+  flex-flow: column;
+  border-radius: 20px;
+  background-color: #303030;
+}
+
+.about-project-name {
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0 40px;
+  font-size: 24px;
+  border-bottom: 1px solid white;
+}
+.about-project-preview {
+  padding: 20px 40px;
+}
+.about-project-demo {
+  width: 100%;
+  height: 500px;
+}
+
+.about-project-figure {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media all and (max-width: 700px) {
+  .about-project-demo {
+    height: 300px;
+  }
+}
+
+@media all and (min-width: 1500px) {
+  .about-project-demo {
+    height: 700px;
+  }
+}
+.about-project-section2 {
+}
+
+.about-project-name {
+}
 
 .about-labs {
   display: flex;

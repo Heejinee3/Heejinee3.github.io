@@ -7,6 +7,8 @@ category: project
 
 #### **Introduction**
 
+---
+
 "우리동네"는 동일한 동네에 사는 사람들을 위한 안드로이드 어플리케이션이며, 사용자들이 공유하는
 취미와 관심사를 기반으로 다른 사람들과 온라인 및 오프라인에서 일정을 잡을 수 있다.
 사용자들은 앱을 통해 자신의 취미, 관심사를 등록하고, 동일한 동네에 있는 다른 사용자들과
@@ -16,6 +18,8 @@ category: project
 <br>
 
 #### **Functionality**
+
+---
 
 | 페이지           | 세부기능             | 설명                                                       |
 | ---------------- | -------------------- | ---------------------------------------------------------- |
@@ -41,6 +45,8 @@ category: project
 <br>
 
 #### **Development Environment**
+
+---
 
 <table>
   <tbody>
@@ -75,15 +81,19 @@ category: project
 
 #### **ERD**
 
-![Figure2](/assets/project/Mysoho-Shopping-Mall-Website/Figure1.PNG)
+---
+
+![Figure1](/assets/project/Ulidongne-App/Figure1.png)
 
 <br>
 
 #### **Deploy**
 
+---
+
 GitHub Actions를 통해 소스 코드를 빌드하고, AWS S3에 아티팩트를 업로드했다. 다음으로, AWS CodeDeploy를 설정하고, 배포 대상 EC2 인스턴스에 애플리케이션을 배포한 후, 결과를 확인하는 과정을 거쳤다.
 
-![Figure2](/assets/project/Mysoho-Shopping-Mall-Website/Figure2.PNG)
+![Figure2](/assets/project/Ulidongne-App/Figure2.PNG)
 
 다음으로 구글 플레이 스토어에 앱을 배포하였다. 과정은 다음과 같다.
 
@@ -94,22 +104,36 @@ GitHub Actions를 통해 소스 코드를 빌드하고, AWS S3에 아티팩트�
 5. 구글 플레이 스토어의 정책을 준수하고, APK 파일과 배포 정보를 제출
 6. 앱이 심사를 통과하면 구글 플레이 스토어에 배포
 
-![Figure2](/assets/project/Ulidongne-App/Figure3.jpg)
+![Figure3](/assets/project/Ulidongne-App/Figure3.jpg)
 
 <br>
 
 #### **Demo Video**
 
-[![시연 영상](http://img.youtube.com/vi/99-g5Yfwi38/0.jpg)](https://www.youtube.com/watch?v=99-g5Yfwi38)
+---
+
+[![시연 영상](http://img.youtube.com/vi/99-g5Yfwi38/0.jpg)](https://www.youtube.com/watch?v=99-g5Yfwi38){:target="\_blank"}
 
 <br>
 
 #### **Report**
 
-[완료보고서](https://github.com/psk910903/UlidongneProject/blob/main/우리동네%20완료보고서.pdf)
+---
+
+[완료보고서(PPT)](https://github.com/Heejinee3/Ulidongne-App/blob/main/Docs/final-report.pdf){:target="\_blank"}
+
+<br>
+
+#### **Repository**
+
+---
+
+[Github](https://github.com/Heejinee3/Ulidongne-App){:target="\_blank"}
 
 <br>
 
 #### **Reference**
 
-[우체국 주소 데이터](https://www.epost.go.kr/search/zipcode/cmzcd002k01.jsp)
+---
+
+[우체국 주소 데이터](https://www.epost.go.kr/search/zipcode/cmzcd002k01.jsp){:target="\_blank"}
