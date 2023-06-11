@@ -113,6 +113,10 @@
   margin-left: 5px;
 }
 
+.project-link {
+  display: inline-block;
+}
+
 .layer-bg {
   position: fixed;
   top: 0;
@@ -332,10 +336,61 @@ sup {
     height: 700px;
   }
 }
-.about-project-section2 {
+.about-project-section {
+  padding: 0 40px 20px;
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+.about-project-detail {
+  color: white;
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
 }
 
-.about-project-name {
+.about-project-subtitle {
+  padding: 0 10px 0 0;
+  border-right: 2px solid white;
+  min-width: 75px;
+}
+
+.about-project-subtitle2 {
+  display: none;
+}
+
+@media all and (max-width: 700px) {
+  .about-project-detail {
+    flex-flow: column;
+  }
+  .about-project-subtitle {
+    border-right: none;
+    padding: 0;
+    border-bottom: 2px solid white;
+  }
+  .about-project-subtitle2 {
+    display: block;
+    border-right: none;
+    padding: 0;
+    border-bottom: 2px solid white;
+  }
+}
+
+.about-project-env {
+  display: inline-block;
+}
+
+.about-project-link {
+  display: inline-block;
+  color: #dfbdb9;
+}
+
+.about-project-link:hover {
+  color: #e47569;
+}
+
+.about-project-detail-link {
+  text-align: end;
 }
 
 .about-labs {
@@ -352,6 +407,7 @@ sup {
 
 .about-labs-desc {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .about-lab {

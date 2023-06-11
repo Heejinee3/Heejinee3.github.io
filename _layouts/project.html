@@ -29,18 +29,19 @@ layout: default
         >
         <div class="ghbtn" style="margin-top: 10px">
           {% if project.repo %}
-          <a target="_blank" href="{{ project.repo }}"
+          <a class="project-link" target="_blank" href="{{ project.repo }}"
             ><i class="fa fa-external-link"></i
-            ><span class="project-url">repo</span></a
-          >&emsp; {% endif %} {% if project.code %}
-          <a target="_blank" href="{{ project.code }}"
-            ><i class="fa fa-code"></i><span class="project-url">code</span></a
-          >&emsp; {% endif %} {% if project.docs %}
-          <a target="_blank" href="{{ project.docs }}"
+            ><span class="project-url">repo</span>&emsp;</a
+          >{% endif %} {% if project.code %}
+          <a class="project-link" target="_blank" href="{{ project.code }}"
+            ><i class="fa fa-code"></i
+            ><span class="project-url">code</span>&emsp;</a
+          >{% endif %} {% if project.docs %}
+          <a class="project-link" target="_blank" href="{{ project.docs }}"
             ><i class="fa fa-file-text-o"></i
-            ><span class="project-url">docs</span></a
-          >&emsp; {% endif %} {% if project.demo %}
-          <a target="_blank" href="{{ project.demo }}"
+            ><span class="project-url">docs</span>&emsp;</a
+          >{% endif %} {% if project.demo %}
+          <a class="project-link" target="_blank" href="{{ project.demo }}"
             ><i class="fa fa-video-camera"></i
             ><span class="project-url">demo</span></a
           >

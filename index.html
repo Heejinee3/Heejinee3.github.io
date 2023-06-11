@@ -17,7 +17,7 @@ robots: noindex
   </div>
 
   <!-- Projects -->
-  <div class="scroll-animation">
+  <div class="scroll-animation in-view">
     <div class="about-title">Projects</div>
     <div class="about-labs-link">
       <a href="/project"> → Go to Project Page </a>
@@ -46,11 +46,60 @@ robots: noindex
         </div>
 
         <div class="about-project-section">
-          <div class="about-project-date">기간</div>
-          <div class="about-project-desc">설명</div>
-          <div>인원</div>
-          <div>사용언어</div>
-          <div>링크</div>
+          <div class="about-project-detail">
+            <div class="about-project-subtitle">기간</div>
+            <div>{{project.start_date}} - {{project.end_date}}</div>
+          </div>
+          <div class="about-project-detail">
+            <div class="about-project-subtitle">개발 환경</div>
+            <div>
+              {% for tag in project.tags %}
+              <span class="about-project-env"
+                >{{ tag }}{% if forloop.last == false %}&nbsp{% endif %}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="about-project-detail">
+            <div class="about-project-subtitle2">설명</div>
+            <div>{{project.desc}}</div>
+          </div>
+          <div>
+            {% if project.repo %}
+            <a
+              class="about-project-link"
+              target="_blank"
+              href="{{ project.repo }}"
+              ><i class="fa fa-external-link"></i
+              ><span class="project-url">repo</span>&emsp;</a
+            >{% endif %} {% if project.code %}
+            <a
+              class="about-project-link"
+              target="_blank"
+              href="{{ project.code }}"
+              ><i class="fa fa-code"></i
+              ><span class="project-url">code</span>&emsp;</a
+            >{% endif %} {% if project.docs %}
+            <a
+              class="about-project-link"
+              target="_blank"
+              href="{{ project.docs }}"
+              ><i class="fa fa-file-text-o"></i
+              ><span class="project-url">docs</span>&emsp;</a
+            >{% endif %} {% if project.demo %}
+            <a
+              class="about-project-link"
+              target="_blank"
+              href="{{ project.demo }}"
+              ><i class="fa fa-video-camera"></i
+              ><span class="project-url">demo</span></a
+            >
+            {% endif %}
+          </div>
+          <div class="about-project-detail-link">
+            <a href="/project/{{ project.name }}">
+              → Go to the detailed page
+            </a>
+          </div>
         </div>
       </div>
       {% endfor %}
@@ -58,7 +107,7 @@ robots: noindex
   </div>
 
   <!-- Labs -->
-  <div class="scroll-animation">
+  <div class="scroll-animation in-view">
     <div class="about-title">Labs</div>
     <div class="about-labs-link">
       <div class="about-labs-desc">Mini project / Academic activity</div>
@@ -133,7 +182,7 @@ robots: noindex
   {% endfor %}
 
   <!-- Skills -->
-  <div class="scroll-animation">
+  <div class="scroll-animation in-view">
     <div class="about-title">Skills</div>
     <div class="about-skills">
       {% for skill in about.skill %}
@@ -143,7 +192,7 @@ robots: noindex
   </div>
 
   <!-- Certificates -->
-  <div class="scroll-animation">
+  <div class="scroll-animation in-view">
     <div class="about-title">Certificates</div>
     <table class="about-certificates">
       <tr>
