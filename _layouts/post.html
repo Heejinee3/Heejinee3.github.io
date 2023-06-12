@@ -46,5 +46,22 @@ layout: default
   </header>
   <!-- content -->
   <section class="post">{{ content }}</section>
+  <!-- paging -->
+  <nav class="pagination" role="navigation">
+    {% assign labSize = site.data.lab[page.index].lab.size %} {% assign
+    labLastIdx = labSize | minus: 1 %} {% assign labPrevIdx = page.num | minus:
+    1 %} {% assign prevLab = site.data.lab[page.index].lab[labPrevIdx] %}{%
+    assign labNextIdx = page.num | plus: 1 %} {% assign nextLab =
+    site.data.lab[page.index].lab[labNextIdx] %}{% assign labsName =
+    site.data.lab[page.index].name %}{% if page.num != 0 %}
+    <a class="page-btn" href="/lab/{{labsName}}/{{prevLab.name}}"
+      >← {{prevLab.title}}</a
+    >
+    {% endif %} {% if page.num != labLastIdx %}
+    <a class="page-btn" href="/lab/{{labsName}}/{{nextLab.name}}"
+      >{{nextLab.title}} →</a
+    >
+    {% endif %}
+  </nav>
 </article>
 {% endif %}

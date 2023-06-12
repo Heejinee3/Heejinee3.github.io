@@ -1941,8 +1941,11 @@ nav {
 }
 
 .pagination {
-  display: block;
-  margin: 0 0 4em 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-flow: row wrap;
+  margin: 4em 0 4em 0;
 }
 
 .pagination__page-number {

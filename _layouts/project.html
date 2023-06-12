@@ -4,7 +4,7 @@ layout: default
 
 <div></div>
 <ul class="timeline project-timeline-ul">
-  {% for project in site.data.project %}
+  {% for project in site.data.project reversed%}
 
   <li class="timeline-inverted">
     <div class="timeline-image">
@@ -13,9 +13,7 @@ layout: default
     <div class="timeline-panel">
       <div class="timeline-heading">
         <h4>
-          <a href="{{ site.baseurl }}/project/{{ project.name }}"
-            >{{ project.title }}</a
-          >
+          <a href="/project/{{ project.name }}">{{ project.title }}</a>
         </h4>
         <div class="project-dates">
           <span class="project-date">{{ project.start_date }}</span>

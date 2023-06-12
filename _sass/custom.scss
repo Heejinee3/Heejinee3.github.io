@@ -500,3 +500,24 @@ sup {
 .scroll-animation.out-of-view {
   animation: scroll-fade-out 0.7s ease-out forwards;
 }
+
+@media (max-width: 340px) {
+  .page-btn {
+    display: block;
+    margin-bottom: 0.4em;
+  }
+}
+
+.page-btn {
+  white-space: nowrap;
+  line-height: 2;
+  padding: 10px 20px;
+  border: 1px solid #e25440;
+  border-radius: 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: none;
+  color: #e25440;
+  -webkit-font-smoothing: antialiased;
+}

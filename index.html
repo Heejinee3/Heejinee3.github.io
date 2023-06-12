@@ -23,7 +23,7 @@ robots: noindex
       <a href="/project"> → Go to Project Page </a>
     </div>
     <div class="about-projects">
-      {% for project in site.data.project %}
+      {% for project in site.data.project reversed%}
       <div class="about-project">
         <div class="about-project-name">{{project.title}}</div>
 
@@ -114,7 +114,7 @@ robots: noindex
       <a href="/lab"> → Go to Lab Page </a>
     </div>
     <div class="about-labs">
-      {% for labs in site.data.lab %}
+      {% for labs in site.data.lab reversed%}
       <span
         onclick="openPopup({{ forloop.index }})"
         class="about-lab"
