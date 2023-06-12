@@ -9,26 +9,79 @@ robots: noindex
 
   <div class="scroll-animation in-view">
     <div class="about-me-title">About Me</div>
-    <div class="about-me-content">
-      <div>
-        <div class="about-me-ko">정희진</div>
-        <div class="about-me-eng">JEONG HEEJIN</div>
+    <div class="about-me-section">
+      <div class="about-me-ko">정희진</div>
+      <div class="about-me-eng">JEONG HEEJIN</div>
+      <div class="about-me-content">
         <div>
-          <i class="icon icon-social-github"></i>
-          <span>1998.05.10 Seoul</span>
+          <div class="about-me-info">
+            <i class="user-icon"></i>
+            <span class="about-me-user">1998.05.10 Seoul</span>
+          </div>
+          {% if site.author.email %}
+          <div class="about-me-info">
+            <i class="mail-icon"></i>
+            <a
+              href="mailto:{{ site.author.email }}"
+              target="_blank"
+              class="about-me-link"
+              >naahah79@naver.com</a
+            >
+          </div>
+          {% endif %}{% if site.author.github_username %}
+          <div class="about-me-info">
+            <i class="github-icon"></i>
+            <a
+              href="https://www.github.com/{{ site.author.github_username }}"
+              target="_blank"
+              class="about-me-link"
+              >GitHub</a
+            >
+          </div>
+          {% endif %}{% if site.author.velog_username %}
+          <div class="about-me-info">
+            <i class="velog-icon"></i>
+            <a
+              href="https://velog.io/@{{ site.author.velog_username }}"
+              target="_blank"
+              class="about-me-link"
+              >Velog</a
+            >
+          </div>
+          {% endif %}{% if site.author.youtube_username %}
+          <div class="about-me-info">
+            <i class="youtube-icon"></i>
+            <a
+              href="https://www.youtube.com/@{{ site.author.youtube_username }}"
+              target="_blank"
+              class="about-me-link"
+              >YouTube</a
+            >
+          </div>
+          {% endif %}{% if site.author.instagram_username %}
+          <div class="about-me-info">
+            <i class="instagram-icon"></i>
+            <a
+              href="https://www.instagram.com/{{site.author.instagram_username}}"
+              target="_blank"
+              class="about-me-link"
+              >Instagram</a
+            >
+          </div>
+          {% endif %}
         </div>
-        <div>naahah79@gmail.com</div>
-        <div>https://github.com/Heejinee3</div>
-      </div>
-      <div>
         <div>
-          <div>2014.03</div>
-          <div>선정고등학교 입학</div>
-        </div>
-        <div>
-          <div>2014.07</div>
-          <div>KAIST 입학</div>
-          <div>더조은</div>
+          {% assign timelines = site.data.about.timeline %} {% for timeline in
+          timelines reversed%}
+          <div class="about-me-timeline">
+            <div class="about-me-date">{{timeline.date}}</div>
+            <div class="about-me-story">
+              {% for exp in timeline.experience %}
+              <div>{{exp}}</div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>

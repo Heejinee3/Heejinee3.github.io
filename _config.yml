@@ -1,6 +1,6 @@
 # Site settings
 title: Heejin
-description: "Jekyll-Uno - a minimal, responsive theme for Jekyll"
+description: "Portfolio & Blog"
 url: "http://joshgerdes.com/jekyll-uno"
 baseurl: ""
 # google_analytics: 'UA-XXXXXX-X'
@@ -8,12 +8,12 @@ baseurl: ""
 disable_landing_page: true
 
 author:
-  name: "Josh Gerdes"
-  email: josh@joshgerdes.com
-  twitter_username: joshgerdes
-  facebook_username: joshgerdes
-  github_username: heejinee3
-  linkedin_username: joshgerdes
+  name: "Jeong Heejin"
+  email: naahah79@naver.com
+  youtube_username:
+  velog_username: chunjakim
+  github_username: Heejinee3
+  instagram_username:
 
 defaults:
   - scope:

@@ -1,3 +1,14 @@
+timeline:
+  - date: 2014.03
+    experience: [선정고등학교 입학]
+  - date: 2017.03
+    experience: [KAIST 입학, 전기및전자공학부 주전공, 전산학부 복수전공]
+  - date: 2023.05
+    experience:
+      [
+        더조은컴퓨터아카데미,
+        클라우드서비스 활용 스마트 웹앱 개발자 양성과정 수료,
+      ]
 skill:
   [
     C,
