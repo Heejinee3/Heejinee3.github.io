@@ -1,0 +1,948 @@
+---
+index: 3 # labs number
+num: 1 # lab number
+title: Lab2
+permalink: /lab/Machine-Learning/Lab2 # link
+category: lab # project or lab
+---
+
+#### **Part 1. Implement the Batchnormalization Layer in Convolutional Neural Network**
+
+---
+
+#### Objective
+
+1. Implementing the batchnormalization layer that can be used like nn.`BatchNorm2d()` module
+2. Understading how to introduce and apply the learnable rescaling and reshifting parameters to the normlized input
+3. Comparing the difference between the results with and without the batchnormalization layer
+
+```python
+from __future__ import print_function
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+from PIL import Image
+import matplotlib.pyplot as plt
+
+import torchvision
+import torchvision.transforms as transforms
+import torchvision.models as models
+
+import copy
+import os
+import numpy as np
+import random
+import time
+import os
+
+torch.backends.cudnn.deterministic = True # Use cudnn as deterministic mode for reproducibility
+torch.backends.cudnn.benchmark = False
+```
+
+<br>
+
+#### **Step 1. Load CIFAR-10**
+
+---
+
+- Load **CIFAR-10** dataset using `torchvision` package
+- For training data, we utilize appropriate **data augmentation** and **data preprocessing**
+  - We utilize **Random Crop** and **Random Horizontal Filp** for data augmentation
+  - Data is preprocessed by **normalizing** the data using the mean (0.4914, 0.4822, 0.4465 for each of RGB channel, respectively) and standard deviation (0.2023, 0.1994, 0.2010 for each of RGB channel, respectively) computed from training set of CIFAR-10.
+- For test data, we utilize only **data preprocessing**, not **data augmentation**
+
+```python
+transform = transforms.Compose([
+        transforms.RandomCrop(32, padding=4), # Random Crop: Randomly crop the part of the large image and utilize it as an augmented data
+        transforms.RandomHorizontalFlip(), # Random Horizontal Flip: Randomly flip the image and utilize it as an augmented data
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023,0.1994,0.2010]), # Normalize the data using the given mean and standard deviation
+        ])
+
+#Apply data preprocessing for test set
+transform_test = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023,0.1994,0.2010]),
+        ])
+
+train_dataset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
+test_dataset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
+
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=100, shuffle=True)
+test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=100)
+```
+
+    Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+
+
+
+    HBox(children=(FloatProgress(value=1.0, bar_style='info', max=1.0), HTML(value='')))
+
+
+    Extracting ./data/cifar-10-python.tar.gz to ./data
+    Files already downloaded and verified
+
+- Implement `reset_seed` function for reproducibility
+  - `reset_seed` function sets the random seed for `torch`, `numpy` and `random` pacakges.
+
+```python
+def reset_seed(seed):
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+```
+
+<br>
+
+#### **Step 2. Run VGG without Batchnorm**
+
+---
+
+- Run the experiment without batchnorm for the baseline.
+- VGG network is a CNN architecture that developed to understand the effect of network depth on performance.
+- The figure below is the architecture of VGG network in this experiment.
+
+![Figure17](/assets/lab/Machine-Learning/Figure17.PNG)
+
+#### **Step 2-1. Implement VGG network**
+
+```python
+class VGG(nn.Module):
+    def __init__(self):
+        super(VGG, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1) # Convolutional layer with 3x3 kernel. The size of feature does not change due to the usage of padding.
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1)
+
+        self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
+        self.conv4 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1)
+
+        self.conv5 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1)
+        self.conv6 = nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, padding=1)
+
+        self.max_pool = nn.MaxPool2d(kernel_size=2, stride=2) #Maxpooling layer to change feature size
+        self.avg_pool = nn.AdaptiveAvgPool2d(output_size = (1, 1)) #Note that average pooling layer is not adopted in original VGG architecture. We use average pooling layer to make the architecture for experiment simple.
+
+        self.fc = nn.Linear(in_features=128, out_features=10)
+
+    def forward(self, x):
+        ########################### blank ###########################
+        x = self.conv1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = F.relu(x)
+        x = self.max_pool(x)
+
+        x = self.conv3(x)
+        x = F.relu(x)
+        x = self.conv4(x)
+        x = F.relu(x)
+        x = self.max_pool(x)
+
+        x = self.conv5(x)
+        x = F.relu(x)
+        x = self.conv6(x)
+        x = F.relu(x)
+        #############################################################
+
+        x = self.avg_pool(x)
+        x = x.view(-1, 128)
+        x = self.fc(x)
+
+        return x
+```
+
+<br>
+
+#### **Step 2-2. Implement `train` function for training (see step 2-4 below to see how we are going to use train function)**
+
+```python
+def train(model, data_loader, criterion, optimizer, n_epoch):
+    model.train()
+    for epoch in range(n_epoch):
+        running_loss = 0
+        for i, (images, labels) in enumerate(data_loader):
+            images, labels = images.cuda(), labels.cuda()
+            ########################### blank ###########################
+            optimizer.zero_grad()
+
+            outputs = model(images)
+            loss = criterion(input=outputs, target=labels)
+            loss.backward()
+            optimizer.step()
+            running_loss += loss.item()
+            #############################################################
+
+        print('Epoch {}, loss = {:.3f}'.format(epoch + 1, running_loss/len(data_loader)))
+```
+
+<br>
+
+#### **Step 2-3. Implement `eval` function for evaluation (see step 2-5 below to see how we are going to use eval function)**
+
+```python
+def eval(model, data_loader):
+    model.eval()
+    total = 0
+    correct = 0
+    with torch.no_grad():
+        for images, labels in data_loader:
+            images, labels = images.cuda(), labels.cuda()
+            ########################### blank ###########################
+            outputs = model(images)
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted==labels).sum().item()
+            #############################################################
+        accuracy = 100*correct/total
+
+    print('Test Accuracy: {}%'.format(accuracy))
+```
+
+<br>
+
+#### **Step 2-4. Train the defined VGG model using `train` function**
+
+```python
+reset_seed(2020)
+criterion = nn.CrossEntropyLoss()
+vgg_model = VGG().to("cuda")
+optimizer = optim.Adam(params=vgg_model.parameters())
+
+train(vgg_model, train_loader, criterion, optimizer, n_epoch=10)
+```
+
+    Epoch 1, loss = 1.768
+    Epoch 2, loss = 1.357
+    Epoch 3, loss = 1.153
+    Epoch 4, loss = 1.021
+    Epoch 5, loss = 0.923
+    Epoch 6, loss = 0.849
+    Epoch 7, loss = 0.785
+    Epoch 8, loss = 0.744
+    Epoch 9, loss = 0.694
+    Epoch 10, loss = 0.655
+
+<br>
+
+#### **Step 2-5. Check the result (We will compare it with later result)**
+
+```python
+eval(vgg_model, test_loader)
+```
+
+    Test Accuracy: 75.35%
+
+<br>
+
+#### **Step 3. Implement MyBacthNorm2d() class inheriting nn.Module**
+
+---
+
+When you implement the batchnorm layer in this project, you can inherit the `nn.Module` to leave the complicated backward calculations to autograd in pytorch and focus only on implementing the pseudocode of the algorithm in lecture note. In other words, you only need to implement the forward pass of batchnorm layer here. The followings are required to do:
+
+- Consider the moving averages of minibatch mean and variance for inference time handling
+
+- Compute moving averages using **exponential moving average\***
+
+- Consider the case of training and inference seperately (using `self.training` attribute in `nn.Module`)
+
+- α for exponential moving averaging should set to be 0.1 (see wikipedia below)
+
+- Implement it so that it can be used like:
+
+```python
+self.norm_layer1 = MyBatchNorm2d(output_num_channel)
+```
+
+- **Initialize γ as 1's**
+
+- **Initialize β as 0's**
+
+\*see https://en.wikipedia.org/wiki/Moving_average
+
+```python
+class MyBatchNorm2d(nn.Module):
+    def __init__(self, output_num_channel):
+        super(MyBatchNorm2d, self).__init__()
+        self.gamma = nn.Parameter(torch.tensor(1.0)) # register the tensor as a parameter in this module (be treated like module's parameter -> can be learned via optimizer altogether)
+        self.beta = nn.Parameter(torch.tensor(0.0))
+
+        ########################### blank ###########################
+        self.mov_mean = 0.0
+        self.mov_var = 0.0
+        self.t = 1
+        #############################################################
+
+    def forward(self, input):
+
+        ########################### blank ###########################
+        if self.training:         # set to be True automatically when 'model.train()'' is called
+            mean = torch.sum(input, dim=0) / input.size(dim=0)
+            var = torch.sum((input - mean)**2, dim=0) / input.size(dim=0)
+            norm_input = (input - mean) / torch.sqrt(var+1e-8)
+            output = self.gamma * norm_input + self.beta
+
+            if self.t == 1:
+                self.mov_mean = mean
+                self.mov_var = var
+                self.t = self.t + 1
+
+            else:
+                self.mov_mean = 0.1*mean + 0.9*self.mov_mean
+                self.mov_var = 0.1*var + 0.9*self.mov_var
+                self.t = self.t + 1
+
+        else:                     # if the 'model.eval()' was called
+            norm_input = (input - self.mov_mean) / torch.sqrt(self.mov_var+1e-8)
+            output = self.gamma * norm_input + self.beta
+
+        #############################################################
+
+        return output
+```
+
+<br>
+
+#### **Step 4. Implement VGG with MyBatchNorm2d()**
+
+---
+
+We will add MyBatchNorm2d() layer that you made above to VGG.
+
+- Apply the batch normalization between the convolutional layer and activation function.
+- VGG have six convolution layers, so you need six batchnorm layers.
+- The figure below is the architecture of VGG network with batch normalization.
+
+![Figure18](/assets/lab/Machine-Learning/Figure18.PNG)
+
+#### **Step 4-1. Implement `VGG_BatchNorm`**
+
+```python
+class VGG_BatchNorm(nn.Module):
+    def __init__(self):
+        super(VGG_BatchNorm, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1) # Convolutional layer with 3x3 kernel. The size of feature does not change due to the usage of padding.
+        self.norm1 = MyBatchNorm2d(32)
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1)
+        self.norm2 = MyBatchNorm2d(32)
+
+        self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
+        self.norm3 = MyBatchNorm2d(64)
+
+        self.conv4 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1)
+        self.norm4 = MyBatchNorm2d(64)
+
+        self.conv5 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1)
+        self.norm5 = MyBatchNorm2d(128)
+        self.conv6 = nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, padding=1)
+        self.norm6 = MyBatchNorm2d(128)
+
+        self.max_pool = nn.MaxPool2d(kernel_size=2, stride=2) #Maxpooling layer to change feature size
+        self.avg_pool = nn.AdaptiveAvgPool2d(output_size = (1, 1)) #Note that average pooling layer is not adopted in original VGG architecture. We use average pooling layer to make the architecture for experiment simple.
+
+        self.fc = nn.Linear(in_features=128, out_features=10)
+
+    def forward(self, x):
+        ########################### blank ###########################
+        x = self.conv1(x)
+        x = self.norm1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = self.norm2(x)
+        x = F.relu(x)
+        x = self.max_pool(x)
+
+        x = self.conv3(x)
+        x = self.norm3(x)
+        x = F.relu(x)
+        x = self.conv4(x)
+        x = self.norm4(x)
+        x = F.relu(x)
+        x = self.max_pool(x)
+
+        x = self.conv5(x)
+        x = self.norm5(x)
+        x = F.relu(x)
+        x = self.conv6(x)
+        x = self.norm6(x)
+        x = F.relu(x)
+        #############################################################
+
+        x = self.avg_pool(x)
+        x = x.view(-1, 128)
+        x = self.fc(x)
+        return x
+```
+
+<br>
+
+#### **Step 4-2. Train the defined `VGG_BatchNorm` model using `train` function**
+
+```python
+reset_seed(2020)
+criterion = nn.CrossEntropyLoss()
+vgg_batchnorm_model = VGG_BatchNorm().to("cuda")
+optimizer = optim.Adam(params=vgg_batchnorm_model.parameters())
+
+train(vgg_batchnorm_model, train_loader, criterion, optimizer, n_epoch=10)
+```
+
+    Epoch 1, loss = 1.351
+    Epoch 2, loss = 0.989
+    Epoch 3, loss = 0.847
+    Epoch 4, loss = 0.759
+    Epoch 5, loss = 0.695
+    Epoch 6, loss = 0.647
+    Epoch 7, loss = 0.614
+    Epoch 8, loss = 0.579
+    Epoch 9, loss = 0.559
+    Epoch 10, loss = 0.531
+
+<br>
+
+#### **Step 4-3. Check the result**
+
+```python
+eval(vgg_batchnorm_model, test_loader)
+```
+
+    Test Accuracy: 80.56%
+
+<br>
+
+#### **Part 2. Neural Style Transfer**
+
+---
+
+#### Objective
+
+1. Load content image and style image. Prepare a pre-trained VGG model.
+2. Based on the prepared model, compute the content loss and style loss using the content image and style image, respectively.
+3. Based on the loss, optimize the image via gradient descent to obtain a style-transfered image.
+
+**Connect google colab with google drive** (copy and paste the authorization code)
+
+```python
+from google.colab import drive
+drive.mount('/gdrive', force_remount=True)
+```
+
+    Mounted at /gdrive
+
+<br>
+
+#### **Step 1. Load content image and style image**
+
+---
+
+Load content and style images and plot them.
+
+```python
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+```
+
+**Make 'EE488/Project2/' folder in your google drive and move all the images to this directory**
+
+```python
+# desired size of the output image
+imsize = 512 if torch.cuda.is_available() else 128  # use small size if no gpu
+
+loader = transforms.Compose([
+    transforms.Resize((imsize, imsize)),  # scale imported image
+    transforms.ToTensor()])  # transform it into a torch tensor
+
+def image_loader(image_name):
+    image = Image.open(image_name)
+    # fake batch dimension required to fit network's input dimensions
+    image = loader(image).unsqueeze(0)
+    return image.to(device, torch.float)
+
+style_img = image_loader("/gdrive/MyDrive/EE488/Project2/starry-night.jpg")
+content_img = image_loader("/gdrive/MyDrive/EE488/Project2/landscape.jpg")
+
+assert style_img.size() == content_img.size(), \
+    "we need to import style and content images of the same size"
+```
+
+```python
+unloader = transforms.ToPILImage()  # reconvert into PIL image
+
+def imshow(tensor, title=None):
+    image = tensor.cpu().clone()  # we clone the tensor to not do changes on it
+    image = image.squeeze(0)      # remove the fake batch dimension
+    image = unloader(image)
+    plt.imshow(image)
+    if title is not None:
+        plt.title(title)
+
+plt.figure(figsize=(12, 8))
+ax = plt.subplot(1, 2, 1)
+imshow(style_img, title='Style Image')
+
+plt.subplot(1, 2, 2)
+imshow(content_img, title='Content Image')
+plt.show()
+```
+
+![Figure19](/assets/lab/Machine-Learning/Figure19.PNG)
+
+<br>
+
+#### **Step 2. Compute style loss and content loss**
+
+---
+
+Here, you first need to split submodules in VGG-11 to construct content loss and style loss. Specifically, you need to store each submodule in a form of "torch.nn.modules.container.Sequential". The "Sequential" module is a container of nn.Module objects. With Sequential containers, you can stack any layer and compose them altogether. First, you should download a pre-trained VGG-11 model.
+
+#### **Step 2-1. Prepare a pre-trained VGG-11 model**
+
+```python
+cnn = models.vgg11(pretrained=True).features.to(device)
+```
+
+    Downloading: "https://download.pytorch.org/models/vgg11-bbd30ac9.pth" to /root/.cache/torch/hub/checkpoints/vgg11-bbd30ac9.pth
+
+
+
+    HBox(children=(FloatProgress(value=0.0, max=531456000.0), HTML(value='')))
+
+<br>
+
+#### **Step 2-2. Preparation steps**
+
+Note that the pre-trained VGG model is not updated anymore. We only update (adjust) the image. In order to use parameters in VGG11, you need to go through the following preparation steps. First, we need to **change requires_grad to False** for all weights because parameters in VGG11 won't be updated anymore. Second, we should **change in-place operation in all ReLU layers to out-of-place operation**. This is because pytorch cannot perform backpropagation for computation that includes in-place operation.
+
+```python
+for name, param in cnn.named_parameters():
+    param.requires_grad = False
+
+for layer in cnn:
+    if isinstance(layer, nn.ReLU):
+      layer.inplace = False
+```
+
+<br>
+
+#### **Step 2-3. Construct 'content_conv' and 'style_conv'**
+
+Pretrained parameters in VGG-11 are contained in two Sequential containers: features and Classifier. The detailed structure of VGG11 and the method of separating the parameters are illustrated in the figure below.
+
+![Figure20](/assets/lab/Machine-Learning/Figure20.PNG)
+
+You will use parameters in VGG11.features to construct content loss and style loss.  
+As for content loss, you have to create a content convolutional block ('content_conv') by separating few convolutional blocks in the front side of VGG11.features. As for style loss, you have to utilize several small convolutional blocks in VGG11.features to create style convolutional blocks ('style_conv'). Construct 'content_conv' and 'style_conv' by filling the code below.
+
+**Hint:** Use Slicing
+
+![Figure21](/assets/lab/Machine-Learning/Figure21.PNG)
+
+```python
+############### blank ###############
+content_conv = cnn[0:9]
+style_conv1 = cnn[0:1]
+style_conv2 = cnn[1:4]
+style_conv3 = cnn[4:7]
+style_conv4 = cnn[7:9]
+style_conv5 = cnn[9:12]
+#####################################
+```
+
+```python
+style_convlist = [style_conv1, style_conv2, style_conv3, style_conv4, style_conv5]
+```
+
+<br>
+
+#### **Step 2-4. Content loss and style loss**
+
+Both content/style losses are computed based on mean squared error (mse). We first define 'mse_loss' method as below which computes the mean square error between the input and the target. (returns mse loss)
+
+```python
+def mse_loss(input, target):
+    ############### blank ###############
+    loss = torch.sum((input - target)**2)
+    return loss
+    #####################################
+```
+
+In the following we define 'gram_matrix' method, which collects the dot products of vectorized feature maps at a specific layer. (returns gram matrix)
+
+```python
+def gram_matrix(feature_map):
+    ############### blank ###############
+    depth = feature_map.shape[1]
+    width = feature_map.shape[2]
+    height = feature_map.shape[3]
+
+    vec_feature_map = torch.reshape(feature_map, [depth, -1])
+    gram = torch.matmul(vec_feature_map, vec_feature_map.T) / (width * height * depth)
+    return gram
+    #####################################
+```
+
+Finally, we define compute_content_loss and compute_style_loss methods.
+
+**compute_content_loss (returns content loss):** Considering the input (generated image), target (content image) and content_conv, write your own code based on mse_loss method defined above.
+
+**compute_style_loss (returns style loss):** Considering the input (generated image), target (style image) and style_convlist, write your own code based on gram_matrix and mse_loss methods defined above. (returns style loss)
+
+```python
+def compute_content_loss(input, target, content_conv):
+    ## Compute the mse-based content loss using content_conv
+
+    ############### blank ###############
+    x = content_conv(input)
+    y = content_conv(target)
+    loss = mse_loss(x, y) / 2
+    return loss
+    #####################################
+
+def compute_style_loss(input, target, style_convlist):
+     ## Compute the mse-based style loss using gram_matrix and style_convlist
+
+    ############### blank ###############
+    x = input
+    y = target
+    loss = 0
+
+    for style_conv in style_convlist:
+        x = style_conv(x)
+        y = style_conv(y)
+        gram_x = gram_matrix(x)
+        gram_y = gram_matrix(y)
+        loss = loss + mse_loss(gram_x, gram_y) / 4
+    return loss
+    #####################################
+```
+
+<br>
+
+#### **Step 3. Training**
+
+---
+
+![Figure22](/assets/lab/Machine-Learning/Figure22.PNG)
+
+```python
+input_img = content_img.clone()
+optimizer = optim.Adam([input_img.requires_grad_()], lr=0.01)
+
+style_weight = 1000000000000       ## style weight w_s
+content_weight = 1           ## content weight w_c
+iteration = 3000
+
+for i in range(iteration):
+
+    content_loss = compute_content_loss(input_img, content_img, content_conv)      ## compute content loss
+
+    style_loss = compute_style_loss(input_img, style_img, style_convlist)      ## compute style loss
+
+    loss = content_weight * content_loss + style_weight * style_loss      ## compute total loss
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if i % 100 == 0:
+        print("run [{}]:".format(i))
+        print('Style Loss : {:4f} Content Loss: {:4f}'.format(
+            (style_weight * style_loss).item(), (content_weight * content_loss).item()))
+        print()
+
+input_img.data.clamp_(0, 1)
+print('train done')
+```
+
+    run [0]:
+    Style Loss : 7455555190784.000000 Content Loss: 0.000000
+
+    run [100]:
+    Style Loss : 12315404288.000000 Content Loss: 7584383.000000
+
+    run [200]:
+    Style Loss : 6188935168.000000 Content Loss: 7871896.000000
+
+    run [300]:
+    Style Loss : 4307533312.000000 Content Loss: 8057742.000000
+
+    run [400]:
+    Style Loss : 3376032512.000000 Content Loss: 8194512.000000
+
+    run [500]:
+    Style Loss : 2834741504.000000 Content Loss: 8298651.000000
+
+    run [600]:
+    Style Loss : 2542131200.000000 Content Loss: 8400318.000000
+
+    run [700]:
+    Style Loss : 2699967488.000000 Content Loss: 8437100.000000
+
+    run [800]:
+    Style Loss : 2373779968.000000 Content Loss: 8498634.000000
+
+    run [900]:
+    Style Loss : 1903889408.000000 Content Loss: 8571383.000000
+
+    run [1000]:
+    Style Loss : 2407918336.000000 Content Loss: 8638305.000000
+
+    run [1100]:
+    Style Loss : 1779477632.000000 Content Loss: 8660111.000000
+
+    run [1200]:
+    Style Loss : 2296106496.000000 Content Loss: 8650264.000000
+
+    run [1300]:
+    Style Loss : 1940098560.000000 Content Loss: 8692684.000000
+
+    run [1400]:
+    Style Loss : 7130515968.000000 Content Loss: 8780123.000000
+
+    run [1500]:
+    Style Loss : 1770518272.000000 Content Loss: 8799014.000000
+
+    run [1600]:
+    Style Loss : 1530874752.000000 Content Loss: 8874088.000000
+
+    run [1700]:
+    Style Loss : 1491887744.000000 Content Loss: 8948395.000000
+
+    run [1800]:
+    Style Loss : 1326572672.000000 Content Loss: 8961000.000000
+
+    run [1900]:
+    Style Loss : 1230888064.000000 Content Loss: 9005065.000000
+
+    run [2000]:
+    Style Loss : 2800890112.000000 Content Loss: 9065929.000000
+
+    run [2100]:
+    Style Loss : 1668700672.000000 Content Loss: 9017731.000000
+
+    run [2200]:
+    Style Loss : 1112542464.000000 Content Loss: 9093720.000000
+
+    run [2300]:
+    Style Loss : 36456992768.000000 Content Loss: 9357307.000000
+
+    run [2400]:
+    Style Loss : 1955194624.000000 Content Loss: 9380774.000000
+
+    run [2500]:
+    Style Loss : 1462801408.000000 Content Loss: 9442914.000000
+
+    run [2600]:
+    Style Loss : 1417692800.000000 Content Loss: 9470383.000000
+
+    run [2700]:
+    Style Loss : 1564398848.000000 Content Loss: 9540257.000000
+
+    run [2800]:
+    Style Loss : 1194619008.000000 Content Loss: 9537890.000000
+
+    run [2900]:
+    Style Loss : 1067928128.000000 Content Loss: 9557970.000000
+
+    train done
+
+```python
+plt.figure(figsize=(16, 8))
+plt.subplot(1, 3, 1)
+imshow(style_img, title='Style Image')
+plt.subplot(1, 3, 2)
+imshow(content_img, title='Content Image')
+plt.subplot(1, 3, 3)
+imshow(input_img, title='Output Image')
+plt.show()
+```
+
+![Figure23](/assets/lab/Machine-Learning/Figure23.PNG)
+
+<br>
+
+#### **Step 4. Try with another style image**
+
+---
+
+Given a provided content image, perform neural style transfer with another style images (prepared by yourself) and confirm the results
+
+```python
+# desired size of the output image
+imsize = 512 if torch.cuda.is_available() else 128  # use small size if no gpu
+
+loader = transforms.Compose([
+    transforms.Resize((imsize, imsize)),  # scale imported image
+    transforms.ToTensor()])  # transform it into a torch tensor
+
+def image_loader(image_name):
+    image = Image.open(image_name)
+    # fake batch dimension required to fit network's input dimensions
+    image = loader(image).unsqueeze(0)
+    return image.to(device, torch.float)
+
+style_img = image_loader("/gdrive/MyDrive/EE488/Project2/fish.jpg")
+content_img = image_loader("/gdrive/MyDrive/EE488/Project2/landscape.jpg")
+
+assert style_img.size() == content_img.size(), \
+    "we need to import style and content images of the same size"
+```
+
+```python
+unloader = transforms.ToPILImage()  # reconvert into PIL image
+
+def imshow(tensor, title=None):
+    image = tensor.cpu().clone()  # we clone the tensor to not do changes on it
+    image = image.squeeze(0)      # remove the fake batch dimension
+    image = unloader(image)
+    plt.imshow(image)
+    if title is not None:
+        plt.title(title)
+
+plt.figure(figsize=(12, 8))
+ax = plt.subplot(1, 2, 1)
+imshow(style_img, title='Style Image')
+
+plt.subplot(1, 2, 2)
+imshow(content_img, title='Content Image')
+plt.show()
+```
+
+![Figure24](/assets/lab/Machine-Learning/Figure24.PNG)
+
+```python
+input_img = content_img.clone()
+optimizer = optim.Adam([input_img.requires_grad_()], lr=0.01)
+
+style_weight = 1000000000000       ## style weight w_s
+content_weight = 1           ## content weight w_c
+iteration = 3000
+
+for i in range(iteration):
+
+    content_loss = compute_content_loss(input_img, content_img, content_conv)      ## compute content loss
+
+    style_loss = compute_style_loss(input_img, style_img, style_convlist)      ## compute style loss
+
+    loss = content_weight * content_loss + style_weight * style_loss      ## compute total loss
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if i % 100 == 0:
+        print("run [{}]:".format(i))
+        print('Style Loss : {:4f} Content Loss: {:4f}'.format(
+            (style_weight * style_loss).item(), (content_weight * content_loss).item()))
+        print()
+
+input_img.data.clamp_(0, 1)
+print('train done')
+```
+
+    run [0]:
+    Style Loss : 1732522147840.000000 Content Loss: 0.000000
+
+    run [100]:
+    Style Loss : 16217876480.000000 Content Loss: 3815175.000000
+
+    run [200]:
+    Style Loss : 8359028224.000000 Content Loss: 4157729.750000
+
+    run [300]:
+    Style Loss : 5940409856.000000 Content Loss: 4401330.000000
+
+    run [400]:
+    Style Loss : 5591447552.000000 Content Loss: 4548976.500000
+
+    run [500]:
+    Style Loss : 4212628224.000000 Content Loss: 4709019.000000
+
+    run [600]:
+    Style Loss : 22426195968.000000 Content Loss: 4868703.000000
+
+    run [700]:
+    Style Loss : 3814780160.000000 Content Loss: 5108960.000000
+
+    run [800]:
+    Style Loss : 3358256640.000000 Content Loss: 5212487.500000
+
+    run [900]:
+    Style Loss : 3158124032.000000 Content Loss: 5263137.500000
+
+    run [1000]:
+    Style Loss : 3208637952.000000 Content Loss: 5316893.500000
+
+    run [1100]:
+    Style Loss : 178610388992.000000 Content Loss: 5736366.000000
+
+    run [1200]:
+    Style Loss : 4440385024.000000 Content Loss: 6078669.500000
+
+    run [1300]:
+    Style Loss : 3383191296.000000 Content Loss: 6114255.000000
+
+    run [1400]:
+    Style Loss : 3001145856.000000 Content Loss: 6141317.500000
+
+    run [1500]:
+    Style Loss : 2719911424.000000 Content Loss: 6175653.500000
+
+    run [1600]:
+    Style Loss : 2637440256.000000 Content Loss: 6194230.000000
+
+    run [1700]:
+    Style Loss : 2485410304.000000 Content Loss: 6224658.000000
+
+    run [1800]:
+    Style Loss : 38110523392.000000 Content Loss: 6352922.500000
+
+    run [1900]:
+    Style Loss : 3074159104.000000 Content Loss: 6290607.000000
+
+    run [2000]:
+    Style Loss : 2504041472.000000 Content Loss: 6326021.000000
+
+    run [2100]:
+    Style Loss : 2350143232.000000 Content Loss: 6340382.500000
+
+    run [2200]:
+    Style Loss : 3674130432.000000 Content Loss: 6340335.000000
+
+    run [2300]:
+    Style Loss : 2063586816.000000 Content Loss: 6383861.500000
+
+    run [2400]:
+    Style Loss : 2056049664.000000 Content Loss: 6389443.000000
+
+    run [2500]:
+    Style Loss : 1874277888.000000 Content Loss: 6429156.000000
+
+    run [2600]:
+    Style Loss : 1843796736.000000 Content Loss: 6447931.000000
+
+    run [2700]:
+    Style Loss : 1738814336.000000 Content Loss: 6462190.000000
+
+    run [2800]:
+    Style Loss : 9735980032.000000 Content Loss: 7124098.500000
+
+    run [2900]:
+    Style Loss : 3574222336.000000 Content Loss: 7055002.000000
+
+    train done
+
+```python
+plt.figure(figsize=(16, 8))
+plt.subplot(1, 3, 1)
+imshow(style_img, title='Style Image')
+plt.subplot(1, 3, 2)
+imshow(content_img, title='Content Image')
+plt.subplot(1, 3, 3)
+imshow(input_img, title='Output Image')
+plt.show()
+```
+
+![Figure25](/assets/lab/Machine-Learning/Figure25.PNG)

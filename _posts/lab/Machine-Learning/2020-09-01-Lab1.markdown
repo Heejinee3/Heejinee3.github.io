@@ -1,0 +1,1085 @@
+---
+index: 3 # labs number
+num: 0 # lab number
+title: Lab1
+permalink: /lab/Machine-Learning/Lab1 # link
+category: lab # project or lab
+---
+
+#### **Objective**
+
+---
+
+- part 1. Data Preparation
+- part 2. Logistic Regression
+- part 3. Hyperparameter Optimization
+- part 4. PCA
+
+<br>
+
+#### **Part 1. Data Preparation**
+
+---
+
+- This part is for downloading the dataset to be used in this project.
+- All the related codes are basically provided below.
+
+<br>
+
+#### **Step 1. Download and decompress the MNIST dataset (4, 9 classes)**
+
+---
+
+```python
+#Setting
+import numpy as np
+import os
+import pickle
+import matplotlib.pyplot as plt
+
+from urllib import request
+from __future__ import division, print_function
+from tqdm import tqdm
+```
+
+```python
+# {4, 9} class mnist dataset download and decompress
+!pip install gdown
+!gdown --id 1n70aILNV1U8I2VJlYekKuhBGbrNtCUNb
+!tar -xvf mnist_49.tar
+!rm -f mnist_49.tar
+
+# Dataset Load
+X_train = np.load('mnist_49/X_train.npy')
+X_test = np.load('mnist_49/X_test.npy')
+Y_train = np.load('mnist_49/Y_train.npy')
+Y_test = np.load('mnist_49/Y_test.npy')
+```
+
+    Requirement already satisfied: gdown in /usr/local/lib/python3.6/dist-packages (3.6.4)
+    Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from gdown) (2.23.0)
+    Requirement already satisfied: tqdm in /usr/local/lib/python3.6/dist-packages (from gdown) (4.41.1)
+    Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from gdown) (1.15.0)
+    Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.6/dist-packages (from requests->gdown) (2.10)
+    Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests->gdown) (1.24.3)
+    Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests->gdown) (3.0.4)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests->gdown) (2020.6.20)
+    Downloading...
+    From: https://drive.google.com/uc?id=1n70aILNV1U8I2VJlYekKuhBGbrNtCUNb
+    To: /content/mnist_49.tar
+    10.9MB [00:00, 66.7MB/s]
+    mnist_49/
+    mnist_49/X_train.npy
+    mnist_49/X_test.npy
+    mnist_49/Y_test.npy
+    mnist_49/Y_train.npy
+    mnist_49/MNIST Copyright.txt
+
+```python
+# Reshape the training and test examples
+# Data from Part 1 - Step 1
+X_train_flatten = X_train.reshape(X_train.shape[0], -1)
+X_test_flatten = X_test.reshape(X_test.shape[0], -1)
+
+print('X_train_flatten shape: ' + str(X_train_flatten.shape))
+print('Y_train shape: ' + str(Y_train.shape))
+print('X_test_flatten shape: ' + str(X_test_flatten.shape))
+print('Y_test shape: ' + str(Y_test.shape))
+
+X_train_std = X_train_flatten / 255.
+X_test_std = X_test_flatten / 255.
+```
+
+    X_train_flatten shape: (11791, 784)
+    Y_train shape: (11791,)
+    X_test_flatten shape: (1991, 784)
+    Y_test shape: (1991,)
+
+<br>
+
+#### **Step 2. Download and define a function for preparing the CIFAR10 dataset**
+
+---
+
+If you put the classes you want to use in the form of a list (ex, [0, 1], [3, 5, 8], etc.) as an argument to the _'cifar10_subset'_ function, then, this function returns training data/label and test data/label of classes.
+
+```python
+#Download CIFAR10 Dataset
+request.urlretrieve('https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz', 'cifar-10-python.tar.gz')
+!tar -xzf cifar-10-python.tar.gz
+```
+
+```python
+for i in range(1,6):
+    filename='data_batch_%d'%i
+    with open('cifar-10-batches-py/'+filename, 'rb') as fo:
+        dict_data = pickle.load(fo, encoding='bytes')
+
+    images_batch = dict_data[b'data']
+    labels_batch = dict_data[b'labels']
+    if i==1:
+        train_images = images_batch
+        train_labels = labels_batch
+    else:
+        train_images = np.concatenate((train_images, images_batch), axis=0)
+        train_labels.extend(labels_batch)
+
+with open('cifar-10-batches-py/test_batch', 'rb') as fo:
+    dict_data = pickle.load(fo, encoding='bytes')
+
+test_images = dict_data[b'data']
+test_labels = dict_data[b'labels']
+```
+
+```python
+train_indexes = sorted(range(len(train_labels)), key=lambda k: train_labels[k])
+test_indexes = sorted(range(len(test_labels)), key=lambda k: test_labels[k])
+```
+
+```python
+def cifar10_subset(class_ind=[0,1]):
+    assert (len(class_ind) >=2 and len(class_ind) <=10)
+    assert (min(class_ind) >=0 and max(class_ind) <=9)
+    train_images_cl = []
+    train_labels_cl = []
+    test_images_cl = []
+    test_labels_cl = []
+    for i in class_ind:
+        train_inds = train_indexes[i*5000:(i+1)*5000]
+        test_inds = test_indexes[i*1000:(i+1)*1000]
+        train_images_tmp = train_images[train_inds,:]
+        train_labels_tmp = np.array(train_labels)[train_inds]
+        test_images_tmp = test_images[test_inds,:]
+        test_labels_tmp = np.array(test_labels)[test_inds]
+
+        train_images_cl.append(train_images_tmp)
+        train_labels_cl.append(train_labels_tmp)
+        test_images_cl.append(test_images_tmp)
+        test_labels_cl.append(test_labels_tmp)
+
+    return np.array(train_images_cl), np.array(train_labels_cl), np.array(test_images_cl), np.array(test_labels_cl)
+```
+
+<br>
+
+#### **Part 2. Logistic Regression**
+
+---
+
+- Understand and Implement Logistic Regression using numpy library.
+- Apply your own classifier implemented by numpy to MNIST and CIFAR10 dataset.
+
+<br>
+
+#### **Step 1. Implement Logistic Regression using Numpy**
+
+---
+
+#### **Step 1-1. Implement Sigmoid Function**
+
+![Figure1](/assets/lab/Machine-Learning/Figure1.PNG)
+
+```python
+def sigmoid(z):
+    ######################## Blank ########################
+    exp = np.exp(-z)
+    sig = 1. / (1. + exp)
+    #######################################################
+    return sig
+```
+
+```python
+# Print out the result of sigmoid function
+
+print ("sigmoid(0) = " + str(sigmoid(0)))
+print ("sigmoid(4.5) = " + str(sigmoid(4.5)))
+print ("sigmoid(-6) = " + str(sigmoid(-6)))
+```
+
+    sigmoid(0) = 0.5
+    sigmoid(4.5) = 0.9890130573694068
+    sigmoid(-6) = 0.0024726231566347743
+
+<br>
+
+#### **Step 1-2. Implement forward propagation**
+
+![Figure2](/assets/lab/Machine-Learning/Figure2.PNG)
+
+**NOTE**: If you use `np.log` method, it is recommended to use as follows,
+
+```python
+np.log(x) -> np.log(x + eps)
+```
+
+where `eps` is small positive number used to avoid taking of almost zero value.
+
+```python
+def forward(x, y, w, eps=1e-8):
+    ######################## Blank ########################
+    predict = sigmoid(np.matmul(w,x.T))
+    n = y.size
+    loss = np.sum(- y * np.log(predict + eps) - (1 - y) * np.log(1 - predict + eps)) / n
+    #######################################################
+    return predict, loss
+```
+
+<br>
+
+#### **Step 1-3. Implement backward propagation**
+
+![Figure3](/assets/lab/Machine-Learning/Figure3.PNG)
+
+<br>
+
+#### **Step 1-4. Add bias unit**
+
+![Figure4](/assets/lab/Machine-Learning/Figure4.PNG)
+
+```python
+def bias_unit(x, w, b):
+    ######################## Blank ########################
+    w_bar = np.append(w, b)
+    ones_vec = np.ones(x.shape[0]).reshape(1,-1)
+    x_bar = np.append(x, ones_vec.T,axis = 1)
+    #######################################################
+    return x_bar, w_bar
+```
+
+<br>
+
+#### **Step 1-5. Model initialization**
+
+Initialize the model(**w** and **b**) with arbitrary(e.g. Guassian distribution) values.
+
+- Initialize **w** with gaussian distribution (use np.random.normal)
+- Initialize **b** with zero
+
+```python
+def initialize_params(X_train, verbose=False):
+
+    ######################## Blank ########################
+    w = np.random.normal(size = X_train.shape[1])
+    b = 0
+    #######################################################
+
+    X_train_bar, w_bar = bias_unit(X_train, w, b) # add bias unit
+    if verbose:
+        print('Before adding the bias unit')
+        print('shape of X_train:, ', X_train.shape)
+        print('w: ', w.__repr__())
+        print('b: ', b.__repr__(), end='\n\n')
+        print('After adding the bias unit')
+        print('shape of X_train_bar:, ', X_train_bar.shape)
+        print('w_bar: ', w_bar.__repr__())
+
+    return X_train_bar, w_bar
+```
+
+<br>
+
+#### **Step 1-6. Implement `accuracy` function for computing the accuracy**
+
+![Figure5](/assets/lab/Machine-Learning/Figure5.PNG)
+
+```python
+def accuracy(predict, y):
+    ######################## Blank ########################
+    acc = 0
+    n = y.size
+    y_bar = []
+    for i in range(n):
+        if predict[i] >= 0.5:
+            y_bar = np.append(y_bar, 1)
+        else:
+            y_bar = np.append(y_bar, 0)
+    for j in range(n):
+        if y_bar[j] == y[j]:
+            acc = acc + 1
+    acc = acc / n * 100
+    #######################################################
+    return acc
+```
+
+<br>
+
+#### **Step 2. Apply to the MNIST Dataset**
+
+---
+
+#### **Step 2-1. Implement training code combining all the methods above**
+
+```python
+# hyperparameter
+num_of_iteration = 5000
+learning_rate = 0.5
+
+# fix random seed for reproducibility
+np.random.seed(100)
+
+# Model initialization and add bias unit
+X_train_bar, w_bar = initialize_params(X_train_std, False)
+
+if w_bar.ndim != Y_train.ndim:  # if w is implemented as a column vector
+    w_bar = w_bar.squeeze()
+
+it = tqdm(range(num_of_iteration))
+for i in it:
+
+    ######################## Blank ########################
+    predict, loss = forward(X_train_bar, Y_train, w_bar)         # compute prediction, loss using forward function
+    train_acc = accuracy(predict, Y_train)                       # compute train accuracy
+    grad_w = backward(X_train_bar, Y_train, predict)             # compute gradient using backward function
+    w_bar = w_bar - learning_rate * grad_w                       # weight update using gradient descent
+    #######################################################
+
+#    if i % 100 == 0:
+#        it.set_postfix(accuracy='{:.2f}'.format(train_acc),
+#                      loss='{:.4f}'.format(loss))
+
+# compute the train & test accuracy
+predict, _ = forward(X_train_bar, Y_train, w_bar)
+train_acc = accuracy(predict, Y_train)
+print('train accuracy: {:.2f}'.format(train_acc))
+
+unit_ones = np.ones((len(X_test_std), 1))
+X_test_bar = np.concatenate((X_test_std, unit_ones), axis=1)  # add bias unit for test dataset
+
+predict, _ = forward(X_test_bar, Y_test, w_bar)
+test_acc = accuracy(predict, Y_test)
+print('test accuracy: {:.2f}'.format(test_acc))
+```
+
+    100%|██████████| 5000/5000 [12:57<00:00,  6.43it/s]
+
+
+    train accuracy: 97.32
+    test accuracy: 96.38
+
+```python
+# Prediction Results
+np.random.seed(2020)
+idxs = np.random.choice(len(Y_test), 10, replace=False)
+label_to_class = {0: '4', 1: '9'}
+
+plt.figure(figsize=(16, 8))
+for i, idx in enumerate(idxs):
+    plt.subplot(2, 5, i + 1)
+    predict, _ = forward(X_test_bar, Y_test, w_bar)
+    pred_label = (predict[idx] >= 0.5).astype(np.int)
+    plt.imshow(X_test[idx], cmap='gray_r')
+    plt.title('Digit Prediction: {} '.format(label_to_class[pred_label]), fontsize=14)
+    plt.xticks([]); plt.yticks([])
+```
+
+![Figure6](/assets/lab/Machine-Learning/Figure6.PNG)
+
+<br>
+
+#### **Step 3. Apply to the CIFAR10 dataset**
+
+---
+
+#### **Step 3-1. Implement training code combining all the methods above**
+
+```python
+X_train_flatten, Y_train, X_test_flatten, Y_test = cifar10_subset([0, 1])
+
+X_train_flatten = X_train_flatten.reshape(2 * 5000, -1)
+X_test_flatten = X_test_flatten.reshape(2 * 1000, -1)
+Y_train = Y_train.reshape(-1)
+Y_test = Y_test.reshape(-1)
+
+X_train_std = X_train_flatten / 255.
+X_test_std = X_test_flatten / 255.
+```
+
+```python
+#show image
+import matplotlib.pyplot as plt
+
+image1 = X_train_flatten[1].reshape(3,32,32).transpose([1,2,0])
+image2 = X_train_flatten[5000].reshape(3,32,32).transpose([1,2,0])
+plt.figure(figsize=(6,3))
+plt.subplot(121)
+plt.imshow(image1,  interpolation="bicubic")
+plt.title('class {}'.format(Y_train[0].astype(np.int)))
+plt.subplot(122)
+plt.imshow(image2,  interpolation="bicubic")
+plt.title('class {}'.format(Y_train[5000].astype(np.int)))
+plt.show()
+```
+
+![Figure7](/assets/lab/Machine-Learning/Figure7.PNG)
+
+```python
+# hyperparameter
+num_of_iteration = 5000
+learning_rate = 0.1
+
+# fix random seed for reproducibility
+np.random.seed(100)
+
+# Model initialization and add bias unit
+X_train_bar, w_bar = initialize_params(X_train_std, False)
+
+if w_bar.ndim != Y_train.ndim:  # if w is implemented as a column vector
+    w_bar = w_bar.squeeze()
+
+it = tqdm(range(num_of_iteration))
+for i in it:
+
+    ######################## Blank ########################
+    predict, loss = forward(X_train_bar, Y_train, w_bar)         # compute prediction, loss using forward function
+    train_acc = accuracy(predict, Y_train)                       # compute train accuracy
+    grad_w = backward(X_train_bar, Y_train, predict)             # compute gradient using backward function
+    w_bar = w_bar - learning_rate * grad_w                       # weight update using gradient descent
+    #######################################################
+
+#    if i % 100 == 0:
+#        it.set_postfix(accuracy='{:.2f}'.format(train_acc),
+#                      loss='{:.4f}'.format(loss))
+
+# compute the train & test accuracy
+predict, _ = forward(X_train_bar, Y_train, w_bar)
+train_acc = accuracy(predict, Y_train)
+print('train accuracy: {:.2f}'.format(train_acc))
+
+unit_ones = np.ones((len(X_test_std), 1))
+X_test_bar = np.concatenate((X_test_std, unit_ones), axis=1)  # add bias unit for test dataset
+
+predict, _ = forward(X_test_bar, Y_test, w_bar)
+test_acc = accuracy(predict, Y_test)
+print('test accuracy: {:.2f}'.format(test_acc))
+```
+
+    100%|██████████| 5000/5000 [13:54<00:00,  5.99it/s]
+
+
+    train accuracy: 74.19
+    test accuracy: 73.80
+
+<br>
+
+#### **Step 4. Implement Logistic Regression with L2 Regularization**
+
+---
+
+#### **Step 4-1. Implement forward propagation with regularization term**
+
+![Figure8](/assets/lab/Machine-Learning/Figure8.PNG)
+
+```python
+from numpy.linalg import norm
+
+def forward_with_regularization(x, y, w, lambda_, eps=1e-8):
+    ######################## Blank ########################
+    predict = sigmoid(np.matmul(w,x.T))
+    n = y.size
+    loss = np.sum(- y * np.log(predict + eps) - (1 - y) * np.log(1 - predict + eps)) / n + lambda_  * np.sum(w ** 2) / (2 * n)
+    #######################################################
+    return predict, loss
+```
+
+<br>
+
+#### **Step 4-2. Implement backward propagation**
+
+![Figure9](/assets/lab/Machine-Learning/Figure9.PNG)
+
+```python
+def backward_with_regularization(x, y, w, predict, lambda_):
+    ######################## Blank ########################
+    grad_w = np.matmul(predict - y, x) / y.size + lambda_ * w / y.size
+    #######################################################
+    return grad_w
+```
+
+<br>
+
+#### **Step 4-3. Training Regularized logistic regression with different λ (Apply to the MNIST dataset)**
+
+Load the MNIST dataset again
+
+```python
+# Dataset Load
+X_train = np.load('mnist_49/X_train.npy')
+X_test = np.load('mnist_49/X_test.npy')
+Y_train = np.load('mnist_49/Y_train.npy')
+Y_test = np.load('mnist_49/Y_test.npy')
+
+# Reshape the training and test examples
+# Data from Part 1 - Step 1
+X_train_flatten = X_train.reshape(X_train.shape[0], -1)
+X_test_flatten = X_test.reshape(X_test.shape[0], -1)
+
+X_train_std = X_train_flatten / 255.
+X_test_std = X_test_flatten / 255.
+```
+
+```python
+# hyperparameter
+num_of_iteration = 5000
+learning_rate = 0.5
+lin_lambdas = np.linspace(-2, 3, 10)
+lambdas = np.power(np.e, lin_lambdas)  # Regularization parameter (lambda) = e^-2 ~ e^3
+
+# fix random seed for reproducibility
+np.random.seed(100)
+
+# add bias unit for test dataset
+unit_ones = np.ones((len(X_test_std), 1))
+X_test_bar = np.concatenate((X_test_std, unit_ones), axis=1)
+
+train_accuracies = []
+test_accuracies = []
+
+for lambda_ in lambdas:
+
+    # Model initialization and add bias unit
+    X_train_bar, w_bar = initialize_params(X_train_std, False)
+
+    if w_bar.ndim != Y_train.ndim:  # if w is implemented as a column vector
+        w_bar = w_bar.squeeze()
+
+    #it = tqdm(range(num_of_iteration))
+    it = range(num_of_iteration)
+    for i in it:
+
+        ######################## Blank ########################
+        predict, loss = forward_with_regularization(X_train_bar, Y_train, w_bar,lambda_)          # compute prediction, loss using forward function
+        train_acc = accuracy(predict, Y_train)                                                    # compute train accuracy
+        grad_w = backward_with_regularization(X_train_bar, Y_train, w_bar, predict,lambda_)       # compute gradient using backward function
+        w_bar = w_bar - learning_rate * grad_w                                                    # weight update using gradient descent
+        #######################################################
+
+   #     if i % 100 == 0:
+   #        it.set_postfix(accuracy='{:.2f}'.format(train_acc),
+   #                       loss='{:.4f}'.format(loss))
+
+    # compute the train & test accuracy
+    predict, _ = forward(X_train_bar, Y_train, w_bar)
+    train_acc = accuracy(predict, Y_train)
+    print('train accuracy: {:.2f}'.format(train_acc))
+    train_accuracies.append(train_acc)
+
+    predict, _ = forward(X_test_bar, Y_test, w_bar)
+    test_acc = accuracy(predict, Y_test)
+    print('test accuracy: {:.2f}'.format(test_acc))
+    test_accuracies.append(test_acc)
+
+plt.plot(lin_lambdas, train_accuracies, label='train acc')
+plt.plot(lin_lambdas, test_accuracies, label='test acc')
+plt.xlabel('$\ln\lambda$')
+plt.legend()
+plt.show()
+```
+
+    train accuracy: 97.32
+    test accuracy: 96.38
+    train accuracy: 97.38
+    test accuracy: 96.94
+    train accuracy: 97.46
+    test accuracy: 96.94
+    train accuracy: 97.35
+    test accuracy: 96.99
+    train accuracy: 97.39
+    test accuracy: 96.99
+    train accuracy: 97.29
+    test accuracy: 97.19
+    train accuracy: 97.40
+    test accuracy: 97.24
+    train accuracy: 97.30
+    test accuracy: 97.14
+    train accuracy: 97.24
+    test accuracy: 97.09
+    train accuracy: 97.08
+    test accuracy: 96.99
+
+![Figure10](/assets/lab/Machine-Learning/Figure10.PNG)
+
+<br>
+
+#### **Part 3. Hyperparameter Optimization**
+
+---
+
+- Understand and Implement various classifiers learned in class.
+- Find a best combination of hyperparameters for each classifier.
+
+<br>
+
+#### **Step 1. Sample training data**
+
+---
+
+```python
+train_images_cl, train_labels_cl, test_images_cl, test_labels_cl = cifar10_subset([0,2,7])
+# train_images_cl.shape : (3,5000,3072)
+# train_labels_cl.shape : (3,5000)
+# test_images_cl.shape : (3,1000,3072)
+# train_labels_cl.shape : (3,1000)
+```
+
+- Set the train, test sample size to be 1500, 500 respectively.
+
+```python
+classes = np.unique(train_labels_cl)
+
+Len1, Len2 = 1500, 500 # sample size of Train data and Test data, respectively.
+for i, cls in enumerate(classes):
+    if i == 0:
+        X_train, Y_train = train_images_cl[i, :Len1], train_labels_cl[i,:Len1]
+        X_test, Y_test = test_images_cl[i, :Len2], test_labels_cl[i, :Len2]
+    else:
+        X_train, Y_train = np.append(X_train, train_images_cl[i, :Len1],0), np.append(Y_train, train_labels_cl[i, :Len1],0)
+        X_test, Y_test = np.append(X_test, test_images_cl[i, :Len2],0), np.append(Y_test, test_labels_cl[i, :Len2],0)
+```
+
+<br>
+
+#### **Step 2. Optimize hyperparameters for Logistic Regression Classifier**
+
+---
+
+- You should use function of scikit-learn **(sklearn.linear_model.SGDClassifier)**.
+- You should set option **loss** to **log** to perform logistic regression.
+- You should set option **alpha** to control regularization parameter.
+- You should set option **eta0** to control learning rate.
+- See https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn-linear-model-sgdclassifier for more information
+
+**Grids to be searched are provided as follows**:
+
+`Learning rate: [1e-1, 1e-2, 1e-3]`
+
+`Regularization parameter: [1e-3, 1e-4, 1e-5]`
+
+```python
+from sklearn.linear_model import SGDClassifier
+np.random.seed(0)
+
+######################## Blank ########################
+def SGDaccuracy(predict, y):
+    acc = 0
+    n = y.size
+    for i in range(n):
+        if predict[i] == y[i]:
+            acc = acc + 1
+    acc = acc / n * 100
+    return acc
+
+cl1 = SGDClassifier(loss = 'log',alpha = 1e-3,eta0 = 1e-1)
+cl2 = SGDClassifier(loss = 'log',alpha = 1e-3,eta0 = 1e-1)
+cl3 = SGDClassifier(loss = 'log',alpha = 1e-3,eta0 = 1e-1)
+cl4 = SGDClassifier(loss = 'log',alpha = 1e-4,eta0 = 1e-2)
+cl5 = SGDClassifier(loss = 'log',alpha = 1e-4,eta0 = 1e-2)
+cl6 = SGDClassifier(loss = 'log',alpha = 1e-4,eta0 = 1e-2)
+cl7 = SGDClassifier(loss = 'log',alpha = 1e-5,eta0 = 1e-3)
+cl8 = SGDClassifier(loss = 'log',alpha = 1e-5,eta0 = 1e-3)
+cl9 = SGDClassifier(loss = 'log',alpha = 1e-5,eta0 = 1e-3)
+
+cl1.fit(X_train,Y_train)
+cl2.fit(X_train,Y_train)
+cl3.fit(X_train,Y_train)
+cl4.fit(X_train,Y_train)
+cl5.fit(X_train,Y_train)
+cl6.fit(X_train,Y_train)
+cl7.fit(X_train,Y_train)
+cl8.fit(X_train,Y_train)
+cl9.fit(X_train,Y_train)
+
+Y_pred1 = cl1.predict(X_test)
+Y_pred2 = cl2.predict(X_test)
+Y_pred3 = cl3.predict(X_test)
+Y_pred4 = cl4.predict(X_test)
+Y_pred5 = cl5.predict(X_test)
+Y_pred6 = cl6.predict(X_test)
+Y_pred7 = cl7.predict(X_test)
+Y_pred8 = cl8.predict(X_test)
+Y_pred9 = cl9.predict(X_test)
+
+acc1 = SGDaccuracy(Y_pred1, Y_test)
+acc2 = SGDaccuracy(Y_pred2, Y_test)
+acc3 = SGDaccuracy(Y_pred3, Y_test)
+acc4 = SGDaccuracy(Y_pred4, Y_test)
+acc5 = SGDaccuracy(Y_pred5, Y_test)
+acc6 = SGDaccuracy(Y_pred6, Y_test)
+acc7 = SGDaccuracy(Y_pred7, Y_test)
+acc8 = SGDaccuracy(Y_pred8, Y_test)
+acc9 = SGDaccuracy(Y_pred9, Y_test)
+
+print('acc1: {:.2f}, acc2: {:.2f}, acc3: {:.2f}, acc4: {:.2f}, acc5: {:.2f}, acc6: {:.2f}, acc7: {:.2f}, acc8: {:.2f}, acc9: {:.2f}'.format(acc1,acc2,acc3,acc4,acc5,acc6,acc7,acc8,acc9))
+eta0 = 1e-3
+alpha = 1e-5
+acc = acc7
+#######################################################
+print(f'eta0 is {eta0}, alpha is {alpha}, Acc = {acc}%')
+```
+
+    acc1: 52.60, acc2: 59.20, acc3: 53.80, acc4: 61.13, acc5: 60.47, acc6: 56.60, acc7: 62.47, acc8: 58.60, acc9: 62.40
+    eta0 is 0.001, alpha is 1e-05, Acc = 62.46666666666667%
+
+<br>
+
+#### **Step 3. Optimize hyperparameters for SVM Classifier**
+
+---
+
+- You should use function of scikit-learn **(sklearn.svc.SVC)**.
+- You should set option **kernel** to control the type of kernel.
+- You should set option **C** to control regularization parameter.
+- See https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html for more information
+
+**Grids to be searched are provided as follows**:
+
+`Kernel: ['linear','rbf','poly']`
+
+`Regularization parameter (C): [0.1, 1, 10, 100]`
+
+```python
+from sklearn.svm import SVC
+np.random.seed(0)
+
+######################## Blank ########################
+def SVCaccuracy(predict, y):
+    acc = 0
+    n = y.size
+    for i in range(n):
+        if predict[i] == y[i]:
+            acc = acc + 1
+    acc = acc / n * 100
+    return acc
+
+svc1 = SVC(kernel= 'linear', C = 0.1)
+svc2 = SVC(kernel= 'linear', C = 1)
+svc3 = SVC(kernel= 'linear', C = 10)
+svc4 = SVC(kernel= 'linear', C = 100)
+svc5 = SVC(kernel= 'rbf', C = 0.1)
+svc6 = SVC(kernel= 'rbf', C = 1)
+svc7 = SVC(kernel= 'rbf', C = 10)
+svc8 = SVC(kernel= 'rbf', C = 100)
+svc9 = SVC(kernel= 'poly', C = 0.1)
+svc10 = SVC(kernel= 'poly', C = 1)
+svc11 = SVC(kernel= 'poly', C = 10)
+svc12 = SVC(kernel= 'poly', C = 100)
+
+svc1.fit(X_train,Y_train)
+svc2.fit(X_train,Y_train)
+svc3.fit(X_train,Y_train)
+svc4.fit(X_train,Y_train)
+svc5.fit(X_train,Y_train)
+svc6.fit(X_train,Y_train)
+svc7.fit(X_train,Y_train)
+svc8.fit(X_train,Y_train)
+svc9.fit(X_train,Y_train)
+svc10.fit(X_train,Y_train)
+svc11.fit(X_train,Y_train)
+svc12.fit(X_train,Y_train)
+
+Y_pred1 = svc1.predict(X_test)
+Y_pred2 = svc2.predict(X_test)
+Y_pred3 = svc3.predict(X_test)
+Y_pred4 = svc4.predict(X_test)
+Y_pred5 = svc5.predict(X_test)
+Y_pred6 = svc6.predict(X_test)
+Y_pred7 = svc7.predict(X_test)
+Y_pred8 = svc8.predict(X_test)
+Y_pred9 = svc9.predict(X_test)
+Y_pred10 = svc10.predict(X_test)
+Y_pred11 = svc11.predict(X_test)
+Y_pred12 = svc12.predict(X_test)
+
+
+acc1 = SVCaccuracy(Y_pred1, Y_test)
+acc2 = SVCaccuracy(Y_pred2, Y_test)
+acc3 = SVCaccuracy(Y_pred3, Y_test)
+acc4 = SVCaccuracy(Y_pred4, Y_test)
+acc5 = SVCaccuracy(Y_pred5, Y_test)
+acc6 = SVCaccuracy(Y_pred6, Y_test)
+acc7 = SVCaccuracy(Y_pred7, Y_test)
+acc8 = SVCaccuracy(Y_pred8, Y_test)
+acc9 = SVCaccuracy(Y_pred9, Y_test)
+acc10 = SVCaccuracy(Y_pred10, Y_test)
+acc11 = SVCaccuracy(Y_pred11, Y_test)
+acc12 = SVCaccuracy(Y_pred12, Y_test)
+
+print('acc1: {:.2f}, acc2: {:.2f}, acc3: {:.2f}, acc4: {:.2f}, acc5: {:.2f}, acc6: {:.2f}, acc7: {:.2f}, acc8: {:.2f}, acc9: {:.2f}, acc10: {:.2f}, acc11: {:.2f}, acc12: {:.2f}'.format(acc1,acc2,acc3,acc4,acc5,acc6,acc7,acc8,acc9,acc10,acc11,acc12))
+kernel = 'rbf'
+C = 10
+acc = acc7
+#######################################################
+print(f'kernel is {kernel}, C is {C}, Acc = {acc}%')
+```
+
+    acc1: 55.47, acc2: 55.47, acc3: 55.47, acc4: 55.47, acc5: 68.20, acc6: 74.60, acc7: 75.27, acc8: 73.93, acc9: 73.40, acc10: 71.27, acc11: 69.13, acc12: 68.40
+    kernel is rbf, C is 10, Acc = 75.26666666666667%
+
+<br>
+
+#### **Part 4. PCA**
+
+---
+
+- Understand and Implement PCA in Iris dataset.
+- Using numpy to make PCA and compare your PCA to PCA which made by using scikit-learn package
+
+<br>
+
+#### **Step 1. Load Iris dataset**
+
+---
+
+```python
+import pandas as pd
+from sklearn import datasets
+
+iris = datasets.load_iris()
+iris_x = iris.data
+iris_y = iris.target
+
+#visualization
+df = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+                  columns= iris['feature_names'] + ['target'])
+display(df.head())
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+#### **Step 2. Using numpy to implement PCA (with Iris dataset)**
+
+---
+
+#### **Step 2-1. Standardize the dataset**
+
+![Figure11](/assets/lab/Machine-Learning/Figure11.PNG)
+
+```python
+#step1: Standardization
+######################## Blank ########################
+mean = np.mean(iris_x, axis = 0)
+std = np.std(iris_x, axis = 0)
+z = (iris_x - mean) / std
+#######################################################
+print("The mean of z:", z.mean(0))
+```
+
+    The mean of z: [-1.69031455e-15 -1.84297022e-15 -1.69864123e-15 -1.40924309e-15]
+
+<br>
+
+#### **Step 2-2. Find the covariance matrix**
+
+![Figure12](/assets/lab/Machine-Learning/Figure12.PNG)
+
+```python
+#step2: Find the covariance matrix
+######################## Blank ########################
+covar_matrix = np.cov(z.T)
+#######################################################
+print("The shape of covariance matrix: ",covar_matrix.shape)
+```
+
+    The shape of covariance matrix:  (4, 4)
+
+<br>
+
+#### **Step 2-3. Find the eigenvalues and eigenvectors of the covariance matrix**
+
+![Figure13](/assets/lab/Machine-Learning/Figure13.PNG)
+
+```python
+#step3 : Find the eigenvalues and eigenvectors of the covariance matrix
+######################## Blank ########################
+eig_vals, eig_vecs = np.linalg.eig(covar_matrix)
+#######################################################
+```
+
+<br>
+
+#### **Step 2-4. Get eigenvectors of 2 biggest eigenvalues and from the projection matrix**
+
+![Figure14](/assets/lab/Machine-Learning/Figure14.PNG)
+
+```python
+#step4 : Get first 2 eigenvectors of 2 biggest eigenvalues and from the projection matrix
+######################## Blank ########################
+eig_vecs2 = eig_vecs[:,(0,1)]
+projected_X = np.matmul(iris_x,eig_vecs2)
+#######################################################
+print("The shape of projected data: ", projected_X.shape)
+```
+
+    The shape of projected data:  (150, 2)
+
+<br>
+
+#### **Step 2-5. Get variance ratio**
+
+The fraction of variance explained by a principal component is the ratio between the variance of that principal component and the total variance.
+
+```python
+#Step5 : get variance ratio
+variance_ratio = eig_vals[:2]/eig_vals.sum()
+print(variance_ratio)
+```
+
+    [0.72962445 0.22850762]
+
+```python
+#Visualization
+principalDf = pd.DataFrame(data=projected_X, columns=['principal component 1','principal component 2'])
+principalDf['target'] = iris_y
+
+fig = plt.figure(figsize = (8,8))
+ax = fig.add_subplot(1,1,1)
+ax.set_xlabel('Principal Component 1', fontsize = 15)
+ax.set_ylabel('Principal Component 2', fontsize = 15)
+ax.set_title('2 component PCA', fontsize = 20)
+
+targets = {'setosa': 0, 'versicolour' : 1, 'virginica' : 2}
+colors = ['r', 'g', 'b']
+for target, color in zip(targets.values(),colors):
+    indicesToKeep = principalDf['target'] == target
+    ax.scatter(principalDf.loc[indicesToKeep, 'principal component 1']
+               , principalDf.loc[indicesToKeep, 'principal component 2']
+               , c = color
+               , s = 50)
+ax.legend(targets.keys())
+ax.grid()
+```
+
+![Figure15](/assets/lab/Machine-Learning/Figure15.PNG)
+
+<br>
+
+#### **Step 3. Using sklearn PCA package (with Iris dataset)**
+
+---
+
+#### **Step 3-1. Standardization using `sklearn.preprocessing.StandardScalar` module**
+
+```python
+from sklearn.preprocessing import StandardScaler
+#Step1. Standardization using StandardScaler
+z = StandardScaler().fit_transform(iris_x)
+print("The mean of z:", z.mean(axis=0))
+```
+
+    The mean of z: [-1.69031455e-15 -1.84297022e-15 -1.69864123e-15 -1.40924309e-15]
+
+<br>
+
+#### **Step 3-2. PCA projection to 2 components using `sklearn.decomposition.PCA` module**
+
+```python
+from sklearn.decomposition import PCA
+#Step2. PCA projection to 2 components
+pca = PCA(n_components = 2)
+principalComponents = pca.fit_transform(z)
+```
+
+```python
+#Visualization
+principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1','principal component 2'])
+principalDf['target'] = iris_y
+
+fig = plt.figure(figsize = (8,8))
+ax = fig.add_subplot(1,1,1)
+ax.set_xlabel('Principal Component 1', fontsize = 15)
+ax.set_ylabel('Principal Component 2', fontsize = 15)
+ax.set_title('2 component PCA', fontsize = 20)
+
+targets = {'setosa': 0, 'versicolour' : 1, 'virginica' : 2}
+colors = ['r', 'g', 'b']
+for target, color in zip(targets.values(),colors):
+    indicesToKeep = principalDf['target'] == target
+    ax.scatter(principalDf.loc[indicesToKeep, 'principal component 1']
+               , principalDf.loc[indicesToKeep, 'principal component 2']
+               , c = color
+               , s = 50)
+ax.legend(targets.keys())
+ax.grid()
+```
+
+![Figure16](/assets/lab/Machine-Learning/Figure16.PNG)
+
+```python
+#Step3 : Get eigenvlaue and variance ratio of covariance matrix
+
+print('eigen_value :', pca.explained_variance_)
+print('explained variance ratio:', pca.explained_variance_ratio_)
+```
+
+    eigen_value : [2.93808505 0.9201649 ]
+    explained variance ratio: [0.72962445 0.22850762]

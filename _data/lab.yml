@@ -74,15 +74,21 @@
 
   # Machine Learning
 - name: Machine-Learning
-  index: 3
   title: Machine Learning
   link: https://github.com/Heejinee3/Machine-Learning
-  lab: []
-  img: /assets/lab/Machine-Learning.PNG
+  lab:
+    - name: Lab1
+      title: Lab1
+      tags: [Python, Pandas, Scikit-learn]
+    - name: Lab2
+      title: Lab2
+      tags: [Python, PyTorch]
+  preview_img: /assets/lab/Machine-Learning/PreviewFigure.PNG
+  img: /assets/lab/Machine-Learning/MainFigure.PNG
   desc: "The objective of these labs is to explore optimization and machine learning techniques for computer vision, specifically focusing on face recognition using subspace learning. Topics covered include PCA, discriminant analysis, kernel machines, object categorization, CNNs, GANs, activity recognition, regression forests, pose estimation, and object detection."
   start_date: Sep 2020
   end_date: Dec 2020
-  tags: []
+  tags: [Python, Pandas, Scikit-learn, PyTorch]
 
   # Database
 - name: Database
