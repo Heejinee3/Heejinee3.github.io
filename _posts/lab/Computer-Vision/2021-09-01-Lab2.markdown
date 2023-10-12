@@ -1,0 +1,23 @@
+---
+index: 6 # labs number
+num: 1 # lab number
+title: Lab2
+permalink: /lab/Computer-Vision/Lab2 # link
+category: lab # project or lab
+---
+
+#### **Code and Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Computer-Vision/tree/master/Lab2){:target="\_blank"}
+
+<br>
+
+#### **Glossary**
+
+---
+
+[Image Filtering](https://velog.io/@chunjakim/Image-Filtering){:target="\_blank"}
+
+[Convolution & Correlation](https://velog.io/@chunjakim/Convolution-Correlation){:target="\_blank"}

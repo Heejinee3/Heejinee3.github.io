@@ -1,0 +1,13 @@
+---
+index: 6 # labs number
+num: 0 # lab number
+title: Lab1
+permalink: /lab/Computer-Vision/Lab1 # link
+category: lab # project or lab
+---
+
+#### **Report**
+
+---
+
+[Github](https://github.com/Heejinee3/Computer-Vision/tree/master/Lab1){:target="\_blank"}

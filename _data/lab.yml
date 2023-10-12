@@ -159,15 +159,30 @@
 
   # Computer Vision
 - name: Computer-Vision
-  index: 6
   title: Computer Vision
   link: https://github.com/Heejinee3/Computer-Vision
-  lab: []
-  img: /assets/lab/Computer-Vision.PNG
+  lab:
+    - name: Lab1
+      title: Lab1
+      tags: [Python, OpenCV]
+    - name: Lab2
+      title: Lab2
+      tags: [Python, OpenCV]
+    - name: Lab3
+      title: Lab3
+      tags: [Python, OpenCV]
+    - name: Lab4
+      title: Lab4
+      tags: [Python, OpenCV]
+    - name: Lab5
+      title: Lab5
+      tags: [Python, OpenCV]
+  preview_img: /assets/lab/Computer-Vision/PreviewFigure.PNG
+  img: /assets/lab/Computer-Vision/MainFigure.PNG
   desc: "The objective of these labs is to provide a comprehensive introduction to low-level computer vision, covering foundational concepts such as camera image formation, geometric optics, feature detection, stereo matching, motion estimation, image recognition, scene understanding, and more. These labs aim to help develop an intuitive understanding and mathematical proficiency in various computer vision applications."
   start_date: Sep 2021
   end_date: Dec 2021
-  tags: []
+  tags: [Python, OpenCV]
 
   # Robocam
 - name: Robocam
