@@ -8,30 +8,9 @@ timeline:
       [더조은컴퓨터아카데미, 클라우드서비스 활용 스마트 웹앱 개발자 양성과정]
   - date: 2024.02 - 2024.09
     experience: [다우기술]
-skill:
-  [
-    C,
-    Java,
-    Python,
-    HTML,
-    CSS,
-    JavaScript,
-    Bootstrap,
-    JQuery,
-    Thymeleaf,
-    Spring Boot,
-    MySQL,
-    MariaDB,
-    AWS,
-    R,
-    Assembly,
-    Verilog,
-    Spark,
-    Linux,
-    Git,
-  ]
+skill: [Java, Python, HTML, CSS, JavaScript, Spring Boot, MySQL, AWS]
 
 certificate:
-  - name: TOEIC
-    score: 810
-    date: 2022-09-25
+  - name: TOEIC Speaking
+    score: M3
+    date: 2026-03-11
