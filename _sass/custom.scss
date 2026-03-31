@@ -268,7 +268,8 @@ sup {
 }
 
 .about-me-section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/assets/about/AboutMe.jpg");
   background-size: cover;
   background-position: center;
@@ -339,22 +340,22 @@ sup {
   vertical-align: middle;
 }
 
+.tistory-icon::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url(/images/icon/tistory.png);
+  background-size: cover;
+  vertical-align: middle;
+}
+
 .youtube-icon::before {
   content: "";
   display: inline-block;
   width: 25px;
   height: 25px;
   background-image: url(/images/icon/youtube.png);
-  background-size: cover;
-  vertical-align: middle;
-}
-
-.velog-icon::before {
-  content: "";
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background-image: url(/images/icon/velog.png);
   background-size: cover;
   vertical-align: middle;
 }
