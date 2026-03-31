@@ -40,12 +40,12 @@ robots: noindex
           </div>
           {% endif %}{% if site.author.velog_username %}
           <div class="about-me-info">
-            <i class="velog-icon"></i>
+            <i class="tistory-icon"></i>
             <a
-              href="https://velog.io/@{{ site.author.velog_username }}"
+              href="https://{{ site.author.tistory_username }}.tistory.com/"
               target="_blank"
               class="about-me-link"
-              >Velog</a
+              >Tistory</a
             >
           </div>
           {% endif %}{% if site.author.youtube_username %}
@@ -105,7 +105,15 @@ robots: noindex
             src="{{project.video}}"
             title="YouTube video player"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             allowfullscreen
           ></iframe>
           {% else %}
